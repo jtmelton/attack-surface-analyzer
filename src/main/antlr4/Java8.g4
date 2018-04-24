@@ -38,7 +38,7 @@
  *
  * You can test with
  *
- *  $ com.bronto.outliner.analysis.generated.antlr4 Java8.g4
+ *  $ com.bronto.asa.analysis.generated.antlr4 Java8.g4
  *  $ javac *.java
  *  $ grun Java8 compilationUnit *.java
  *
