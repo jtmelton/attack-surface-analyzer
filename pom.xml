@@ -29,11 +29,6 @@
     <docker.image.prefix>asa</docker.image.prefix>
   </properties>
 
-  <!--<scm>-->
-    <!--<connection>scm:git:git@gitlab.brontolabs.com:johnmelton/asa.git</connection>-->
-    <!--<developerConnection>scm:git:git@gitlab.brontolabs.com:johnmelton/asa.git</developerConnection>-->
-  <!--</scm>-->
-
   <build>
     <plugins>
       <plugin>
@@ -52,7 +47,7 @@
               <finalName>attack-surface-analyzer</finalName>
               <transformers>
                 <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                  <mainClass>AttackSurfaceAnalyzer</mainClass>
+                  <mainClass>com.jtmelton.asa.AttackSurfaceAnalyzer</mainClass>
                 </transformer>
               </transformers>
             </configuration>
@@ -79,6 +74,14 @@
             	<groupId>com.spotify</groupId>
             	<artifactId>docker-maven-plugin</artifactId>
             	<version>1.0.0</version>
+    <!--<executions>
+        <execution>
+            <phase>package</phase>
+            <goals>
+                <goal>build</goal>
+            </goals>
+        </execution>
+    </executions>-->
             	<configuration>
                 	<imageName>${docker.image.prefix}/${project.artifactId}</imageName>
                 	<dockerDirectory>.</dockerDirectory>
@@ -91,6 +94,7 @@
                 	</resources>
             	</configuration>
        	</plugin>
+
     </plugins>
   </build>
 
