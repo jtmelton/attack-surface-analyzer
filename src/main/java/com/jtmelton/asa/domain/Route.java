@@ -1,6 +1,8 @@
 package com.jtmelton.asa.domain;
 
 import com.google.common.base.MoreObjects;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -38,6 +40,27 @@ public class Route {
 
   public void setParameters(Collection<Parameter> parameters) {
     this.parameters = parameters;
+  }
+
+  public JSONObject toJSON() {
+    JSONObject route = new JSONObject();
+    route.put("path", path);
+    route.put("method", method);
+
+    JSONArray jsonParameters = new JSONArray();
+    route.put("parameters", jsonParameters);
+
+    for(Parameter parameter : parameters) {
+      JSONObject jsonParam = new JSONObject();
+
+      jsonParam.put("category", parameter.getCategory());
+      jsonParam.put("name", parameter.getName());
+      jsonParam.put("dataType", parameter.getDataType());
+
+      jsonParameters.put(jsonParam);
+    }
+
+    return route;
   }
 
   @Override
