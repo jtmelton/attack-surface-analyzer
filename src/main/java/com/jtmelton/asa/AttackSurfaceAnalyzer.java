@@ -7,20 +7,18 @@ import com.google.common.io.Files;
 import com.sampullara.cli.Args;
 import com.sampullara.cli.Argument;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
-import java.util.Set;
-import java.util.TreeSet;
 
 public class AttackSurfaceAnalyzer {
 
   private static final Logger logger = LoggerFactory.getLogger(AttackSurfaceAnalyzer.class);
-
-  private static final String NEWLINE = System.lineSeparator();
 
   @Argument(value = "sourceDirectory",
       required = true,
@@ -45,22 +43,19 @@ public class AttackSurfaceAnalyzer {
     RouteAnalyzer analyzer = new RouteAnalyzer();
     analyzer.analyze(new File(sourceDirectory));
 
-    Set<String> routes = new TreeSet<>();
+    JSONObject jsonRoot = new JSONObject();
+    JSONArray jsonRoutes = new JSONArray();
+    jsonRoot.put("routes", jsonRoutes);
+
     for(Route route : analyzer.getRoutes()) {
       logger.info(route.toString());
-      routes.add(route.getPath());
+      jsonRoutes.put(route.toJSON());
     }
 
-    StringBuffer sb = new StringBuffer();
-    for(String route : routes) {
-      sb.append(route).append(NEWLINE);
-    }
-
-    Files.write(sb.toString(), new File(outputFile), StandardCharsets.UTF_8);
+    Files.write(jsonRoot.toString(2), new File(outputFile), StandardCharsets.UTF_8);
 
     long endMillis = System.currentTimeMillis();
 
     logger.info("Execution completed in {}s", (endMillis - startMillis) / 1000);
-
   }
 }
