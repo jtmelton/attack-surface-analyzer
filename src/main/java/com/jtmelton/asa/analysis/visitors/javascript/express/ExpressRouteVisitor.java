@@ -183,6 +183,10 @@ public class ExpressRouteVisitor extends JavaScriptParserBaseVisitor<Void> imple
   private boolean isExpressLib(SingleExpressionContext ctx) {
     boolean result = false;
 
+    if(JsAstNodes.isInvocationReturnInvoked(ctx)) {
+      result = isExpressLib(((ArgumentsExpressionContext) ctx).singleExpression());
+    }
+
     List<SingleExpressionContext> args = JsAstNodes.getInvocationArgs(ctx);
     if(args.size() == 1 && args.get(0) instanceof LiteralExpressionContext) {
       LiteralExpressionContext literalExpCtx = (LiteralExpressionContext) args.get(0);
