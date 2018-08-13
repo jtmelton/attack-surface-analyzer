@@ -1,5 +1,5 @@
-// Generated from Java8.g4 by ANTLR 4.6
-package com.jtmelton.asa.analysis.generated.antlr4;
+// Generated from Java8.g4 by ANTLR 4.7
+package com.jtmelton.asa.analysis.generated.antlr4.java8;
 
 import org.antlr.v4.runtime.tree.AbstractParseTreeVisitor;
 

@@ -4,18 +4,27 @@ import com.google.common.base.MoreObjects;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
 import java.util.Collection;
 
 public class Route {
+  private String fileName;
   private String method;
   private String path;
-  private Collection<Parameter> parameters = new ArrayList<>();
+  private Collection<Parameter> parameters;
 
-  public Route(String method, String path, Collection<Parameter> parameters) {
+  public Route(String fileName, String method, String path, Collection<Parameter> parameters) {
+    this.fileName = fileName;
     this.method = method;
     this.path = path;
     this.parameters = parameters;
+  }
+
+  public String getFileName() {
+    return fileName;
+  }
+
+  public void setFileName(String fileName) {
+    this.fileName = fileName;
   }
 
   public String getMethod() {
@@ -44,6 +53,7 @@ public class Route {
 
   public JSONObject toJSON() {
     JSONObject route = new JSONObject();
+    route.put("fileName", fileName);
     route.put("path", path);
     route.put("method", method);
 
@@ -66,6 +76,7 @@ public class Route {
   @Override
   public String toString() {
     return MoreObjects.toStringHelper(this)
+        .add("fileName", fileName)
         .add("method", method)
         .add("path", path)
         .add("parameters", parameters)

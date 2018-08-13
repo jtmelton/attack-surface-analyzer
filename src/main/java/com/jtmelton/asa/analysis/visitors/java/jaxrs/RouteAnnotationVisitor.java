@@ -1,7 +1,7 @@
-package com.jtmelton.asa.analysis;
+package com.jtmelton.asa.analysis.visitors.java.jaxrs;
 
-import com.jtmelton.asa.analysis.generated.antlr4.Java8BaseVisitor;
-import com.jtmelton.asa.analysis.generated.antlr4.Java8Parser;
+import com.jtmelton.asa.analysis.generated.antlr4.java8.Java8BaseVisitor;
+import com.jtmelton.asa.analysis.generated.antlr4.java8.Java8Parser;
 import com.jtmelton.asa.domain.Parameter;
 
 import org.antlr.v4.runtime.ParserRuleContext;
@@ -29,10 +29,6 @@ public class RouteAnnotationVisitor extends Java8BaseVisitor<Void> {
 
   private static final Set<String> PARAMETER_ANNOTATIONS =
       new HashSet<>(Arrays.asList("HeaderParam", "PathParam", "QueryParam", "CookieParam", "FormParam", "MatrixParam"));
-
-  private StringBuffer sb = new StringBuffer();
-  private int depth = 0;
-  private int blockDepth = 0;
 
   @Override public Void visitMarkerAnnotation(Java8Parser.MarkerAnnotationContext ctx) {
     if(ctx != null && ctx.typeName() != null && ctx.typeName().Identifier() != null) {

@@ -1,4 +1,5 @@
-package com.jtmelton.asa.analysis.generated.antlr4;// Generated from Java8.g4 by ANTLR 4.6
+// Generated from Java8.g4 by ANTLR 4.7
+package com.jtmelton.asa.analysis.generated.antlr4.java8;
 
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
@@ -141,8 +142,7 @@ public interface Java8Listener extends ParseTreeListener {
 	 * Enter a parse tree produced by {@link Java8Parser#interfaceType_lfno_classOrInterfaceType}.
 	 * @param ctx the parse tree
 	 */
-	void enterInterfaceType_lfno_classOrInterfaceType(
-            Java8Parser.InterfaceType_lfno_classOrInterfaceTypeContext ctx);
+	void enterInterfaceType_lfno_classOrInterfaceType(Java8Parser.InterfaceType_lfno_classOrInterfaceTypeContext ctx);
 	/**
 	 * Exit a parse tree produced by {@link Java8Parser#interfaceType_lfno_classOrInterfaceType}.
 	 * @param ctx the parse tree
@@ -642,26 +642,22 @@ public interface Java8Listener extends ParseTreeListener {
 	 * Enter a parse tree produced by {@link Java8Parser#unannClassType_lf_unannClassOrInterfaceType}.
 	 * @param ctx the parse tree
 	 */
-	void enterUnannClassType_lf_unannClassOrInterfaceType(
-            Java8Parser.UnannClassType_lf_unannClassOrInterfaceTypeContext ctx);
+	void enterUnannClassType_lf_unannClassOrInterfaceType(Java8Parser.UnannClassType_lf_unannClassOrInterfaceTypeContext ctx);
 	/**
 	 * Exit a parse tree produced by {@link Java8Parser#unannClassType_lf_unannClassOrInterfaceType}.
 	 * @param ctx the parse tree
 	 */
-	void exitUnannClassType_lf_unannClassOrInterfaceType(
-            Java8Parser.UnannClassType_lf_unannClassOrInterfaceTypeContext ctx);
+	void exitUnannClassType_lf_unannClassOrInterfaceType(Java8Parser.UnannClassType_lf_unannClassOrInterfaceTypeContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link Java8Parser#unannClassType_lfno_unannClassOrInterfaceType}.
 	 * @param ctx the parse tree
 	 */
-	void enterUnannClassType_lfno_unannClassOrInterfaceType(
-            Java8Parser.UnannClassType_lfno_unannClassOrInterfaceTypeContext ctx);
+	void enterUnannClassType_lfno_unannClassOrInterfaceType(Java8Parser.UnannClassType_lfno_unannClassOrInterfaceTypeContext ctx);
 	/**
 	 * Exit a parse tree produced by {@link Java8Parser#unannClassType_lfno_unannClassOrInterfaceType}.
 	 * @param ctx the parse tree
 	 */
-	void exitUnannClassType_lfno_unannClassOrInterfaceType(
-            Java8Parser.UnannClassType_lfno_unannClassOrInterfaceTypeContext ctx);
+	void exitUnannClassType_lfno_unannClassOrInterfaceType(Java8Parser.UnannClassType_lfno_unannClassOrInterfaceTypeContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link Java8Parser#unannInterfaceType}.
 	 * @param ctx the parse tree
@@ -676,26 +672,22 @@ public interface Java8Listener extends ParseTreeListener {
 	 * Enter a parse tree produced by {@link Java8Parser#unannInterfaceType_lf_unannClassOrInterfaceType}.
 	 * @param ctx the parse tree
 	 */
-	void enterUnannInterfaceType_lf_unannClassOrInterfaceType(
-            Java8Parser.UnannInterfaceType_lf_unannClassOrInterfaceTypeContext ctx);
+	void enterUnannInterfaceType_lf_unannClassOrInterfaceType(Java8Parser.UnannInterfaceType_lf_unannClassOrInterfaceTypeContext ctx);
 	/**
 	 * Exit a parse tree produced by {@link Java8Parser#unannInterfaceType_lf_unannClassOrInterfaceType}.
 	 * @param ctx the parse tree
 	 */
-	void exitUnannInterfaceType_lf_unannClassOrInterfaceType(
-            Java8Parser.UnannInterfaceType_lf_unannClassOrInterfaceTypeContext ctx);
+	void exitUnannInterfaceType_lf_unannClassOrInterfaceType(Java8Parser.UnannInterfaceType_lf_unannClassOrInterfaceTypeContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link Java8Parser#unannInterfaceType_lfno_unannClassOrInterfaceType}.
 	 * @param ctx the parse tree
 	 */
-	void enterUnannInterfaceType_lfno_unannClassOrInterfaceType(
-            Java8Parser.UnannInterfaceType_lfno_unannClassOrInterfaceTypeContext ctx);
+	void enterUnannInterfaceType_lfno_unannClassOrInterfaceType(Java8Parser.UnannInterfaceType_lfno_unannClassOrInterfaceTypeContext ctx);
 	/**
 	 * Exit a parse tree produced by {@link Java8Parser#unannInterfaceType_lfno_unannClassOrInterfaceType}.
 	 * @param ctx the parse tree
 	 */
-	void exitUnannInterfaceType_lfno_unannClassOrInterfaceType(
-            Java8Parser.UnannInterfaceType_lfno_unannClassOrInterfaceTypeContext ctx);
+	void exitUnannInterfaceType_lfno_unannClassOrInterfaceType(Java8Parser.UnannInterfaceType_lfno_unannClassOrInterfaceTypeContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link Java8Parser#unannTypeVariable}.
 	 * @param ctx the parse tree
@@ -1830,26 +1822,22 @@ public interface Java8Listener extends ParseTreeListener {
 	 * Enter a parse tree produced by {@link Java8Parser#primaryNoNewArray_lf_primary_lf_arrayAccess_lf_primary}.
 	 * @param ctx the parse tree
 	 */
-	void enterPrimaryNoNewArray_lf_primary_lf_arrayAccess_lf_primary(
-            Java8Parser.PrimaryNoNewArray_lf_primary_lf_arrayAccess_lf_primaryContext ctx);
+	void enterPrimaryNoNewArray_lf_primary_lf_arrayAccess_lf_primary(Java8Parser.PrimaryNoNewArray_lf_primary_lf_arrayAccess_lf_primaryContext ctx);
 	/**
 	 * Exit a parse tree produced by {@link Java8Parser#primaryNoNewArray_lf_primary_lf_arrayAccess_lf_primary}.
 	 * @param ctx the parse tree
 	 */
-	void exitPrimaryNoNewArray_lf_primary_lf_arrayAccess_lf_primary(
-            Java8Parser.PrimaryNoNewArray_lf_primary_lf_arrayAccess_lf_primaryContext ctx);
+	void exitPrimaryNoNewArray_lf_primary_lf_arrayAccess_lf_primary(Java8Parser.PrimaryNoNewArray_lf_primary_lf_arrayAccess_lf_primaryContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link Java8Parser#primaryNoNewArray_lf_primary_lfno_arrayAccess_lf_primary}.
 	 * @param ctx the parse tree
 	 */
-	void enterPrimaryNoNewArray_lf_primary_lfno_arrayAccess_lf_primary(
-            Java8Parser.PrimaryNoNewArray_lf_primary_lfno_arrayAccess_lf_primaryContext ctx);
+	void enterPrimaryNoNewArray_lf_primary_lfno_arrayAccess_lf_primary(Java8Parser.PrimaryNoNewArray_lf_primary_lfno_arrayAccess_lf_primaryContext ctx);
 	/**
 	 * Exit a parse tree produced by {@link Java8Parser#primaryNoNewArray_lf_primary_lfno_arrayAccess_lf_primary}.
 	 * @param ctx the parse tree
 	 */
-	void exitPrimaryNoNewArray_lf_primary_lfno_arrayAccess_lf_primary(
-            Java8Parser.PrimaryNoNewArray_lf_primary_lfno_arrayAccess_lf_primaryContext ctx);
+	void exitPrimaryNoNewArray_lf_primary_lfno_arrayAccess_lf_primary(Java8Parser.PrimaryNoNewArray_lf_primary_lfno_arrayAccess_lf_primaryContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link Java8Parser#primaryNoNewArray_lfno_primary}.
 	 * @param ctx the parse tree
@@ -1864,26 +1852,22 @@ public interface Java8Listener extends ParseTreeListener {
 	 * Enter a parse tree produced by {@link Java8Parser#primaryNoNewArray_lfno_primary_lf_arrayAccess_lfno_primary}.
 	 * @param ctx the parse tree
 	 */
-	void enterPrimaryNoNewArray_lfno_primary_lf_arrayAccess_lfno_primary(
-            Java8Parser.PrimaryNoNewArray_lfno_primary_lf_arrayAccess_lfno_primaryContext ctx);
+	void enterPrimaryNoNewArray_lfno_primary_lf_arrayAccess_lfno_primary(Java8Parser.PrimaryNoNewArray_lfno_primary_lf_arrayAccess_lfno_primaryContext ctx);
 	/**
 	 * Exit a parse tree produced by {@link Java8Parser#primaryNoNewArray_lfno_primary_lf_arrayAccess_lfno_primary}.
 	 * @param ctx the parse tree
 	 */
-	void exitPrimaryNoNewArray_lfno_primary_lf_arrayAccess_lfno_primary(
-            Java8Parser.PrimaryNoNewArray_lfno_primary_lf_arrayAccess_lfno_primaryContext ctx);
+	void exitPrimaryNoNewArray_lfno_primary_lf_arrayAccess_lfno_primary(Java8Parser.PrimaryNoNewArray_lfno_primary_lf_arrayAccess_lfno_primaryContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link Java8Parser#primaryNoNewArray_lfno_primary_lfno_arrayAccess_lfno_primary}.
 	 * @param ctx the parse tree
 	 */
-	void enterPrimaryNoNewArray_lfno_primary_lfno_arrayAccess_lfno_primary(
-            Java8Parser.PrimaryNoNewArray_lfno_primary_lfno_arrayAccess_lfno_primaryContext ctx);
+	void enterPrimaryNoNewArray_lfno_primary_lfno_arrayAccess_lfno_primary(Java8Parser.PrimaryNoNewArray_lfno_primary_lfno_arrayAccess_lfno_primaryContext ctx);
 	/**
 	 * Exit a parse tree produced by {@link Java8Parser#primaryNoNewArray_lfno_primary_lfno_arrayAccess_lfno_primary}.
 	 * @param ctx the parse tree
 	 */
-	void exitPrimaryNoNewArray_lfno_primary_lfno_arrayAccess_lfno_primary(
-            Java8Parser.PrimaryNoNewArray_lfno_primary_lfno_arrayAccess_lfno_primaryContext ctx);
+	void exitPrimaryNoNewArray_lfno_primary_lfno_arrayAccess_lfno_primary(Java8Parser.PrimaryNoNewArray_lfno_primary_lfno_arrayAccess_lfno_primaryContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link Java8Parser#classInstanceCreationExpression}.
 	 * @param ctx the parse tree
@@ -1898,26 +1882,22 @@ public interface Java8Listener extends ParseTreeListener {
 	 * Enter a parse tree produced by {@link Java8Parser#classInstanceCreationExpression_lf_primary}.
 	 * @param ctx the parse tree
 	 */
-	void enterClassInstanceCreationExpression_lf_primary(
-            Java8Parser.ClassInstanceCreationExpression_lf_primaryContext ctx);
+	void enterClassInstanceCreationExpression_lf_primary(Java8Parser.ClassInstanceCreationExpression_lf_primaryContext ctx);
 	/**
 	 * Exit a parse tree produced by {@link Java8Parser#classInstanceCreationExpression_lf_primary}.
 	 * @param ctx the parse tree
 	 */
-	void exitClassInstanceCreationExpression_lf_primary(
-            Java8Parser.ClassInstanceCreationExpression_lf_primaryContext ctx);
+	void exitClassInstanceCreationExpression_lf_primary(Java8Parser.ClassInstanceCreationExpression_lf_primaryContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link Java8Parser#classInstanceCreationExpression_lfno_primary}.
 	 * @param ctx the parse tree
 	 */
-	void enterClassInstanceCreationExpression_lfno_primary(
-            Java8Parser.ClassInstanceCreationExpression_lfno_primaryContext ctx);
+	void enterClassInstanceCreationExpression_lfno_primary(Java8Parser.ClassInstanceCreationExpression_lfno_primaryContext ctx);
 	/**
 	 * Exit a parse tree produced by {@link Java8Parser#classInstanceCreationExpression_lfno_primary}.
 	 * @param ctx the parse tree
 	 */
-	void exitClassInstanceCreationExpression_lfno_primary(
-            Java8Parser.ClassInstanceCreationExpression_lfno_primaryContext ctx);
+	void exitClassInstanceCreationExpression_lfno_primary(Java8Parser.ClassInstanceCreationExpression_lfno_primaryContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link Java8Parser#typeArgumentsOrDiamond}.
 	 * @param ctx the parse tree
@@ -2362,14 +2342,12 @@ public interface Java8Listener extends ParseTreeListener {
 	 * Enter a parse tree produced by {@link Java8Parser#postIncrementExpression_lf_postfixExpression}.
 	 * @param ctx the parse tree
 	 */
-	void enterPostIncrementExpression_lf_postfixExpression(
-            Java8Parser.PostIncrementExpression_lf_postfixExpressionContext ctx);
+	void enterPostIncrementExpression_lf_postfixExpression(Java8Parser.PostIncrementExpression_lf_postfixExpressionContext ctx);
 	/**
 	 * Exit a parse tree produced by {@link Java8Parser#postIncrementExpression_lf_postfixExpression}.
 	 * @param ctx the parse tree
 	 */
-	void exitPostIncrementExpression_lf_postfixExpression(
-            Java8Parser.PostIncrementExpression_lf_postfixExpressionContext ctx);
+	void exitPostIncrementExpression_lf_postfixExpression(Java8Parser.PostIncrementExpression_lf_postfixExpressionContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link Java8Parser#postDecrementExpression}.
 	 * @param ctx the parse tree
@@ -2384,14 +2362,12 @@ public interface Java8Listener extends ParseTreeListener {
 	 * Enter a parse tree produced by {@link Java8Parser#postDecrementExpression_lf_postfixExpression}.
 	 * @param ctx the parse tree
 	 */
-	void enterPostDecrementExpression_lf_postfixExpression(
-            Java8Parser.PostDecrementExpression_lf_postfixExpressionContext ctx);
+	void enterPostDecrementExpression_lf_postfixExpression(Java8Parser.PostDecrementExpression_lf_postfixExpressionContext ctx);
 	/**
 	 * Exit a parse tree produced by {@link Java8Parser#postDecrementExpression_lf_postfixExpression}.
 	 * @param ctx the parse tree
 	 */
-	void exitPostDecrementExpression_lf_postfixExpression(
-            Java8Parser.PostDecrementExpression_lf_postfixExpressionContext ctx);
+	void exitPostDecrementExpression_lf_postfixExpression(Java8Parser.PostDecrementExpression_lf_postfixExpressionContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link Java8Parser#castExpression}.
 	 * @param ctx the parse tree

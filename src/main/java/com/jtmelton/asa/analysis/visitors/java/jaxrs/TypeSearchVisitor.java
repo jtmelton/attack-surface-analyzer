@@ -1,7 +1,7 @@
-package com.jtmelton.asa.analysis;
+package com.jtmelton.asa.analysis.visitors.java.jaxrs;
 
-import com.jtmelton.asa.analysis.generated.antlr4.Java8BaseVisitor;
-import com.jtmelton.asa.analysis.generated.antlr4.Java8Parser;
+import com.jtmelton.asa.analysis.generated.antlr4.java8.Java8BaseVisitor;
+import com.jtmelton.asa.analysis.generated.antlr4.java8.Java8Parser;
 
 public class TypeSearchVisitor extends Java8BaseVisitor<Void> {
 

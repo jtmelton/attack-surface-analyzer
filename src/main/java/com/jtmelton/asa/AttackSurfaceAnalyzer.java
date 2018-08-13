@@ -15,6 +15,9 @@ import org.slf4j.LoggerFactory;
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
 
 public class AttackSurfaceAnalyzer {
 
@@ -30,6 +33,15 @@ public class AttackSurfaceAnalyzer {
       description = "File containing output with discovered routes")
   private static String outputFile = null;
 
+  @Argument(value = "exclusions",
+      delimiter = ",",
+      description = "Comma delimited regex patterns")
+  private static String[] exclusions = null;
+
+  @Argument(alias = "parser-stderr",
+          description = "Enable stderr logging from parsers")
+  private static boolean parserStderr = false;
+
   public void parseArguments(String[] args) {
     Args.parse(this, args);
   }
@@ -40,17 +52,25 @@ public class AttackSurfaceAnalyzer {
     AttackSurfaceAnalyzer main = new AttackSurfaceAnalyzer();
     main.parseArguments(args);
 
-    RouteAnalyzer analyzer = new RouteAnalyzer();
+    Collection<String> exclusionsList = new ArrayList<>();
+    if(exclusions != null) {
+      exclusionsList.addAll(Arrays.asList(exclusions));
+    }
+
+    RouteAnalyzer analyzer = new RouteAnalyzer(exclusionsList, parserStderr);
     analyzer.analyze(new File(sourceDirectory));
 
     JSONObject jsonRoot = new JSONObject();
     JSONArray jsonRoutes = new JSONArray();
     jsonRoot.put("routes", jsonRoutes);
 
+    logger.info("Printing routes");
     for(Route route : analyzer.getRoutes()) {
       logger.info(route.toString());
       jsonRoutes.put(route.toJSON());
     }
+
+    logger.info("Found {} routes", analyzer.getRoutes().size());
 
     Files.write(jsonRoot.toString(2), new File(outputFile), StandardCharsets.UTF_8);
 

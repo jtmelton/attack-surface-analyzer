@@ -1,4 +1,6 @@
-package com.jtmelton.asa.analysis.generated.antlr4;// Generated from Java8.g4 by ANTLR 4.6
+// Generated from Java8.g4 by ANTLR 4.7
+package com.jtmelton.asa.analysis.generated.antlr4.java8;
+
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
 /**
@@ -392,15 +394,13 @@ public interface Java8Visitor<T> extends ParseTreeVisitor<T> {
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitUnannClassType_lf_unannClassOrInterfaceType(
-            Java8Parser.UnannClassType_lf_unannClassOrInterfaceTypeContext ctx);
+	T visitUnannClassType_lf_unannClassOrInterfaceType(Java8Parser.UnannClassType_lf_unannClassOrInterfaceTypeContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link Java8Parser#unannClassType_lfno_unannClassOrInterfaceType}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitUnannClassType_lfno_unannClassOrInterfaceType(
-            Java8Parser.UnannClassType_lfno_unannClassOrInterfaceTypeContext ctx);
+	T visitUnannClassType_lfno_unannClassOrInterfaceType(Java8Parser.UnannClassType_lfno_unannClassOrInterfaceTypeContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link Java8Parser#unannInterfaceType}.
 	 * @param ctx the parse tree
@@ -412,15 +412,13 @@ public interface Java8Visitor<T> extends ParseTreeVisitor<T> {
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitUnannInterfaceType_lf_unannClassOrInterfaceType(
-            Java8Parser.UnannInterfaceType_lf_unannClassOrInterfaceTypeContext ctx);
+	T visitUnannInterfaceType_lf_unannClassOrInterfaceType(Java8Parser.UnannInterfaceType_lf_unannClassOrInterfaceTypeContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link Java8Parser#unannInterfaceType_lfno_unannClassOrInterfaceType}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitUnannInterfaceType_lfno_unannClassOrInterfaceType(
-            Java8Parser.UnannInterfaceType_lfno_unannClassOrInterfaceTypeContext ctx);
+	T visitUnannInterfaceType_lfno_unannClassOrInterfaceType(Java8Parser.UnannInterfaceType_lfno_unannClassOrInterfaceTypeContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link Java8Parser#unannTypeVariable}.
 	 * @param ctx the parse tree
@@ -1104,15 +1102,13 @@ public interface Java8Visitor<T> extends ParseTreeVisitor<T> {
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitPrimaryNoNewArray_lf_primary_lf_arrayAccess_lf_primary(
-            Java8Parser.PrimaryNoNewArray_lf_primary_lf_arrayAccess_lf_primaryContext ctx);
+	T visitPrimaryNoNewArray_lf_primary_lf_arrayAccess_lf_primary(Java8Parser.PrimaryNoNewArray_lf_primary_lf_arrayAccess_lf_primaryContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link Java8Parser#primaryNoNewArray_lf_primary_lfno_arrayAccess_lf_primary}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitPrimaryNoNewArray_lf_primary_lfno_arrayAccess_lf_primary(
-            Java8Parser.PrimaryNoNewArray_lf_primary_lfno_arrayAccess_lf_primaryContext ctx);
+	T visitPrimaryNoNewArray_lf_primary_lfno_arrayAccess_lf_primary(Java8Parser.PrimaryNoNewArray_lf_primary_lfno_arrayAccess_lf_primaryContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link Java8Parser#primaryNoNewArray_lfno_primary}.
 	 * @param ctx the parse tree
@@ -1124,15 +1120,13 @@ public interface Java8Visitor<T> extends ParseTreeVisitor<T> {
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitPrimaryNoNewArray_lfno_primary_lf_arrayAccess_lfno_primary(
-            Java8Parser.PrimaryNoNewArray_lfno_primary_lf_arrayAccess_lfno_primaryContext ctx);
+	T visitPrimaryNoNewArray_lfno_primary_lf_arrayAccess_lfno_primary(Java8Parser.PrimaryNoNewArray_lfno_primary_lf_arrayAccess_lfno_primaryContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link Java8Parser#primaryNoNewArray_lfno_primary_lfno_arrayAccess_lfno_primary}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitPrimaryNoNewArray_lfno_primary_lfno_arrayAccess_lfno_primary(
-            Java8Parser.PrimaryNoNewArray_lfno_primary_lfno_arrayAccess_lfno_primaryContext ctx);
+	T visitPrimaryNoNewArray_lfno_primary_lfno_arrayAccess_lfno_primary(Java8Parser.PrimaryNoNewArray_lfno_primary_lfno_arrayAccess_lfno_primaryContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link Java8Parser#classInstanceCreationExpression}.
 	 * @param ctx the parse tree
@@ -1144,15 +1138,13 @@ public interface Java8Visitor<T> extends ParseTreeVisitor<T> {
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitClassInstanceCreationExpression_lf_primary(
-            Java8Parser.ClassInstanceCreationExpression_lf_primaryContext ctx);
+	T visitClassInstanceCreationExpression_lf_primary(Java8Parser.ClassInstanceCreationExpression_lf_primaryContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link Java8Parser#classInstanceCreationExpression_lfno_primary}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitClassInstanceCreationExpression_lfno_primary(
-            Java8Parser.ClassInstanceCreationExpression_lfno_primaryContext ctx);
+	T visitClassInstanceCreationExpression_lfno_primary(Java8Parser.ClassInstanceCreationExpression_lfno_primaryContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link Java8Parser#typeArgumentsOrDiamond}.
 	 * @param ctx the parse tree
@@ -1422,8 +1414,7 @@ public interface Java8Visitor<T> extends ParseTreeVisitor<T> {
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitPostIncrementExpression_lf_postfixExpression(
-            Java8Parser.PostIncrementExpression_lf_postfixExpressionContext ctx);
+	T visitPostIncrementExpression_lf_postfixExpression(Java8Parser.PostIncrementExpression_lf_postfixExpressionContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link Java8Parser#postDecrementExpression}.
 	 * @param ctx the parse tree
@@ -1435,8 +1426,7 @@ public interface Java8Visitor<T> extends ParseTreeVisitor<T> {
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitPostDecrementExpression_lf_postfixExpression(
-            Java8Parser.PostDecrementExpression_lf_postfixExpressionContext ctx);
+	T visitPostDecrementExpression_lf_postfixExpression(Java8Parser.PostDecrementExpression_lf_postfixExpressionContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link Java8Parser#castExpression}.
 	 * @param ctx the parse tree
