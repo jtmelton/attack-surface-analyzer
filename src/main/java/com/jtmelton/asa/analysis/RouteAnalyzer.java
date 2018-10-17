@@ -241,10 +241,6 @@ public class RouteAnalyzer {
       registerVisitor(new JaxRsVisitor());
       acceptedLangs.add(Language.JAVA);
     }
-    if(settings.getPropBool(Settings.VISITOR_NS)) {
-      registerVisitor(new NSClassVisitor());
-      acceptedLangs.add(Language.JAVA);
-    }
   }
 
   public void registerVisitor(IRouteVisitor visitor) {
