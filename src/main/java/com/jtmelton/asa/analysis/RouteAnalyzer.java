@@ -130,7 +130,7 @@ public class RouteAnalyzer {
     }
 
     processed++;
-    log.info("Processed {} out of {}", processed, pathCount);
+    log.info("Phase {}, Processed {} out of {}", phase, processed, pathCount);
   }
 
   private Collection<IRouteVisitor> getVisitors(Language lang) {
