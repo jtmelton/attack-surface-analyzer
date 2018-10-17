@@ -8,7 +8,6 @@ import com.jtmelton.asa.analysis.utils.Settings;
 import com.jtmelton.asa.analysis.visitors.IRouteVisitor;
 import com.jtmelton.asa.analysis.visitors.IRouteVisitor.Phase;
 import com.jtmelton.asa.analysis.visitors.java.jaxrs.JaxRsVisitor;
-import com.jtmelton.asa.analysis.visitors.java.netsuite.NSClassVisitor;
 import com.jtmelton.asa.analysis.visitors.javascript.express.ExpressRouteVisitor;
 import com.jtmelton.asa.domain.Route;
 
