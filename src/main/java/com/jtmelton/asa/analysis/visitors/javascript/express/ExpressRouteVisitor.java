@@ -1,7 +1,8 @@
 package com.jtmelton.asa.analysis.visitors.javascript.express;
 
+import com.jtmelton.asa.analysis.RouteAnalyzer;
 import com.jtmelton.asa.analysis.generated.antlr4.ecmascript6.JavaScriptParserBaseVisitor;
-import com.jtmelton.asa.analysis.visitors.javascript.JsAstNodes;
+import com.jtmelton.asa.analysis.utils.JsAstNodes;
 import com.jtmelton.asa.analysis.visitors.IRouteVisitor;
 import com.jtmelton.asa.domain.Parameter;
 import com.jtmelton.asa.domain.Route;
@@ -22,8 +23,6 @@ public class ExpressRouteVisitor extends JavaScriptParserBaseVisitor<Void> imple
 
   private final Collection<String> requestTypes = new ArrayList<>();
 
-  private final String fileName;
-
   private final String ROUTE_PARAM_PATTERN = ":[A-Za-z0-9_]+";
 
   private final String ROUTER = "Router";
@@ -38,9 +37,7 @@ public class ExpressRouteVisitor extends JavaScriptParserBaseVisitor<Void> imple
 
   private TerminalNode expressRouterNode = null;
 
-  public ExpressRouteVisitor(String fileName) {
-    this.fileName = fileName;
-
+  public ExpressRouteVisitor() {
     requestTypes.add("get");
     requestTypes.add("post");
     requestTypes.add("delete");
@@ -171,6 +168,8 @@ public class ExpressRouteVisitor extends JavaScriptParserBaseVisitor<Void> imple
       return;
     }
 
+    String fileName = JsAstNodes.getSourceFileName(args.get(0));
+
     if("all".equals(functionName)) {
       for(String type : requestTypes) {
         routes.add(new Route(fileName, type, path, getRouteParams(path)));
@@ -250,7 +249,21 @@ public class ExpressRouteVisitor extends JavaScriptParserBaseVisitor<Void> imple
     return cleanLiteral;
   }
 
+  @Override
   public Collection<Route> getRoutes() {
     return routes;
+  }
+
+  @Override
+  public void setPhase(Phase phase) { }
+
+  @Override
+  public boolean acceptedPhase(Phase phase) {
+    return Phase.ONE == phase;
+  }
+
+  @Override
+  public boolean acceptedLang(RouteAnalyzer.Language lang) {
+    return RouteAnalyzer.Language.JAVASCRIPT == lang;
   }
 }
