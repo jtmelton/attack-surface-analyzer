@@ -1,5 +1,7 @@
-package com.jtmelton.asa.analysis.visitors.javascript;
+package com.jtmelton.asa.analysis.utils;
 
+import org.antlr.v4.runtime.CommonToken;
+import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.TerminalNode;
 
 import java.util.Collections;
@@ -91,5 +93,22 @@ public class JsAstNodes {
     }
 
     return ((ArgumentsExpressionContext) ctx).arguments().singleExpression();
+  }
+
+  public static ProgramContext getProgramCtx(ParserRuleContext ctx) {
+    ParserRuleContext parent = ctx.getParent();
+
+    while(parent != null && !(parent instanceof ProgramContext)) {
+      parent = parent.getParent();
+    }
+
+    return (ProgramContext) parent;
+  }
+
+  public static String getSourceFileName(ParserRuleContext ctx) {
+    ProgramContext programCtx = getProgramCtx(ctx);
+
+    CommonToken token = (CommonToken) programCtx.EOF().getSymbol();
+    return token.getTokenSource().getSourceName();
   }
 }

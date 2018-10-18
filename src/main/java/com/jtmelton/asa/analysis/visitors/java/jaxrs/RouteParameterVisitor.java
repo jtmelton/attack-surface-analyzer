@@ -1,16 +1,17 @@
 package com.jtmelton.asa.analysis.visitors.java.jaxrs;
 
-import com.jtmelton.asa.analysis.generated.antlr4.java8.Java8BaseVisitor;
-import com.jtmelton.asa.analysis.generated.antlr4.java8.Java8Parser;
+import com.jtmelton.asa.analysis.generated.antlr4.java8.JavaParserBaseVisitor;
+import static com.jtmelton.asa.analysis.generated.antlr4.java8.JavaParser.ElementValueContext;
 
 import com.google.common.base.CharMatcher;
 
-public class RouteParameterVisitor extends Java8BaseVisitor<Void> {
+
+public class RouteParameterVisitor extends JavaParserBaseVisitor<Void> {
 
   private String name = "";
 
   @Override
-  public Void visitElementValue(Java8Parser.ElementValueContext elementValueContext) {
+  public Void visitElementValue(ElementValueContext elementValueContext) {
     this.name = stripQuotes(elementValueContext.getText());
     return visitChildren(elementValueContext);
   }

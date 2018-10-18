@@ -1,34 +1,26 @@
 package com.jtmelton.asa.analysis.visitors.java.jaxrs;
 
-import com.jtmelton.asa.analysis.generated.antlr4.java8.Java8BaseVisitor;
-import com.jtmelton.asa.analysis.generated.antlr4.java8.Java8Parser;
+import com.jtmelton.asa.analysis.RouteAnalyzer;
+import com.jtmelton.asa.analysis.generated.antlr4.java8.JavaParser;
+import com.jtmelton.asa.analysis.generated.antlr4.java8.JavaParser.ClassBodyDeclarationContext;
+import com.jtmelton.asa.analysis.generated.antlr4.java8.JavaParserBaseVisitor;
+import com.jtmelton.asa.analysis.utils.JavaAstNodes;
 import com.jtmelton.asa.analysis.visitors.IRouteVisitor;
 import com.jtmelton.asa.domain.Route;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.Collection;
 
-public class RouteMethodVisitor extends Java8BaseVisitor<Void> implements IRouteVisitor {
-
-  private final Logger log = LoggerFactory.getLogger(this.getClass());
+public class JaxRsVisitor extends JavaParserBaseVisitor<Void> implements IRouteVisitor {
 
   private final Collection<Route> routes = new ArrayList<>();
 
-  private final String fileName;
-
   private String classLevelPath = "";
 
-  public RouteMethodVisitor(String fileName) {
-    this.fileName = fileName;
-  }
-
   @Override
-  public Void visitClassDeclaration(Java8Parser.ClassDeclarationContext ctx) {
+  public Void visitClassDeclaration(JavaParser.ClassDeclarationContext ctx) {
     RouteAnnotationVisitor routeAnnotationVisitor = new RouteAnnotationVisitor();
-    ctx.accept(routeAnnotationVisitor);
+    ctx.getParent().accept(routeAnnotationVisitor);
 
     assert routeAnnotationVisitor.getMethods().size() <= 1;
 
@@ -40,11 +32,11 @@ public class RouteMethodVisitor extends Java8BaseVisitor<Void> implements IRoute
   }
 
   @Override
-  public Void visitMethodDeclaration(Java8Parser.MethodDeclarationContext ctx) {
+  public Void visitClassBodyDeclaration(ClassBodyDeclarationContext ctx) {
     RouteAnnotationVisitor visitor = new RouteAnnotationVisitor();
     ctx.accept(visitor);
 
-    if(! visitor.getMethods().isEmpty()) {
+    if(!visitor.getMethods().isEmpty()) {
       assert visitor.getMethods().size() == 1;
       assert visitor.getMethodLevelPaths().size() <= 1;
 
@@ -52,13 +44,28 @@ public class RouteMethodVisitor extends Java8BaseVisitor<Void> implements IRoute
       String methodLevelPath = (visitor.getMethodLevelPaths().size() > 0) ?
                                visitor.getMethodLevelPaths().iterator().next() : "";
 
+      String fileName = JavaAstNodes.getSourceFileName(ctx);
       routes.add(new Route(fileName, method, classLevelPath + methodLevelPath, visitor.getParameters()));
     }
 
     return visitChildren(ctx);
   }
 
+  @Override
   public Collection<Route> getRoutes() {
     return routes;
+  }
+
+  @Override
+  public void setPhase(Phase phase) { }
+
+  @Override
+  public boolean acceptedPhase(Phase phase) {
+    return Phase.ONE == phase;
+  }
+
+  @Override
+  public boolean acceptedLang(RouteAnalyzer.Language lang) {
+    return RouteAnalyzer.Language.JAVA == lang;
   }
 }

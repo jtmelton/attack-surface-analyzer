@@ -2,11 +2,13 @@ package com.jtmelton.asa.analysis;
 
 import com.jtmelton.asa.analysis.generated.antlr4.ecmascript6.JavaScriptLexer;
 import com.jtmelton.asa.analysis.generated.antlr4.ecmascript6.JavaScriptParser;
-import com.jtmelton.asa.analysis.generated.antlr4.java8.Java8Lexer;
-import com.jtmelton.asa.analysis.generated.antlr4.java8.Java8Parser;
+import com.jtmelton.asa.analysis.generated.antlr4.java8.JavaLexer;
+import com.jtmelton.asa.analysis.generated.antlr4.java8.JavaParser;
+import com.jtmelton.asa.analysis.utils.Settings;
 import com.jtmelton.asa.analysis.visitors.IRouteVisitor;
+import com.jtmelton.asa.analysis.visitors.IRouteVisitor.Phase;
+import com.jtmelton.asa.analysis.visitors.java.jaxrs.JaxRsVisitor;
 import com.jtmelton.asa.analysis.visitors.javascript.express.ExpressRouteVisitor;
-import com.jtmelton.asa.analysis.visitors.java.jaxrs.RouteMethodVisitor;
 import com.jtmelton.asa.domain.Route;
 
 import org.antlr.v4.runtime.*;
@@ -32,9 +34,19 @@ public class RouteAnalyzer {
 
   private Collection<Route> routes = new ArrayList<>();
 
+  private Collection<IRouteVisitor> visitors = new ArrayList<>();
+
+  private Set<Language> acceptedLangs = new HashSet<>();
+
+  private int processed = 0;
+
+  private int pathCount;
+
   private final boolean parserStderr;
 
-  public RouteAnalyzer(Collection<String> userExclusions, boolean parserStderr) {
+  public RouteAnalyzer(Settings settings, Collection<String> userExclusions, boolean parserStderr) {
+    registerVisitors(settings);
+
     exclusions.add(".+node_modules.+");
     exclusions.addAll(userExclusions);
 
@@ -47,14 +59,24 @@ public class RouteAnalyzer {
     final Collection<Path> paths = new ArrayList<>();
 
     try {
+      log.info("Collecting paths");
       Files.walk(Paths.get(sourcePath))
           .filter(Files::isRegularFile)
           .filter(acceptedExts())
           .filter(exclude())
           .forEach(paths::add);
 
-      for(Path path : paths) {
-        scan(path);
+      pathCount = paths.size();
+
+
+      log.info("{} paths collected", paths.size());
+
+      scan(paths, Phase.ONE);
+      scan(paths, Phase.TWO);
+      scan(paths, Phase.THREE);
+
+      for(IRouteVisitor visitor : visitors) {
+        routes.addAll(visitor.getRoutes());
       }
 
     } catch (IOException e) {
@@ -62,10 +84,30 @@ public class RouteAnalyzer {
     }
   }
 
-  private void scan(Path path) throws IOException {
+  private void scan(Collection<Path> paths, Phase phase) throws IOException {
+    processed = 0;
+    log.info("Visitation phase {}", phase);
+    for(Path path : paths) {
+      scan(path, phase);
+    }
+  }
+
+  private void scan(Path path, Phase phase) throws IOException {
     String fileName = path.toAbsolutePath().toString();
 
     Language lang = getLanguage(fileName);
+
+    Collection<IRouteVisitor> langVisitors = getVisitors(lang);
+
+    boolean proceed = false;
+    for(IRouteVisitor visitor : langVisitors) {
+      proceed = proceed || visitor.acceptedPhase(phase);
+    }
+
+    if(!proceed) {
+      log.info("Skipping phase {}", phase);
+      return;
+    }
 
     Lexer lexer = getLexer(fileName, lang);
 
@@ -82,10 +124,25 @@ public class RouteAnalyzer {
     // start parsing at the compilationUnit rule
     RuleContext ruleContext = getRuleContext(parser, lang);
 
-    for(IRouteVisitor visitor : getRouteVisitors(lang, fileName)) {
+    for(IRouteVisitor visitor : langVisitors) {
+      visitor.setPhase(phase);
       ruleContext.accept((AbstractParseTreeVisitor) visitor);
-      routes.addAll(visitor.getRoutes());
     }
+
+    processed++;
+    log.info("Phase {}, Processed {} out of {}", phase, processed, pathCount);
+  }
+
+  private Collection<IRouteVisitor> getVisitors(Language lang) {
+    Collection<IRouteVisitor> langVisitors = new ArrayList<>();
+
+    for(IRouteVisitor visitor : visitors) {
+      if(visitor.acceptedLang(lang)) {
+        langVisitors.add(visitor);
+      }
+    }
+
+    return langVisitors;
   }
 
   private Language getLanguage(String fileName) {
@@ -107,7 +164,7 @@ public class RouteAnalyzer {
         lexer = new JavaScriptLexer(CharStreams.fromFileName(filename));
       break;
       default:
-        lexer = new Java8Lexer(CharStreams.fromFileName(filename));
+        lexer = new JavaLexer(CharStreams.fromFileName(filename));
         break;
     }
 
@@ -122,25 +179,11 @@ public class RouteAnalyzer {
         parser = new JavaScriptParser(tokens);
         break;
       default:
-        parser = new Java8Parser(tokens);
+        parser = new JavaParser(tokens);
         break;
     }
 
     return parser;
-  }
-
-  private Collection<IRouteVisitor> getRouteVisitors(Language lang, String fileName) {
-    Collection<IRouteVisitor> visitors = new ArrayList<>();
-    switch (lang) {
-      case JAVASCRIPT:
-        visitors.add(new ExpressRouteVisitor(fileName));
-        break;
-      case JAVA:
-        visitors.add(new RouteMethodVisitor(fileName));
-        break;
-    }
-
-    return visitors;
   }
 
   private RuleContext getRuleContext(Parser parser, Language lang) {
@@ -151,7 +194,7 @@ public class RouteAnalyzer {
         ruleContext = ((JavaScriptParser) parser).program();
         break;
       default:
-        ruleContext = ((Java8Parser) parser).compilationUnit();
+        ruleContext = ((JavaParser) parser).compilationUnit();
         break;
     }
 
@@ -164,10 +207,12 @@ public class RouteAnalyzer {
 
   private Predicate<Path> acceptedExts() {
     return p -> {
-      boolean result = p.getFileName().toString().endsWith(Language.JAVASCRIPT.ext);
-      result = result || p.getFileName().toString().endsWith(Language.JAVA.ext);
-
-      return result;
+      for(Language lang : acceptedLangs) {
+        if(p.getFileName().toString().endsWith(lang.ext)) {
+          return true;
+        }
+      }
+      return false;
     };
   }
 
@@ -186,7 +231,22 @@ public class RouteAnalyzer {
     };
   }
 
-  private enum Language {
+  private void registerVisitors(Settings settings) {
+    if(settings.getPropBool(Settings.VISITOR_EXPRESS)) {
+      registerVisitor(new ExpressRouteVisitor());
+      acceptedLangs.add(Language.JAVASCRIPT);
+    }
+    if(settings.getPropBool(Settings.VISITOR_JAXRS)) {
+      registerVisitor(new JaxRsVisitor());
+      acceptedLangs.add(Language.JAVA);
+    }
+  }
+
+  public void registerVisitor(IRouteVisitor visitor) {
+    visitors.add(visitor);
+  }
+
+  public enum Language {
     JAVASCRIPT(".js"),
     JAVA(".java");
     String ext;
