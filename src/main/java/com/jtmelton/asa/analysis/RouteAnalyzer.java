@@ -105,7 +105,6 @@ public class RouteAnalyzer {
     }
 
     if(!proceed) {
-      log.info("Skipping phase {}", phase);
       return;
     }
 
