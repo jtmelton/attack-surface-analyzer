@@ -242,6 +242,10 @@ public class ExpressRouteVisitor extends JavaScriptParserBaseVisitor<Void> imple
   }
 
   private String cleanLiteral(TerminalNode node) {
+    if(node == null || node.getSymbol() == null) {
+      return "";
+    }
+
     String text = node.getSymbol().getText();
     String cleanLiteral = text.replace("\"", "");
     cleanLiteral = cleanLiteral.replace("'", "");
