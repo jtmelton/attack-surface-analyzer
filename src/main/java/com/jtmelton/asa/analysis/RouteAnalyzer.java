@@ -8,6 +8,7 @@ import com.jtmelton.asa.analysis.utils.Settings;
 import com.jtmelton.asa.analysis.visitors.IRouteVisitor;
 import com.jtmelton.asa.analysis.visitors.IRouteVisitor.Phase;
 import com.jtmelton.asa.analysis.visitors.java.jaxrs.JaxRsVisitor;
+import com.jtmelton.asa.analysis.visitors.java.spring.SpringVisitor;
 import com.jtmelton.asa.analysis.visitors.javascript.express.ExpressRouteVisitor;
 import com.jtmelton.asa.domain.Route;
 
@@ -32,11 +33,11 @@ public class RouteAnalyzer {
 
   private final Collection<String> exclusions = new ArrayList<>();
 
-  private Collection<Route> routes = new ArrayList<>();
+  private final Collection<Route> routes = new ArrayList<>();
 
-  private Collection<IRouteVisitor> visitors = new ArrayList<>();
+  private final Collection<IRouteVisitor> visitors = new ArrayList<>();
 
-  private Set<Language> acceptedLangs = new HashSet<>();
+  private final Set<Language> acceptedLangs = new HashSet<>();
 
   private int processed = 0;
 
@@ -237,6 +238,10 @@ public class RouteAnalyzer {
     }
     if(settings.getPropBool(Settings.VISITOR_JAXRS)) {
       registerVisitor(new JaxRsVisitor());
+      acceptedLangs.add(Language.JAVA);
+    }
+    if(settings.getPropBool(Settings.VISITOR_SPRING)) {
+      registerVisitor(new SpringVisitor());
       acceptedLangs.add(Language.JAVA);
     }
   }

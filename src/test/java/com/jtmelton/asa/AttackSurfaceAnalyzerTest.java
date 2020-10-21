@@ -33,8 +33,7 @@ public class AttackSurfaceAnalyzerTest {
 
     @Test
     public void givenAJSExpressCodebase_whenCodeHasOnePath_thenPathIdentified() throws IOException {
-        String in = "\n" +
-                "const express = require('express')\n" +
+        String in = "const express = require('express')\n" +
                 "const app = express()\n" +
                 "app.get('/jsexpresspath', (req, res) => {\n" +
                 "})\n";
@@ -43,6 +42,70 @@ public class AttackSurfaceAnalyzerTest {
 
         assertEquals(1, obj.getJSONArray("routes").length());
         assertEquals("'/jsexpresspath'", obj.getJSONArray("routes").getJSONObject(0).get("path"));
+    }
+
+    @Test
+    public void givenASpringCodebase_whenCodeHasOnePath_thenPathIdentified() throws IOException {
+        String in = "@RestController\n" +
+                "@RequestMapping(\"/home\")\n" +
+                "public class IndexController {\n" +
+                "  @RequestMapping(\"/index\")\n" +
+                "  String index(){\n" +
+                "  }\n";
+
+        JSONObject obj = analyze(in, "input.java");
+
+        assertEquals(1, obj.getJSONArray("routes").length());
+        assertEquals("/home/index", obj.getJSONArray("routes").getJSONObject(0).get("path"));
+    }
+
+    @Test
+    public void givenASpringCodebase_whenCodeHasOnePathAndRequestMethod_thenPathIdentified() throws IOException {
+        String in = "@RestController\n" +
+                "@RequestMapping(\"/home\")\n" +
+                "public class IndexController {\n" +
+                "      @RequestMapping(value = \"/index\", method = RequestMethod.GET)\n" +
+                "  String index(){\n" +
+                "  }\n";
+
+        JSONObject obj = analyze(in, "input.java");
+
+        assertEquals(1, obj.getJSONArray("routes").length());
+        assertEquals("/home/index", obj.getJSONArray("routes").getJSONObject(0).get("path"));
+    }
+
+    @Test
+    public void givenASpringCodebase_whenCodeHasOnePathAndRequestMethodInDifferentOrder_thenPathIdentified() throws IOException {
+        String in = "@RestController\n" +
+                "@RequestMapping(\"/home\")\n" +
+                "public class IndexController {\n" +
+                "      @RequestMapping(method = RequestMethod.GET, value = \"/index\")\n" +
+                "  String index(){\n" +
+                "  }\n";
+
+        JSONObject obj = analyze(in, "input.java");
+
+        assertEquals(1, obj.getJSONArray("routes").length());
+        assertEquals("/home/index", obj.getJSONArray("routes").getJSONObject(0).get("path"));
+    }
+
+    @Test
+    public void givenASpringCodebase_whenCodeHasTwoPaths_thenPathIdentified() throws IOException {
+        String in = "@RestController\n" +
+                "@RequestMapping(\"/home\")\n" +
+                "public class IndexController {\n" +
+                "  @RequestMapping(\"/first\")\n" +
+                "  String first(){\n" +
+                "  }\n"+
+                "  @RequestMapping(\"/second\")\n" +
+                "  String second(){\n" +
+                "  }\n";
+
+        JSONObject obj = analyze(in, "input.java");
+
+        assertEquals(2, obj.getJSONArray("routes").length());
+        assertEquals("/home/first", obj.getJSONArray("routes").getJSONObject(0).get("path"));
+        assertEquals("/home/second", obj.getJSONArray("routes").getJSONObject(1).get("path"));
     }
 
     private JSONObject analyze(String in, String fileName) throws IOException {

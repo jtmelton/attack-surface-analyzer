@@ -4,6 +4,7 @@ A tool for analyzing the attack surface of an application.
 ## Supported Frameworks
 #### Java 
 -JAX-RS
+-Spring
 #### Javascript 
 -[Express](https://expressjs.com/)
 
@@ -48,6 +49,7 @@ Analyzers can be enabled/disabled via a properties file. If no properties file i
 
 ```Properties
 visitor.java.jaxrs=true
+visitor.java.spring=true
 visitor.js.express=true
 ```
 
