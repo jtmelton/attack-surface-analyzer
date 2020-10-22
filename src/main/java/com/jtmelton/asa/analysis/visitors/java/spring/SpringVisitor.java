@@ -6,7 +6,6 @@ import com.jtmelton.asa.analysis.generated.antlr4.java8.JavaParser.ClassBodyDecl
 import com.jtmelton.asa.analysis.generated.antlr4.java8.JavaParserBaseVisitor;
 import com.jtmelton.asa.analysis.utils.JavaAstNodes;
 import com.jtmelton.asa.analysis.visitors.IRouteVisitor;
-import com.jtmelton.asa.analysis.visitors.java.spring.RouteSpringAnnotationVisitor;
 import com.jtmelton.asa.domain.Route;
 
 import java.util.ArrayList;
@@ -22,8 +21,6 @@ public class SpringVisitor extends JavaParserBaseVisitor<Void> implements IRoute
   public Void visitClassDeclaration(JavaParser.ClassDeclarationContext ctx) {
     RouteSpringAnnotationVisitor routeAnnotationVisitor = new RouteSpringAnnotationVisitor();
     ctx.getParent().accept(routeAnnotationVisitor);
-
-    assert routeAnnotationVisitor.getMethods().size() <= 1;
 
     if(! routeAnnotationVisitor.getClassLevelPaths().isEmpty()) {
       this.classLevelPath = routeAnnotationVisitor.getClassLevelPaths().iterator().next();

@@ -14,13 +14,12 @@ import static com.google.common.collect.ImmutableList.*;
 
 public class RouteSpringAnnotationVisitor extends JavaParserBaseVisitor<Void> {
 
+    private static final Set<String> REQUEST_MAPPING_ANNOTATIONS = new HashSet<>(of("RequestMapping", "DeleteMapping", "GetMapping", "PostMapping", "PatchMapping", "PutMapping"));
+
     private final Set<String> methods = new HashSet<>();
     private final Set<String> classLevelPaths = new HashSet<>();
     private final Set<String> methodLevelPaths = new HashSet<>();
     private final Set<Parameter> parameters = new HashSet<>();
-
-    private static final Set<String> PATHS_ANNOTATIONS =
-            new HashSet<>(of("RequestMapping"));
 
     @Override
     public Void visitAnnotation(AnnotationContext ctx) {
@@ -29,17 +28,16 @@ public class RouteSpringAnnotationVisitor extends JavaParserBaseVisitor<Void> {
         for (TerminalNode ident : idents) {
             String type = ident.getSymbol().getText();
 
-            if (PATHS_ANNOTATIONS.contains(type)) {
+            if (REQUEST_MAPPING_ANNOTATIONS.contains(type)) {
                 methods.add(type);
             }
 
-            if (PATHS_ANNOTATIONS.contains(type)) {
-
+            if (REQUEST_MAPPING_ANNOTATIONS.contains(type)) {
                 RouteSpringParameterVisitor parameterVisitor = new RouteSpringParameterVisitor();
                 ctx.getPayload().accept(parameterVisitor);
                 String name = parameterVisitor.getName();
 
-                if (PATHS_ANNOTATIONS.contains(type)) {
+                if (REQUEST_MAPPING_ANNOTATIONS.contains(type)) {
                     if (isMethodLevelPath(ctx)) {
                         methodLevelPaths.add(name);
                     } else {
@@ -66,7 +64,6 @@ public class RouteSpringAnnotationVisitor extends JavaParserBaseVisitor<Void> {
         }
         return isMethod;
     }
-
 
     public Set<String> getMethods() {
         return methods;

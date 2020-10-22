@@ -96,16 +96,53 @@ public class AttackSurfaceAnalyzerTest {
                 "public class IndexController {\n" +
                 "  @RequestMapping(\"/first\")\n" +
                 "  String first(){\n" +
-                "  }\n"+
+                "  }\n" +
                 "  @RequestMapping(\"/second\")\n" +
                 "  String second(){\n" +
-                "  }\n";
+                "  }\n" +
+                "}";
 
         JSONObject obj = analyze(in, "input.java");
 
         assertEquals(2, obj.getJSONArray("routes").length());
         assertEquals("/home/first", obj.getJSONArray("routes").getJSONObject(0).get("path"));
         assertEquals("/home/second", obj.getJSONArray("routes").getJSONObject(1).get("path"));
+    }
+
+    @Test
+    public void givenASpringCodebase_whenCodeHasGetPostAndDeleteMapping_thenPathIdentified() throws IOException {
+        String in = "@RestController\n" +
+                "@RequestMapping(\"/top\")\n" +
+                "public class IndexController {\n" +
+                "  @GetMapping(\"/get\")\n" +
+                "  String get(){\n" +
+                "  }\n" +
+                "  @PostMapping(\"/post\")\n" +
+                "  String post(){\n" +
+                "  }\n" +
+                "  @DeleteMapping(\"/delete\")\n" +
+                "  String delete(){\n" +
+                "  }\n" +
+                "  @PutMapping(\"/put\")\n" +
+                "  String put(){\n" +
+                "  }\n" +
+                "  @PatchMapping(\"/patch\")\n" +
+                "  String patch(){\n" +
+                "  }\n" +
+                "  @GetMapping\n" +
+                "  String get2(){\n" +
+                "  }\n" +
+                "}";
+
+        JSONObject obj = analyze(in, "input.java");
+
+        assertEquals(6, obj.getJSONArray("routes").length());
+        assertEquals("/top/get", obj.getJSONArray("routes").getJSONObject(0).get("path"));
+        assertEquals("/top/post", obj.getJSONArray("routes").getJSONObject(1).get("path"));
+        assertEquals("/top/delete", obj.getJSONArray("routes").getJSONObject(2).get("path"));
+        assertEquals("/top/put", obj.getJSONArray("routes").getJSONObject(3).get("path"));
+        assertEquals("/top/patch", obj.getJSONArray("routes").getJSONObject(4).get("path"));
+        assertEquals("/top", obj.getJSONArray("routes").getJSONObject(5).get("path"));
     }
 
     private JSONObject analyze(String in, String fileName) throws IOException {
