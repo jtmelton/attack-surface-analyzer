@@ -7,8 +7,7 @@ import org.antlr.v4.runtime.*;
  * All parser methods that used in grammar (p, prev, notLineTerminator, etc.)
  * should start with lower case char similar to parser rules.
  */
-public abstract class JavaScriptBaseParser extends Parser
-{
+public abstract class JavaScriptBaseParser extends Parser {
     public JavaScriptBaseParser(TokenStream input) {
         super(input);
     }
@@ -45,10 +44,8 @@ public abstract class JavaScriptBaseParser extends Parser
      * token stream a token of the given {@code type} exists on the
      * {@code HIDDEN} channel.
      *
-     * @param type
-     *         the type of the token on the {@code HIDDEN} channel
-     *         to check.
-     *
+     * @param type the type of the token on the {@code HIDDEN} channel
+     *             to check.
      * @return {@code true} iff on the current index of the parser's
      * token stream a token of the given {@code type} exists on the
      * {@code HIDDEN} channel.

@@ -9,8 +9,7 @@ import java.util.Stack;
  * All lexer methods that used in grammar (IsStrictMode)
  * should start with Upper Case Char similar to Lexer rules.
  */
-public abstract class JavaScriptBaseLexer extends Lexer
-{
+public abstract class JavaScriptBaseLexer extends Lexer {
     /**
      * Stores values of nested modes. By default mode is strict or
      * defined externally (useStrictDefault)
@@ -67,26 +66,22 @@ public abstract class JavaScriptBaseLexer extends Lexer
         return next;
     }
 
-    protected void ProcessOpenBrace()
-    {
+    protected void ProcessOpenBrace() {
         useStrictCurrent = scopeStrictModes.size() > 0 && scopeStrictModes.peek() ? true : useStrictDefault;
         scopeStrictModes.push(useStrictCurrent);
     }
 
-    protected void ProcessCloseBrace()
-    {
+    protected void ProcessCloseBrace() {
         useStrictCurrent = scopeStrictModes.size() > 0 ? scopeStrictModes.pop() : useStrictDefault;
     }
 
-    protected void ProcessStringLiteral()
-    {
-        if (lastToken == null || lastToken.getType() == JavaScriptLexer.OpenBrace)
-        {
+    protected void ProcessStringLiteral() {
+        if (lastToken == null || lastToken.getType() == JavaScriptLexer.OpenBrace) {
             String text = getText();
-            if (text.equals("\"use strict\"") || text.equals("'use strict'"))
-            {
-                if (scopeStrictModes.size() > 0)
+            if (text.equals("\"use strict\"") || text.equals("'use strict'")) {
+                if (scopeStrictModes.size() > 0) {
                     scopeStrictModes.pop();
+                }
                 useStrictCurrent = true;
                 scopeStrictModes.push(useStrictCurrent);
             }

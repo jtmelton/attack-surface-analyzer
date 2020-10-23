@@ -37,12 +37,10 @@ public class RouteSpringAnnotationVisitor extends JavaParserBaseVisitor<Void> {
                 ctx.getPayload().accept(parameterVisitor);
                 String name = parameterVisitor.getName();
 
-                if (REQUEST_MAPPING_ANNOTATIONS.contains(type)) {
-                    if (isMethodLevelPath(ctx)) {
-                        methodLevelPaths.add(name);
-                    } else {
-                        classLevelPaths.add(name);
-                    }
+                if (isMethodLevelPath(ctx)) {
+                    methodLevelPaths.add(name);
+                } else {
+                    classLevelPaths.add(name);
                 }
             }
         }
@@ -56,8 +54,9 @@ public class RouteSpringAnnotationVisitor extends JavaParserBaseVisitor<Void> {
         while (parent.getParent() != null) {
             if (parent instanceof ClassBodyDeclarationContext) {
                 ClassBodyDeclarationContext cBodyCtx = (ClassBodyDeclarationContext) parent;
-                if (cBodyCtx.memberDeclaration() != null)
+                if (cBodyCtx.memberDeclaration() != null) {
                     isMethod = true;
+                }
                 break;
             }
             parent = parent.getParent();
