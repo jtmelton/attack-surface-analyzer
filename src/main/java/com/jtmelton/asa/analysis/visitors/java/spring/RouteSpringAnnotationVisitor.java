@@ -4,6 +4,7 @@ import com.jtmelton.asa.analysis.generated.antlr4.java8.JavaParser.AnnotationCon
 import com.jtmelton.asa.analysis.generated.antlr4.java8.JavaParser.ClassBodyDeclarationContext;
 import com.jtmelton.asa.analysis.generated.antlr4.java8.JavaParser.QualifiedNameContext;
 import com.jtmelton.asa.analysis.generated.antlr4.java8.JavaParserBaseVisitor;
+import com.jtmelton.asa.analysis.visitors.java.jaxrs.TypeSearchVisitor;
 import com.jtmelton.asa.domain.Parameter;
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.TerminalNode;
@@ -15,6 +16,9 @@ import static com.google.common.collect.ImmutableList.*;
 public class RouteSpringAnnotationVisitor extends JavaParserBaseVisitor<Void> {
 
     private static final Set<String> REQUEST_MAPPING_ANNOTATIONS = new HashSet<>(of("RequestMapping", "DeleteMapping", "GetMapping", "PostMapping", "PatchMapping", "PutMapping"));
+
+    private static final Set<String> PARAMETER_ANNOTATIONS =
+            new HashSet<>(Arrays.asList("RequestHeader", "PathVariable", "RequestParam", "CookieValue", "RequestPart", "RequestAttribute", "RequestBody", "MatrixVariable"));
 
     private final Set<String> methods = new HashSet<>();
     private final Set<String> classLevelPaths = new HashSet<>();
@@ -32,15 +36,19 @@ public class RouteSpringAnnotationVisitor extends JavaParserBaseVisitor<Void> {
                 methods.add(type);
             }
 
-            if (REQUEST_MAPPING_ANNOTATIONS.contains(type)) {
+            if (REQUEST_MAPPING_ANNOTATIONS.contains(type) || PARAMETER_ANNOTATIONS.contains(type)) {
                 RouteSpringParameterVisitor parameterVisitor = new RouteSpringParameterVisitor();
                 ctx.getPayload().accept(parameterVisitor);
                 String name = parameterVisitor.getName();
 
-                if (isMethodLevelPath(ctx)) {
-                    methodLevelPaths.add(name);
-                } else {
-                    classLevelPaths.add(name);
+                if (REQUEST_MAPPING_ANNOTATIONS.contains(type)) {
+                    if (isMethodLevelPath(ctx)) {
+                        methodLevelPaths.add(name);
+                    } else {
+                        classLevelPaths.add(name);
+                    }
+                } else if (PARAMETER_ANNOTATIONS.contains(type)) {
+                    parameters.add(new Parameter(type, name, findType(ctx)));
                 }
             }
         }
@@ -62,6 +70,22 @@ public class RouteSpringAnnotationVisitor extends JavaParserBaseVisitor<Void> {
             parent = parent.getParent();
         }
         return isMethod;
+    }
+
+    private String findType(AnnotationContext ctx) {
+        String type = "";
+        ParserRuleContext parent = ctx.getParent();
+        while (parent.getParent() != null) {
+            TypeSearchVisitor visitor = new TypeSearchVisitor();
+            parent.accept(visitor);
+            if(visitor.getType() != null) {
+                type = visitor.getType();
+                break;
+            }
+
+            parent = parent.getParent();
+        }
+        return type;
     }
 
     public Set<String> getMethods() {
