@@ -8,6 +8,9 @@ A tool for analyzing the attack surface of an application.
 #### Javascript 
 -[Express](https://expressjs.com/)
 
+#### Python 
+-Django
+
 ## Building
 Maven is required for building.
 ```bash
@@ -51,6 +54,7 @@ Analyzers can be enabled/disabled via a properties file. If no properties file i
 visitor.java.jaxrs=true
 visitor.java.spring=true
 visitor.js.express=true
+visitor.python.django=true
 ```
 
 ## Docker Support
