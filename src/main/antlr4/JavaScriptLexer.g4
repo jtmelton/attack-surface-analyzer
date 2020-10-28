@@ -30,7 +30,7 @@ lexer grammar JavaScriptLexer;
 
 channels { ERROR }
 
-options { superClass=com.jtmelton.asa.analysis.parsers.JavaScriptBaseLexer; }
+options { superClass=com.jtmelton.asa.analysis.parsers.javascript.JavaScriptBaseLexer; }
 
 MultiLineComment:               '/*' .*? '*/'             -> channel(HIDDEN);
 SingleLineComment:              '//' ~[\r\n\u2028\u2029]* -> channel(HIDDEN);

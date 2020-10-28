@@ -4,12 +4,15 @@ import com.jtmelton.asa.analysis.generated.antlr4.ecmascript6.JavaScriptLexer;
 import com.jtmelton.asa.analysis.generated.antlr4.ecmascript6.JavaScriptParser;
 import com.jtmelton.asa.analysis.generated.antlr4.java8.JavaLexer;
 import com.jtmelton.asa.analysis.generated.antlr4.java8.JavaParser;
+import com.jtmelton.asa.analysis.generated.antlr4.python.PythonLexer;
+import com.jtmelton.asa.analysis.generated.antlr4.python.PythonParser;
 import com.jtmelton.asa.analysis.utils.Settings;
 import com.jtmelton.asa.analysis.visitors.IRouteVisitor;
 import com.jtmelton.asa.analysis.visitors.IRouteVisitor.Phase;
 import com.jtmelton.asa.analysis.visitors.java.jaxrs.JaxRsVisitor;
 import com.jtmelton.asa.analysis.visitors.java.spring.SpringVisitor;
 import com.jtmelton.asa.analysis.visitors.javascript.express.ExpressRouteVisitor;
+import com.jtmelton.asa.analysis.visitors.python.DjangoVisitor;
 import com.jtmelton.asa.domain.Route;
 
 import org.antlr.v4.runtime.*;
@@ -163,6 +166,9 @@ public class RouteAnalyzer {
       case JAVASCRIPT:
         lexer = new JavaScriptLexer(CharStreams.fromFileName(filename));
       break;
+      case PYTHON:
+        lexer = new PythonLexer(CharStreams.fromFileName(filename));
+        break;
       default:
         lexer = new JavaLexer(CharStreams.fromFileName(filename));
         break;
@@ -178,6 +184,9 @@ public class RouteAnalyzer {
       case JAVASCRIPT:
         parser = new JavaScriptParser(tokens);
         break;
+      case PYTHON:
+        parser = new PythonParser(tokens);
+        break;
       default:
         parser = new JavaParser(tokens);
         break;
@@ -192,6 +201,9 @@ public class RouteAnalyzer {
     switch (lang) {
       case JAVASCRIPT:
         ruleContext = ((JavaScriptParser) parser).program();
+        break;
+      case PYTHON:
+        ruleContext = ((PythonParser) parser).root();
         break;
       default:
         ruleContext = ((JavaParser) parser).compilationUnit();
@@ -244,6 +256,10 @@ public class RouteAnalyzer {
       registerVisitor(new SpringVisitor());
       acceptedLangs.add(Language.JAVA);
     }
+    if(settings.getPropBool(Settings.VISITOR_DJANGO)) {
+      registerVisitor(new DjangoVisitor());
+      acceptedLangs.add(Language.PYTHON);
+    }
   }
 
   public void registerVisitor(IRouteVisitor visitor) {
@@ -252,7 +268,8 @@ public class RouteAnalyzer {
 
   public enum Language {
     JAVASCRIPT(".js"),
-    JAVA(".java");
+    JAVA(".java"),
+    PYTHON(".py");
     String ext;
     Language(String ext) {
       this.ext = ext;

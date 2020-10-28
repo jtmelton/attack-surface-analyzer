@@ -1,6 +1,6 @@
 package com.jtmelton.asa.analysis.generated.antlr4.ecmascript6;// Generated from C:/Users/Armando/Documents/Oracle/attack-surface-analyzer/src/main/antlr4\JavaScriptLexer.g4 by ANTLR 4.7
 
-import com.jtmelton.asa.analysis.parsers.JavaScriptBaseLexer;
+import com.jtmelton.asa.analysis.parsers.javascript.JavaScriptBaseLexer;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.*;
 import org.antlr.v4.runtime.atn.*;

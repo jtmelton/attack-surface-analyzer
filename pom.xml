@@ -39,22 +39,22 @@
           </execution>
         </executions>
       </plugin>
-      <plugin>
-        <groupId>org.antlr</groupId>
-        <artifactId>antlr4-maven-plugin</artifactId>
-        <version>4.7</version>
-        <configuration>
-          <listener>true</listener>
-          <visitor>true</visitor>
-        </configuration>
-        <executions>
-          <execution>
-            <goals>
-              <goal>antlr4</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
+<!--      <plugin>-->
+<!--        <groupId>org.antlr</groupId>-->
+<!--        <artifactId>antlr4-maven-plugin</artifactId>-->
+<!--        <version>4.7</version>-->
+<!--        <configuration>-->
+<!--          <listener>true</listener>-->
+<!--          <visitor>true</visitor>-->
+<!--        </configuration>-->
+<!--        <executions>-->
+<!--          <execution>-->
+<!--            <goals>-->
+<!--              <goal>antlr4</goal>-->
+<!--            </goals>-->
+<!--          </execution>-->
+<!--        </executions>-->
+<!--      </plugin>-->
 	<plugin>
             	<groupId>com.spotify</groupId>
             	<artifactId>docker-maven-plugin</artifactId>

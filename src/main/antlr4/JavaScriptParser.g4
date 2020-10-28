@@ -30,7 +30,7 @@ parser grammar JavaScriptParser;
 
 options {
     tokenVocab=JavaScriptLexer;
-    superClass=com.jtmelton.asa.analysis.parsers.JavaScriptBaseParser;
+    superClass=com.jtmelton.asa.analysis.parsers.javascript.JavaScriptBaseParser;
 }
 
 program

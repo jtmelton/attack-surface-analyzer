@@ -3,7 +3,10 @@ package com.jtmelton.asa.analysis.utils;
 import com.jtmelton.asa.analysis.generated.antlr4.java8.JavaParser.*;
 import org.antlr.v4.runtime.CommonToken;
 import org.antlr.v4.runtime.ParserRuleContext;
+import org.antlr.v4.runtime.Token;
+import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.TerminalNode;
+import org.antlr.v4.runtime.tree.TerminalNodeImpl;
 
 import java.util.ArrayList;
 import java.util.Collections;

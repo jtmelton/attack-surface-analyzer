@@ -1,4 +1,4 @@
-package com.jtmelton.asa.analysis.parsers;
+package com.jtmelton.asa.analysis.parsers.javascript;
 
 import com.jtmelton.asa.analysis.generated.antlr4.ecmascript6.JavaScriptParser;
 import org.antlr.v4.runtime.*;
