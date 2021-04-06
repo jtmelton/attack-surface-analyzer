@@ -3,6 +3,8 @@ package com.jtmelton.asa.analysis.utils;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.Properties;
 
 public class Settings {
@@ -11,6 +13,7 @@ public class Settings {
   public static final String VISITOR_SPRING = "visitor.java.spring";
   public static final String VISITOR_EXPRESS = "visitor.js.express";
   public static final String VISITOR_DJANGO = "visitor.python.django";
+  public static final String VISITOR_JAVA_FRAMEWORK_DETECTION = "visitor.java.frameworkdetection";
 
   private final Properties props = new Properties();
 

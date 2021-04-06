@@ -1,0 +1,163 @@
+{
+  "enableJavaJaxRs": true,
+  "enableJavaSpring": true,
+  "enableJsExpress": true,
+  "enablePythonDjango": true,
+  "enableJavaFrameworkDetection": true,
+  "knownFrameworks": [
+    {
+      "prefix": "java.util.regex",
+      "name": "Java REGEX Subsystem"
+    },
+    {
+      "prefix": "com.fasterxml.jackson",
+      "name": "Jackson"
+    },
+    {
+      "prefix": "org.springframework.util",
+      "name": "Spring Util"
+    },
+    {
+      "prefix": "java.util.concurrent",
+      "name": "Java Concurrency Subsystem"
+    },
+    {
+      "prefix": "org.springframework.security",
+      "name": "Spring Security",
+      "tags": ["security"]
+    },
+    {
+      "prefix": "org.springframework.web",
+      "name": "Spring Web"
+    },
+    {
+      "prefix": "com.rabbitmq.client",
+      "name": "RabbitMQ Client"
+    },
+    {
+      "prefix": "org.apache.http.client",
+      "name": "Apache Commons HTTPClient"
+    },
+    {
+      "prefix": "org.apache.commons.httpclient",
+      "name": "Older Apache Commons HTTPClient"
+    },
+    {
+      "prefix": "lombok",
+      "name": "Lombok"
+    },
+    {
+      "prefix": "org.springframework.jdbc",
+      "name": "Spring JDBC"
+    },
+    {
+      "prefix": "org.apache.commons.codec",
+      "name": "Apache Commons Codec"
+    },
+    {
+      "prefix": "com.google.common.base",
+      "name": "Google Guava"
+    },
+    {
+      "prefix": "org.jsoup",
+      "name": "JSoup"
+    },
+    {
+      "prefix": "org.springframework.amqp",
+      "name": "Spring AMQP"
+    },
+    {
+      "prefix": "java.time",
+      "name": "Java Time"
+    },
+    {
+      "prefix": "javax.inject",
+      "name": "Java Dependency Injection"
+    },
+    {
+      "prefix": "org.springframework.boot",
+      "name": "Spring Boot"
+    },
+    {
+      "prefix": "org.apache.ecs",
+      "name": "Apache ECS"
+    },
+    {
+      "prefix": "org.springframework.test",
+      "name": "Spring Test"
+    },
+    {
+      "prefix": "java.util.stream",
+      "name": "Java Streaming"
+    },
+    {
+      "prefix": "java.sql",
+      "name": "JDBC"
+    },
+    {
+      "prefix": "java.util",
+      "name": "Java Util"
+    },
+    {
+      "prefix": "javax.servlet.http",
+      "name": "Java Servlets"
+    },
+    {
+      "prefix": "org.springframework.dao",
+      "name": "Spring DAO"
+    },
+    {
+      "prefix": "org.apache.commons.lang3",
+      "name": "Apache Commons Lang3"
+    },
+    {
+      "prefix": "org.slf4j",
+      "name": "SLF4J"
+    },
+    {
+      "prefix": "org.springframework.http.client",
+      "name": "Spring HttpClient"
+    },
+    {
+      "prefix": "javax.ws.rs.core",
+      "name": "JAX-RS"
+    },
+    {
+      "prefix": "org.aspectj",
+      "name": "AspectJ"
+    },
+    {
+      "prefix": "org.springframework.context",
+      "name": "Spring Context"
+    },
+    {
+      "prefix": "org.springframework.scheduling",
+      "name": "Spring Scheduling"
+    },
+    {
+      "prefix": "com.google.common.hash",
+      "name": "Google Hashing"
+    },
+    {
+      "prefix": "freemarker",
+      "name": "Freemarker"
+    },
+    {
+      "prefix": "java.text",
+      "name": "Java Text Processing"
+    },
+    {
+      "prefix": "org.apache.catalina",
+      "name": "Apache Catalina"
+    },
+    {
+      "prefix": "org.junit",
+      "name": "JUnit"
+    },
+    {
+      "prefix": "org.springframework.transaction",
+      "name": "Spring Transactions"
+    }
+
+  ]
+}

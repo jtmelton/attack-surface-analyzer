@@ -1,9 +1,10 @@
 package com.jtmelton.asa.analysis.visitors.javascript.express;
 
-import com.jtmelton.asa.analysis.RouteAnalyzer;
 import com.jtmelton.asa.analysis.generated.antlr4.ecmascript6.JavaScriptParserBaseVisitor;
 import com.jtmelton.asa.analysis.utils.JsAstNodes;
 import com.jtmelton.asa.analysis.visitors.IRouteVisitor;
+import com.jtmelton.asa.analysis.visitors.Language;
+import com.jtmelton.asa.analysis.visitors.Phase;
 import com.jtmelton.asa.domain.Parameter;
 import com.jtmelton.asa.domain.Route;
 import org.antlr.v4.runtime.tree.TerminalNode;
@@ -16,6 +17,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import static com.jtmelton.asa.analysis.generated.antlr4.ecmascript6.JavaScriptParser.*;
+
+import java.lang.Void;
 
 public class ExpressRouteVisitor extends JavaScriptParserBaseVisitor<Void> implements IRouteVisitor {
 
@@ -267,7 +270,7 @@ public class ExpressRouteVisitor extends JavaScriptParserBaseVisitor<Void> imple
   }
 
   @Override
-  public boolean acceptedLang(RouteAnalyzer.Language lang) {
-    return RouteAnalyzer.Language.JAVASCRIPT == lang;
+  public boolean acceptedLang(Language lang) {
+    return Language.JAVASCRIPT == lang;
   }
 }

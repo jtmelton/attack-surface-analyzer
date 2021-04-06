@@ -1,14 +1,13 @@
 package com.jtmelton.asa.analysis.visitors.python;
 
-import com.jtmelton.asa.analysis.RouteAnalyzer;
 import com.jtmelton.asa.analysis.generated.antlr4.python.PythonParser;
 import com.jtmelton.asa.analysis.generated.antlr4.python.PythonParserBaseVisitor;
 import com.jtmelton.asa.analysis.utils.PythonAstNodes;
 import com.jtmelton.asa.analysis.visitors.IRouteVisitor;
+import com.jtmelton.asa.analysis.visitors.Language;
+import com.jtmelton.asa.analysis.visitors.Phase;
 import com.jtmelton.asa.domain.Route;
-import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ParseTree;
-import org.antlr.v4.runtime.tree.TerminalNode;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -74,8 +73,8 @@ public class DjangoVisitor extends PythonParserBaseVisitor<Void> implements IRou
     }
 
     @Override
-    public boolean acceptedLang(RouteAnalyzer.Language lang) {
-        return RouteAnalyzer.Language.PYTHON == lang;
+    public boolean acceptedLang(Language lang) {
+        return Language.PYTHON == lang;
     }
 
 }

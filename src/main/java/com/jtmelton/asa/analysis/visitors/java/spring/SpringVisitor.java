@@ -1,11 +1,12 @@
 package com.jtmelton.asa.analysis.visitors.java.spring;
 
-import com.jtmelton.asa.analysis.RouteAnalyzer;
 import com.jtmelton.asa.analysis.generated.antlr4.java8.JavaParser;
 import com.jtmelton.asa.analysis.generated.antlr4.java8.JavaParser.ClassBodyDeclarationContext;
 import com.jtmelton.asa.analysis.generated.antlr4.java8.JavaParserBaseVisitor;
 import com.jtmelton.asa.analysis.utils.JavaAstNodes;
 import com.jtmelton.asa.analysis.visitors.IRouteVisitor;
+import com.jtmelton.asa.analysis.visitors.Language;
+import com.jtmelton.asa.analysis.visitors.Phase;
 import com.jtmelton.asa.domain.Route;
 
 import java.util.ArrayList;
@@ -63,7 +64,7 @@ public class SpringVisitor extends JavaParserBaseVisitor<Void> implements IRoute
   }
 
   @Override
-  public boolean acceptedLang(RouteAnalyzer.Language lang) {
-    return RouteAnalyzer.Language.JAVA == lang;
+  public boolean acceptedLang(Language lang) {
+    return Language.JAVA == lang;
   }
 }
