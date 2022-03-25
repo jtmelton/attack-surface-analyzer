@@ -1,4 +1,5 @@
 {
+  "enableGolang": true,
   "enableJavaJaxRs": true,
   "enableJavaSpring": true,
   "enableJsExpress": true,

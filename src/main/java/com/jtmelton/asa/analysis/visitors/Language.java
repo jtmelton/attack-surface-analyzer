@@ -1,6 +1,7 @@
 package com.jtmelton.asa.analysis.visitors;
 
 public enum Language {
+    GOLANG(".go"),
     JAVASCRIPT(".js"),
     JAVA(".java"),
     PYTHON(".py");

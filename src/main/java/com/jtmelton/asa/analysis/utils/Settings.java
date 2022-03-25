@@ -9,6 +9,7 @@ import java.util.Properties;
 
 public class Settings {
 
+  public static final String VISITOR_GOLANG = "visitor.golang";
   public static final String VISITOR_JAXRS = "visitor.java.jaxrs";
   public static final String VISITOR_SPRING = "visitor.java.spring";
   public static final String VISITOR_EXPRESS = "visitor.js.express";

@@ -1,15 +1,16 @@
-package com.jtmelton.asa.analysis.generated.antlr4.ecmascript6;// Generated from C:/Users/Armando/Documents/Oracle/attack-surface-analyzer/src/main/antlr4\JavaScriptParser.g4 by ANTLR 4.7
-
-import com.jtmelton.asa.analysis.parsers.javascript.JavaScriptBaseParser;
+package com.jtmelton.asa.analysis.generated.antlr4.ecmascript6;// Generated from C:/Users/Armando/repos/attack-surface-analyzer/src/main/antlr4\JavaScriptParser.g4 by ANTLR 4.9.2
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
+import org.antlr.v4.runtime.misc.*;
 import org.antlr.v4.runtime.tree.*;
 import java.util.List;
+import java.util.Iterator;
+import java.util.ArrayList;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
-public class JavaScriptParser extends JavaScriptBaseParser {
-	static { RuntimeMetaData.checkVersion("4.7", RuntimeMetaData.VERSION); }
+public class JavaScriptParser extends com.jtmelton.asa.analysis.parsers.javascript.JavaScriptBaseParser {
+	static { RuntimeMetaData.checkVersion("4.9.2", RuntimeMetaData.VERSION); }
 
 	protected static final DFA[] _decisionToDFA;
 	protected static final PredictionContextCache _sharedContextCache =
@@ -57,59 +58,68 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		RULE_literal = 52, RULE_numericLiteral = 53, RULE_identifierName = 54, 
 		RULE_reservedWord = 55, RULE_keyword = 56, RULE_getter = 57, RULE_setter = 58, 
 		RULE_eos = 59;
-	public static final String[] ruleNames = {
-		"program", "sourceElement", "statement", "block", "statementList", "variableStatement", 
-		"variableDeclarationList", "variableDeclaration", "emptyStatement", "expressionStatement", 
-		"ifStatement", "iterationStatement", "varModifier", "continueStatement", 
-		"breakStatement", "returnStatement", "withStatement", "switchStatement", 
-		"caseBlock", "caseClauses", "caseClause", "defaultClause", "labelledStatement", 
-		"throwStatement", "tryStatement", "catchProduction", "finallyProduction", 
-		"debuggerStatement", "functionDeclaration", "classDeclaration", "classTail", 
-		"classElement", "methodDefinition", "generatorMethod", "formalParameterList", 
-		"formalParameterArg", "lastFormalParameterArg", "functionBody", "sourceElements", 
-		"arrayLiteral", "elementList", "lastElement", "objectLiteral", "propertyAssignment", 
-		"propertyName", "arguments", "lastArgument", "expressionSequence", "singleExpression", 
-		"arrowFunctionParameters", "arrowFunctionBody", "assignmentOperator", 
-		"literal", "numericLiteral", "identifierName", "reservedWord", "keyword", 
-		"getter", "setter", "eos"
-	};
+	private static String[] makeRuleNames() {
+		return new String[] {
+			"program", "sourceElement", "statement", "block", "statementList", "variableStatement", 
+			"variableDeclarationList", "variableDeclaration", "emptyStatement", "expressionStatement", 
+			"ifStatement", "iterationStatement", "varModifier", "continueStatement", 
+			"breakStatement", "returnStatement", "withStatement", "switchStatement", 
+			"caseBlock", "caseClauses", "caseClause", "defaultClause", "labelledStatement", 
+			"throwStatement", "tryStatement", "catchProduction", "finallyProduction", 
+			"debuggerStatement", "functionDeclaration", "classDeclaration", "classTail", 
+			"classElement", "methodDefinition", "generatorMethod", "formalParameterList", 
+			"formalParameterArg", "lastFormalParameterArg", "functionBody", "sourceElements", 
+			"arrayLiteral", "elementList", "lastElement", "objectLiteral", "propertyAssignment", 
+			"propertyName", "arguments", "lastArgument", "expressionSequence", "singleExpression", 
+			"arrowFunctionParameters", "arrowFunctionBody", "assignmentOperator", 
+			"literal", "numericLiteral", "identifierName", "reservedWord", "keyword", 
+			"getter", "setter", "eos"
+		};
+	}
+	public static final String[] ruleNames = makeRuleNames();
 
-	private static final String[] _LITERAL_NAMES = {
-		null, null, null, null, "'['", "']'", "'('", "')'", "'{'", "'}'", "';'", 
-		"','", "'='", "'?'", "':'", "'...'", "'.'", "'++'", "'--'", "'+'", "'-'", 
-		"'~'", "'!'", "'*'", "'/'", "'%'", "'>>'", "'<<'", "'>>>'", "'<'", "'>'", 
-		"'<='", "'>='", "'=='", "'!='", "'==='", "'!=='", "'&'", "'^'", "'|'", 
-		"'&&'", "'||'", "'*='", "'/='", "'%='", "'+='", "'-='", "'<<='", "'>>='", 
-		"'>>>='", "'&='", "'^='", "'|='", "'=>'", "'null'", null, null, null, 
-		null, null, null, "'break'", "'do'", "'instanceof'", "'typeof'", "'case'", 
-		"'else'", "'new'", "'var'", "'catch'", "'finally'", "'return'", "'void'", 
-		"'continue'", "'for'", "'switch'", "'while'", "'debugger'", "'function'", 
-		"'this'", "'with'", "'default'", "'if'", "'throw'", "'delete'", "'in'", 
-		"'try'", "'class'", "'enum'", "'extends'", "'super'", "'const'", "'export'", 
-		"'import'", "'implements'", "'let'", "'private'", "'public'", "'interface'", 
-		"'package'", "'protected'", "'static'", "'yield'"
-	};
-	private static final String[] _SYMBOLIC_NAMES = {
-		null, "MultiLineComment", "SingleLineComment", "RegularExpressionLiteral", 
-		"OpenBracket", "CloseBracket", "OpenParen", "CloseParen", "OpenBrace", 
-		"CloseBrace", "SemiColon", "Comma", "Assign", "QuestionMark", "Colon", 
-		"Ellipsis", "Dot", "PlusPlus", "MinusMinus", "Plus", "Minus", "BitNot", 
-		"Not", "Multiply", "Divide", "Modulus", "RightShiftArithmetic", "LeftShiftArithmetic", 
-		"RightShiftLogical", "LessThan", "MoreThan", "LessThanEquals", "GreaterThanEquals", 
-		"Equals_", "NotEquals", "IdentityEquals", "IdentityNotEquals", "BitAnd", 
-		"BitXOr", "BitOr", "And", "Or", "MultiplyAssign", "DivideAssign", "ModulusAssign", 
-		"PlusAssign", "MinusAssign", "LeftShiftArithmeticAssign", "RightShiftArithmeticAssign", 
-		"RightShiftLogicalAssign", "BitAndAssign", "BitXorAssign", "BitOrAssign", 
-		"ARROW", "NullLiteral", "BooleanLiteral", "DecimalLiteral", "HexIntegerLiteral", 
-		"OctalIntegerLiteral", "OctalIntegerLiteral2", "BinaryIntegerLiteral", 
-		"Break", "Do", "Instanceof", "Typeof", "Case", "Else", "New", "Var", "Catch", 
-		"Finally", "Return", "Void", "Continue", "For", "Switch", "While", "Debugger", 
-		"Function", "This", "With", "Default", "If", "Throw", "Delete", "In", 
-		"Try", "Class", "Enum", "Extends", "Super", "Const", "Export", "Import", 
-		"Implements", "Let", "Private", "Public", "Interface", "Package", "Protected", 
-		"Static", "Yield", "Identifier", "StringLiteral", "TemplateStringLiteral", 
-		"WhiteSpaces", "LineTerminator", "HtmlComment", "CDataComment", "UnexpectedCharacter"
-	};
+	private static String[] makeLiteralNames() {
+		return new String[] {
+			null, null, null, null, "'['", "']'", "'('", "')'", "'{'", "'}'", "';'", 
+			"','", "'='", "'?'", "':'", "'...'", "'.'", "'++'", "'--'", "'+'", "'-'", 
+			"'~'", "'!'", "'*'", "'/'", "'%'", "'>>'", "'<<'", "'>>>'", "'<'", "'>'", 
+			"'<='", "'>='", "'=='", "'!='", "'==='", "'!=='", "'&'", "'^'", "'|'", 
+			"'&&'", "'||'", "'*='", "'/='", "'%='", "'+='", "'-='", "'<<='", "'>>='", 
+			"'>>>='", "'&='", "'^='", "'|='", "'=>'", "'null'", null, null, null, 
+			null, null, null, "'break'", "'do'", "'instanceof'", "'typeof'", "'case'", 
+			"'else'", "'new'", "'var'", "'catch'", "'finally'", "'return'", "'void'", 
+			"'continue'", "'for'", "'switch'", "'while'", "'debugger'", "'function'", 
+			"'this'", "'with'", "'default'", "'if'", "'throw'", "'delete'", "'in'", 
+			"'try'", "'class'", "'enum'", "'extends'", "'super'", "'const'", "'export'", 
+			"'import'", "'implements'", "'let'", "'private'", "'public'", "'interface'", 
+			"'package'", "'protected'", "'static'", "'yield'"
+		};
+	}
+	private static final String[] _LITERAL_NAMES = makeLiteralNames();
+	private static String[] makeSymbolicNames() {
+		return new String[] {
+			null, "MultiLineComment", "SingleLineComment", "RegularExpressionLiteral", 
+			"OpenBracket", "CloseBracket", "OpenParen", "CloseParen", "OpenBrace", 
+			"CloseBrace", "SemiColon", "Comma", "Assign", "QuestionMark", "Colon", 
+			"Ellipsis", "Dot", "PlusPlus", "MinusMinus", "Plus", "Minus", "BitNot", 
+			"Not", "Multiply", "Divide", "Modulus", "RightShiftArithmetic", "LeftShiftArithmetic", 
+			"RightShiftLogical", "LessThan", "MoreThan", "LessThanEquals", "GreaterThanEquals", 
+			"Equals_", "NotEquals", "IdentityEquals", "IdentityNotEquals", "BitAnd", 
+			"BitXOr", "BitOr", "And", "Or", "MultiplyAssign", "DivideAssign", "ModulusAssign", 
+			"PlusAssign", "MinusAssign", "LeftShiftArithmeticAssign", "RightShiftArithmeticAssign", 
+			"RightShiftLogicalAssign", "BitAndAssign", "BitXorAssign", "BitOrAssign", 
+			"ARROW", "NullLiteral", "BooleanLiteral", "DecimalLiteral", "HexIntegerLiteral", 
+			"OctalIntegerLiteral", "OctalIntegerLiteral2", "BinaryIntegerLiteral", 
+			"Break", "Do", "Instanceof", "Typeof", "Case", "Else", "New", "Var", 
+			"Catch", "Finally", "Return", "Void", "Continue", "For", "Switch", "While", 
+			"Debugger", "Function", "This", "With", "Default", "If", "Throw", "Delete", 
+			"In", "Try", "Class", "Enum", "Extends", "Super", "Const", "Export", 
+			"Import", "Implements", "Let", "Private", "Public", "Interface", "Package", 
+			"Protected", "Static", "Yield", "Identifier", "StringLiteral", "TemplateStringLiteral", 
+			"WhiteSpaces", "LineTerminator", "HtmlComment", "CDataComment", "UnexpectedCharacter"
+		};
+	}
+	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
 	public static final Vocabulary VOCABULARY = new VocabularyImpl(_LITERAL_NAMES, _SYMBOLIC_NAMES);
 
 	/**
@@ -159,6 +169,7 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		super(input);
 		_interp = new ParserATNSimulator(this,_ATN,_decisionToDFA,_sharedContextCache);
 	}
+
 	public static class ProgramContext extends ParserRuleContext {
 		public TerminalNode EOF() { return getToken(JavaScriptParser.EOF, 0); }
 		public SourceElementsContext sourceElements() {
@@ -170,15 +181,15 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		@Override public int getRuleIndex() { return RULE_program; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterProgram(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterProgram(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitProgram(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitProgram(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitProgram(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitProgram(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -225,15 +236,15 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		@Override public int getRuleIndex() { return RULE_sourceElement; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterSourceElement(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterSourceElement(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitSourceElement(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitSourceElement(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitSourceElement(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitSourceElement(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -327,15 +338,15 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		@Override public int getRuleIndex() { return RULE_statement; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterStatement(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterStatement(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitStatement(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitStatement(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitStatement(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitStatement(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -480,6 +491,8 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 	}
 
 	public static class BlockContext extends ParserRuleContext {
+		public TerminalNode OpenBrace() { return getToken(JavaScriptParser.OpenBrace, 0); }
+		public TerminalNode CloseBrace() { return getToken(JavaScriptParser.CloseBrace, 0); }
 		public StatementListContext statementList() {
 			return getRuleContext(StatementListContext.class,0);
 		}
@@ -489,15 +502,15 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		@Override public int getRuleIndex() { return RULE_block; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterBlock(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterBlock(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitBlock(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitBlock(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitBlock(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitBlock(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -548,15 +561,15 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		@Override public int getRuleIndex() { return RULE_statementList; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterStatementList(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterStatementList(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitStatementList(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitStatementList(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitStatementList(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitStatementList(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -617,15 +630,15 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		@Override public int getRuleIndex() { return RULE_variableStatement; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterVariableStatement(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterVariableStatement(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitVariableStatement(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitVariableStatement(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitVariableStatement(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitVariableStatement(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -662,21 +675,25 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		public VariableDeclarationContext variableDeclaration(int i) {
 			return getRuleContext(VariableDeclarationContext.class,i);
 		}
+		public List<TerminalNode> Comma() { return getTokens(JavaScriptParser.Comma); }
+		public TerminalNode Comma(int i) {
+			return getToken(JavaScriptParser.Comma, i);
+		}
 		public VariableDeclarationListContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_variableDeclarationList; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterVariableDeclarationList(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterVariableDeclarationList(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitVariableDeclarationList(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitVariableDeclarationList(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitVariableDeclarationList(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitVariableDeclarationList(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -729,6 +746,7 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		public ObjectLiteralContext objectLiteral() {
 			return getRuleContext(ObjectLiteralContext.class,0);
 		}
+		public TerminalNode Assign() { return getToken(JavaScriptParser.Assign, 0); }
 		public SingleExpressionContext singleExpression() {
 			return getRuleContext(SingleExpressionContext.class,0);
 		}
@@ -738,15 +756,15 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		@Override public int getRuleIndex() { return RULE_variableDeclaration; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterVariableDeclaration(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterVariableDeclaration(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitVariableDeclaration(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitVariableDeclaration(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitVariableDeclaration(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitVariableDeclaration(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -814,15 +832,15 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		@Override public int getRuleIndex() { return RULE_emptyStatement; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterEmptyStatement(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterEmptyStatement(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitEmptyStatement(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitEmptyStatement(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitEmptyStatement(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitEmptyStatement(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -861,15 +879,15 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		@Override public int getRuleIndex() { return RULE_expressionStatement; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterExpressionStatement(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterExpressionStatement(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitExpressionStatement(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitExpressionStatement(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitExpressionStatement(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitExpressionStatement(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -901,9 +919,11 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 
 	public static class IfStatementContext extends ParserRuleContext {
 		public TerminalNode If() { return getToken(JavaScriptParser.If, 0); }
+		public TerminalNode OpenParen() { return getToken(JavaScriptParser.OpenParen, 0); }
 		public ExpressionSequenceContext expressionSequence() {
 			return getRuleContext(ExpressionSequenceContext.class,0);
 		}
+		public TerminalNode CloseParen() { return getToken(JavaScriptParser.CloseParen, 0); }
 		public List<StatementContext> statement() {
 			return getRuleContexts(StatementContext.class);
 		}
@@ -917,15 +937,15 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		@Override public int getRuleIndex() { return RULE_ifStatement; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterIfStatement(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterIfStatement(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitIfStatement(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitIfStatement(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitIfStatement(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitIfStatement(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -988,35 +1008,43 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 			return getRuleContext(StatementContext.class,0);
 		}
 		public TerminalNode While() { return getToken(JavaScriptParser.While, 0); }
+		public TerminalNode OpenParen() { return getToken(JavaScriptParser.OpenParen, 0); }
 		public ExpressionSequenceContext expressionSequence() {
 			return getRuleContext(ExpressionSequenceContext.class,0);
 		}
+		public TerminalNode CloseParen() { return getToken(JavaScriptParser.CloseParen, 0); }
 		public EosContext eos() {
 			return getRuleContext(EosContext.class,0);
 		}
 		public DoStatementContext(IterationStatementContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterDoStatement(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterDoStatement(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitDoStatement(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitDoStatement(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitDoStatement(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitDoStatement(this);
 			else return visitor.visitChildren(this);
 		}
 	}
 	public static class ForVarStatementContext extends IterationStatementContext {
 		public TerminalNode For() { return getToken(JavaScriptParser.For, 0); }
+		public TerminalNode OpenParen() { return getToken(JavaScriptParser.OpenParen, 0); }
 		public VarModifierContext varModifier() {
 			return getRuleContext(VarModifierContext.class,0);
 		}
 		public VariableDeclarationListContext variableDeclarationList() {
 			return getRuleContext(VariableDeclarationListContext.class,0);
 		}
+		public List<TerminalNode> SemiColon() { return getTokens(JavaScriptParser.SemiColon); }
+		public TerminalNode SemiColon(int i) {
+			return getToken(JavaScriptParser.SemiColon, i);
+		}
+		public TerminalNode CloseParen() { return getToken(JavaScriptParser.CloseParen, 0); }
 		public StatementContext statement() {
 			return getRuleContext(StatementContext.class,0);
 		}
@@ -1029,20 +1057,21 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		public ForVarStatementContext(IterationStatementContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterForVarStatement(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterForVarStatement(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitForVarStatement(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitForVarStatement(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitForVarStatement(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitForVarStatement(this);
 			else return visitor.visitChildren(this);
 		}
 	}
 	public static class ForVarInStatementContext extends IterationStatementContext {
 		public TerminalNode For() { return getToken(JavaScriptParser.For, 0); }
+		public TerminalNode OpenParen() { return getToken(JavaScriptParser.OpenParen, 0); }
 		public VarModifierContext varModifier() {
 			return getRuleContext(VarModifierContext.class,0);
 		}
@@ -1052,6 +1081,7 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		public ExpressionSequenceContext expressionSequence() {
 			return getRuleContext(ExpressionSequenceContext.class,0);
 		}
+		public TerminalNode CloseParen() { return getToken(JavaScriptParser.CloseParen, 0); }
 		public StatementContext statement() {
 			return getRuleContext(StatementContext.class,0);
 		}
@@ -1060,43 +1090,51 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		public ForVarInStatementContext(IterationStatementContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterForVarInStatement(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterForVarInStatement(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitForVarInStatement(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitForVarInStatement(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitForVarInStatement(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitForVarInStatement(this);
 			else return visitor.visitChildren(this);
 		}
 	}
 	public static class WhileStatementContext extends IterationStatementContext {
 		public TerminalNode While() { return getToken(JavaScriptParser.While, 0); }
+		public TerminalNode OpenParen() { return getToken(JavaScriptParser.OpenParen, 0); }
 		public ExpressionSequenceContext expressionSequence() {
 			return getRuleContext(ExpressionSequenceContext.class,0);
 		}
+		public TerminalNode CloseParen() { return getToken(JavaScriptParser.CloseParen, 0); }
 		public StatementContext statement() {
 			return getRuleContext(StatementContext.class,0);
 		}
 		public WhileStatementContext(IterationStatementContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterWhileStatement(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterWhileStatement(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitWhileStatement(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitWhileStatement(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitWhileStatement(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitWhileStatement(this);
 			else return visitor.visitChildren(this);
 		}
 	}
 	public static class ForStatementContext extends IterationStatementContext {
 		public TerminalNode For() { return getToken(JavaScriptParser.For, 0); }
+		public TerminalNode OpenParen() { return getToken(JavaScriptParser.OpenParen, 0); }
+		public List<TerminalNode> SemiColon() { return getTokens(JavaScriptParser.SemiColon); }
+		public TerminalNode SemiColon(int i) {
+			return getToken(JavaScriptParser.SemiColon, i);
+		}
+		public TerminalNode CloseParen() { return getToken(JavaScriptParser.CloseParen, 0); }
 		public StatementContext statement() {
 			return getRuleContext(StatementContext.class,0);
 		}
@@ -1109,26 +1147,28 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		public ForStatementContext(IterationStatementContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterForStatement(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterForStatement(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitForStatement(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitForStatement(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitForStatement(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitForStatement(this);
 			else return visitor.visitChildren(this);
 		}
 	}
 	public static class ForInStatementContext extends IterationStatementContext {
 		public TerminalNode For() { return getToken(JavaScriptParser.For, 0); }
+		public TerminalNode OpenParen() { return getToken(JavaScriptParser.OpenParen, 0); }
 		public SingleExpressionContext singleExpression() {
 			return getRuleContext(SingleExpressionContext.class,0);
 		}
 		public ExpressionSequenceContext expressionSequence() {
 			return getRuleContext(ExpressionSequenceContext.class,0);
 		}
+		public TerminalNode CloseParen() { return getToken(JavaScriptParser.CloseParen, 0); }
 		public StatementContext statement() {
 			return getRuleContext(StatementContext.class,0);
 		}
@@ -1137,15 +1177,15 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		public ForInStatementContext(IterationStatementContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterForInStatement(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterForInStatement(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitForInStatement(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitForInStatement(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitForInStatement(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitForInStatement(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -1385,15 +1425,15 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		@Override public int getRuleIndex() { return RULE_varModifier; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterVarModifier(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterVarModifier(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitVarModifier(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitVarModifier(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitVarModifier(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitVarModifier(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -1440,15 +1480,15 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		@Override public int getRuleIndex() { return RULE_continueStatement; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterContinueStatement(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterContinueStatement(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitContinueStatement(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitContinueStatement(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitContinueStatement(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitContinueStatement(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -1500,15 +1540,15 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		@Override public int getRuleIndex() { return RULE_breakStatement; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterBreakStatement(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterBreakStatement(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitBreakStatement(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitBreakStatement(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitBreakStatement(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitBreakStatement(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -1562,15 +1602,15 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		@Override public int getRuleIndex() { return RULE_returnStatement; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterReturnStatement(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterReturnStatement(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitReturnStatement(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitReturnStatement(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitReturnStatement(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitReturnStatement(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -1612,9 +1652,11 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 
 	public static class WithStatementContext extends ParserRuleContext {
 		public TerminalNode With() { return getToken(JavaScriptParser.With, 0); }
+		public TerminalNode OpenParen() { return getToken(JavaScriptParser.OpenParen, 0); }
 		public ExpressionSequenceContext expressionSequence() {
 			return getRuleContext(ExpressionSequenceContext.class,0);
 		}
+		public TerminalNode CloseParen() { return getToken(JavaScriptParser.CloseParen, 0); }
 		public StatementContext statement() {
 			return getRuleContext(StatementContext.class,0);
 		}
@@ -1624,15 +1666,15 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		@Override public int getRuleIndex() { return RULE_withStatement; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterWithStatement(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterWithStatement(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitWithStatement(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitWithStatement(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitWithStatement(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitWithStatement(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -1668,9 +1710,11 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 
 	public static class SwitchStatementContext extends ParserRuleContext {
 		public TerminalNode Switch() { return getToken(JavaScriptParser.Switch, 0); }
+		public TerminalNode OpenParen() { return getToken(JavaScriptParser.OpenParen, 0); }
 		public ExpressionSequenceContext expressionSequence() {
 			return getRuleContext(ExpressionSequenceContext.class,0);
 		}
+		public TerminalNode CloseParen() { return getToken(JavaScriptParser.CloseParen, 0); }
 		public CaseBlockContext caseBlock() {
 			return getRuleContext(CaseBlockContext.class,0);
 		}
@@ -1680,15 +1724,15 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		@Override public int getRuleIndex() { return RULE_switchStatement; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterSwitchStatement(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterSwitchStatement(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitSwitchStatement(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitSwitchStatement(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitSwitchStatement(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitSwitchStatement(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -1723,6 +1767,8 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 	}
 
 	public static class CaseBlockContext extends ParserRuleContext {
+		public TerminalNode OpenBrace() { return getToken(JavaScriptParser.OpenBrace, 0); }
+		public TerminalNode CloseBrace() { return getToken(JavaScriptParser.CloseBrace, 0); }
 		public List<CaseClausesContext> caseClauses() {
 			return getRuleContexts(CaseClausesContext.class);
 		}
@@ -1738,15 +1784,15 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		@Override public int getRuleIndex() { return RULE_caseBlock; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterCaseBlock(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterCaseBlock(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitCaseBlock(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitCaseBlock(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitCaseBlock(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitCaseBlock(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -1818,15 +1864,15 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		@Override public int getRuleIndex() { return RULE_caseClauses; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterCaseClauses(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterCaseClauses(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitCaseClauses(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitCaseClauses(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitCaseClauses(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitCaseClauses(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -1870,6 +1916,7 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		public ExpressionSequenceContext expressionSequence() {
 			return getRuleContext(ExpressionSequenceContext.class,0);
 		}
+		public TerminalNode Colon() { return getToken(JavaScriptParser.Colon, 0); }
 		public StatementListContext statementList() {
 			return getRuleContext(StatementListContext.class,0);
 		}
@@ -1879,15 +1926,15 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		@Override public int getRuleIndex() { return RULE_caseClause; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterCaseClause(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterCaseClause(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitCaseClause(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitCaseClause(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitCaseClause(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitCaseClause(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -1929,6 +1976,7 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 
 	public static class DefaultClauseContext extends ParserRuleContext {
 		public TerminalNode Default() { return getToken(JavaScriptParser.Default, 0); }
+		public TerminalNode Colon() { return getToken(JavaScriptParser.Colon, 0); }
 		public StatementListContext statementList() {
 			return getRuleContext(StatementListContext.class,0);
 		}
@@ -1938,15 +1986,15 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		@Override public int getRuleIndex() { return RULE_defaultClause; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterDefaultClause(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterDefaultClause(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitDefaultClause(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitDefaultClause(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitDefaultClause(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitDefaultClause(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -1986,6 +2034,7 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 
 	public static class LabelledStatementContext extends ParserRuleContext {
 		public TerminalNode Identifier() { return getToken(JavaScriptParser.Identifier, 0); }
+		public TerminalNode Colon() { return getToken(JavaScriptParser.Colon, 0); }
 		public StatementContext statement() {
 			return getRuleContext(StatementContext.class,0);
 		}
@@ -1995,15 +2044,15 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		@Override public int getRuleIndex() { return RULE_labelledStatement; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterLabelledStatement(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterLabelledStatement(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitLabelledStatement(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitLabelledStatement(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitLabelledStatement(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitLabelledStatement(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -2047,15 +2096,15 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		@Override public int getRuleIndex() { return RULE_throwStatement; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterThrowStatement(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterThrowStatement(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitThrowStatement(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitThrowStatement(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitThrowStatement(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitThrowStatement(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -2104,15 +2153,15 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		@Override public int getRuleIndex() { return RULE_tryStatement; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterTryStatement(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterTryStatement(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitTryStatement(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitTryStatement(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitTryStatement(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitTryStatement(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -2170,7 +2219,9 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 
 	public static class CatchProductionContext extends ParserRuleContext {
 		public TerminalNode Catch() { return getToken(JavaScriptParser.Catch, 0); }
+		public TerminalNode OpenParen() { return getToken(JavaScriptParser.OpenParen, 0); }
 		public TerminalNode Identifier() { return getToken(JavaScriptParser.Identifier, 0); }
+		public TerminalNode CloseParen() { return getToken(JavaScriptParser.CloseParen, 0); }
 		public BlockContext block() {
 			return getRuleContext(BlockContext.class,0);
 		}
@@ -2180,15 +2231,15 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		@Override public int getRuleIndex() { return RULE_catchProduction; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterCatchProduction(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterCatchProduction(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitCatchProduction(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitCatchProduction(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitCatchProduction(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitCatchProduction(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -2233,15 +2284,15 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		@Override public int getRuleIndex() { return RULE_finallyProduction; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterFinallyProduction(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterFinallyProduction(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitFinallyProduction(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitFinallyProduction(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitFinallyProduction(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitFinallyProduction(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -2280,15 +2331,15 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		@Override public int getRuleIndex() { return RULE_debuggerStatement; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterDebuggerStatement(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterDebuggerStatement(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitDebuggerStatement(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitDebuggerStatement(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitDebuggerStatement(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitDebuggerStatement(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -2319,9 +2370,13 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 	public static class FunctionDeclarationContext extends ParserRuleContext {
 		public TerminalNode Function() { return getToken(JavaScriptParser.Function, 0); }
 		public TerminalNode Identifier() { return getToken(JavaScriptParser.Identifier, 0); }
+		public TerminalNode OpenParen() { return getToken(JavaScriptParser.OpenParen, 0); }
+		public TerminalNode CloseParen() { return getToken(JavaScriptParser.CloseParen, 0); }
+		public TerminalNode OpenBrace() { return getToken(JavaScriptParser.OpenBrace, 0); }
 		public FunctionBodyContext functionBody() {
 			return getRuleContext(FunctionBodyContext.class,0);
 		}
+		public TerminalNode CloseBrace() { return getToken(JavaScriptParser.CloseBrace, 0); }
 		public FormalParameterListContext formalParameterList() {
 			return getRuleContext(FormalParameterListContext.class,0);
 		}
@@ -2331,15 +2386,15 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		@Override public int getRuleIndex() { return RULE_functionDeclaration; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterFunctionDeclaration(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterFunctionDeclaration(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitFunctionDeclaration(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitFunctionDeclaration(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitFunctionDeclaration(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitFunctionDeclaration(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -2400,15 +2455,15 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		@Override public int getRuleIndex() { return RULE_classDeclaration; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterClassDeclaration(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterClassDeclaration(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitClassDeclaration(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitClassDeclaration(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitClassDeclaration(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitClassDeclaration(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -2439,6 +2494,8 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 	}
 
 	public static class ClassTailContext extends ParserRuleContext {
+		public TerminalNode OpenBrace() { return getToken(JavaScriptParser.OpenBrace, 0); }
+		public TerminalNode CloseBrace() { return getToken(JavaScriptParser.CloseBrace, 0); }
 		public TerminalNode Extends() { return getToken(JavaScriptParser.Extends, 0); }
 		public SingleExpressionContext singleExpression() {
 			return getRuleContext(SingleExpressionContext.class,0);
@@ -2455,15 +2512,15 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		@Override public int getRuleIndex() { return RULE_classTail; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterClassTail(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterClassTail(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitClassTail(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitClassTail(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitClassTail(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitClassTail(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -2529,15 +2586,15 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		@Override public int getRuleIndex() { return RULE_classElement; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterClassElement(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterClassElement(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitClassElement(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitClassElement(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitClassElement(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitClassElement(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -2577,9 +2634,13 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		public PropertyNameContext propertyName() {
 			return getRuleContext(PropertyNameContext.class,0);
 		}
+		public TerminalNode OpenParen() { return getToken(JavaScriptParser.OpenParen, 0); }
+		public TerminalNode CloseParen() { return getToken(JavaScriptParser.CloseParen, 0); }
+		public TerminalNode OpenBrace() { return getToken(JavaScriptParser.OpenBrace, 0); }
 		public FunctionBodyContext functionBody() {
 			return getRuleContext(FunctionBodyContext.class,0);
 		}
+		public TerminalNode CloseBrace() { return getToken(JavaScriptParser.CloseBrace, 0); }
 		public FormalParameterListContext formalParameterList() {
 			return getRuleContext(FormalParameterListContext.class,0);
 		}
@@ -2598,15 +2659,15 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		@Override public int getRuleIndex() { return RULE_methodDefinition; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterMethodDefinition(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterMethodDefinition(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitMethodDefinition(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitMethodDefinition(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitMethodDefinition(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitMethodDefinition(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -2712,9 +2773,14 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 
 	public static class GeneratorMethodContext extends ParserRuleContext {
 		public TerminalNode Identifier() { return getToken(JavaScriptParser.Identifier, 0); }
+		public TerminalNode OpenParen() { return getToken(JavaScriptParser.OpenParen, 0); }
+		public TerminalNode CloseParen() { return getToken(JavaScriptParser.CloseParen, 0); }
+		public TerminalNode OpenBrace() { return getToken(JavaScriptParser.OpenBrace, 0); }
 		public FunctionBodyContext functionBody() {
 			return getRuleContext(FunctionBodyContext.class,0);
 		}
+		public TerminalNode CloseBrace() { return getToken(JavaScriptParser.CloseBrace, 0); }
+		public TerminalNode Multiply() { return getToken(JavaScriptParser.Multiply, 0); }
 		public FormalParameterListContext formalParameterList() {
 			return getRuleContext(FormalParameterListContext.class,0);
 		}
@@ -2724,15 +2790,15 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		@Override public int getRuleIndex() { return RULE_generatorMethod; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterGeneratorMethod(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterGeneratorMethod(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitGeneratorMethod(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitGeneratorMethod(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitGeneratorMethod(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitGeneratorMethod(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -2796,6 +2862,10 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		public FormalParameterArgContext formalParameterArg(int i) {
 			return getRuleContext(FormalParameterArgContext.class,i);
 		}
+		public List<TerminalNode> Comma() { return getTokens(JavaScriptParser.Comma); }
+		public TerminalNode Comma(int i) {
+			return getToken(JavaScriptParser.Comma, i);
+		}
 		public LastFormalParameterArgContext lastFormalParameterArg() {
 			return getRuleContext(LastFormalParameterArgContext.class,0);
 		}
@@ -2811,15 +2881,15 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		@Override public int getRuleIndex() { return RULE_formalParameterList; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterFormalParameterList(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterFormalParameterList(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitFormalParameterList(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitFormalParameterList(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitFormalParameterList(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitFormalParameterList(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -2908,6 +2978,7 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 
 	public static class FormalParameterArgContext extends ParserRuleContext {
 		public TerminalNode Identifier() { return getToken(JavaScriptParser.Identifier, 0); }
+		public TerminalNode Assign() { return getToken(JavaScriptParser.Assign, 0); }
 		public SingleExpressionContext singleExpression() {
 			return getRuleContext(SingleExpressionContext.class,0);
 		}
@@ -2917,15 +2988,15 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		@Override public int getRuleIndex() { return RULE_formalParameterArg; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterFormalParameterArg(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterFormalParameterArg(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitFormalParameterArg(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitFormalParameterArg(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitFormalParameterArg(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitFormalParameterArg(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -2973,15 +3044,15 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		@Override public int getRuleIndex() { return RULE_lastFormalParameterArg; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterLastFormalParameterArg(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterLastFormalParameterArg(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitLastFormalParameterArg(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitLastFormalParameterArg(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitLastFormalParameterArg(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitLastFormalParameterArg(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -3019,15 +3090,15 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		@Override public int getRuleIndex() { return RULE_functionBody; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterFunctionBody(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterFunctionBody(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitFunctionBody(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitFunctionBody(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitFunctionBody(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitFunctionBody(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -3074,15 +3145,15 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		@Override public int getRuleIndex() { return RULE_sourceElements; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterSourceElements(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterSourceElements(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitSourceElements(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitSourceElements(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitSourceElements(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitSourceElements(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -3128,6 +3199,12 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 	}
 
 	public static class ArrayLiteralContext extends ParserRuleContext {
+		public TerminalNode OpenBracket() { return getToken(JavaScriptParser.OpenBracket, 0); }
+		public TerminalNode CloseBracket() { return getToken(JavaScriptParser.CloseBracket, 0); }
+		public List<TerminalNode> Comma() { return getTokens(JavaScriptParser.Comma); }
+		public TerminalNode Comma(int i) {
+			return getToken(JavaScriptParser.Comma, i);
+		}
 		public ElementListContext elementList() {
 			return getRuleContext(ElementListContext.class,0);
 		}
@@ -3137,15 +3214,15 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		@Override public int getRuleIndex() { return RULE_arrayLiteral; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterArrayLiteral(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterArrayLiteral(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitArrayLiteral(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitArrayLiteral(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitArrayLiteral(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitArrayLiteral(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -3225,21 +3302,25 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		public LastElementContext lastElement() {
 			return getRuleContext(LastElementContext.class,0);
 		}
+		public List<TerminalNode> Comma() { return getTokens(JavaScriptParser.Comma); }
+		public TerminalNode Comma(int i) {
+			return getToken(JavaScriptParser.Comma, i);
+		}
 		public ElementListContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_elementList; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterElementList(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterElementList(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitElementList(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitElementList(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitElementList(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitElementList(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -3372,15 +3453,15 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		@Override public int getRuleIndex() { return RULE_lastElement; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterLastElement(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterLastElement(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitLastElement(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitLastElement(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitLastElement(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitLastElement(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -3409,11 +3490,17 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 	}
 
 	public static class ObjectLiteralContext extends ParserRuleContext {
+		public TerminalNode OpenBrace() { return getToken(JavaScriptParser.OpenBrace, 0); }
+		public TerminalNode CloseBrace() { return getToken(JavaScriptParser.CloseBrace, 0); }
 		public List<PropertyAssignmentContext> propertyAssignment() {
 			return getRuleContexts(PropertyAssignmentContext.class);
 		}
 		public PropertyAssignmentContext propertyAssignment(int i) {
 			return getRuleContext(PropertyAssignmentContext.class,i);
+		}
+		public List<TerminalNode> Comma() { return getTokens(JavaScriptParser.Comma); }
+		public TerminalNode Comma(int i) {
+			return getToken(JavaScriptParser.Comma, i);
 		}
 		public ObjectLiteralContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -3421,15 +3508,15 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		@Override public int getRuleIndex() { return RULE_objectLiteral; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterObjectLiteral(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterObjectLiteral(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitObjectLiteral(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitObjectLiteral(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitObjectLiteral(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitObjectLiteral(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -3515,40 +3602,45 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		public SingleExpressionContext singleExpression() {
 			return getRuleContext(SingleExpressionContext.class,0);
 		}
+		public TerminalNode Colon() { return getToken(JavaScriptParser.Colon, 0); }
+		public TerminalNode Assign() { return getToken(JavaScriptParser.Assign, 0); }
 		public PropertyExpressionAssignmentContext(PropertyAssignmentContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterPropertyExpressionAssignment(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterPropertyExpressionAssignment(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitPropertyExpressionAssignment(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitPropertyExpressionAssignment(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitPropertyExpressionAssignment(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitPropertyExpressionAssignment(this);
 			else return visitor.visitChildren(this);
 		}
 	}
 	public static class ComputedPropertyExpressionAssignmentContext extends PropertyAssignmentContext {
+		public TerminalNode OpenBracket() { return getToken(JavaScriptParser.OpenBracket, 0); }
 		public List<SingleExpressionContext> singleExpression() {
 			return getRuleContexts(SingleExpressionContext.class);
 		}
 		public SingleExpressionContext singleExpression(int i) {
 			return getRuleContext(SingleExpressionContext.class,i);
 		}
+		public TerminalNode CloseBracket() { return getToken(JavaScriptParser.CloseBracket, 0); }
+		public TerminalNode Colon() { return getToken(JavaScriptParser.Colon, 0); }
 		public ComputedPropertyExpressionAssignmentContext(PropertyAssignmentContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterComputedPropertyExpressionAssignment(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterComputedPropertyExpressionAssignment(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitComputedPropertyExpressionAssignment(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitComputedPropertyExpressionAssignment(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitComputedPropertyExpressionAssignment(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitComputedPropertyExpressionAssignment(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -3557,15 +3649,15 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		public PropertyShorthandContext(PropertyAssignmentContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterPropertyShorthand(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterPropertyShorthand(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitPropertyShorthand(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitPropertyShorthand(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitPropertyShorthand(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitPropertyShorthand(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -3573,22 +3665,26 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		public SetterContext setter() {
 			return getRuleContext(SetterContext.class,0);
 		}
+		public TerminalNode OpenParen() { return getToken(JavaScriptParser.OpenParen, 0); }
 		public TerminalNode Identifier() { return getToken(JavaScriptParser.Identifier, 0); }
+		public TerminalNode CloseParen() { return getToken(JavaScriptParser.CloseParen, 0); }
+		public TerminalNode OpenBrace() { return getToken(JavaScriptParser.OpenBrace, 0); }
 		public FunctionBodyContext functionBody() {
 			return getRuleContext(FunctionBodyContext.class,0);
 		}
+		public TerminalNode CloseBrace() { return getToken(JavaScriptParser.CloseBrace, 0); }
 		public PropertySetterContext(PropertyAssignmentContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterPropertySetter(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterPropertySetter(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitPropertySetter(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitPropertySetter(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitPropertySetter(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitPropertySetter(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -3596,21 +3692,25 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		public GetterContext getter() {
 			return getRuleContext(GetterContext.class,0);
 		}
+		public TerminalNode OpenParen() { return getToken(JavaScriptParser.OpenParen, 0); }
+		public TerminalNode CloseParen() { return getToken(JavaScriptParser.CloseParen, 0); }
+		public TerminalNode OpenBrace() { return getToken(JavaScriptParser.OpenBrace, 0); }
 		public FunctionBodyContext functionBody() {
 			return getRuleContext(FunctionBodyContext.class,0);
 		}
+		public TerminalNode CloseBrace() { return getToken(JavaScriptParser.CloseBrace, 0); }
 		public PropertyGetterContext(PropertyAssignmentContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterPropertyGetter(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterPropertyGetter(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitPropertyGetter(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitPropertyGetter(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitPropertyGetter(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitPropertyGetter(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -3621,15 +3721,15 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		public MethodPropertyContext(PropertyAssignmentContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterMethodProperty(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterMethodProperty(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitMethodProperty(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitMethodProperty(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitMethodProperty(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitMethodProperty(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -3759,15 +3859,15 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		@Override public int getRuleIndex() { return RULE_propertyName; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterPropertyName(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterPropertyName(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitPropertyName(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitPropertyName(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitPropertyName(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitPropertyName(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -3864,6 +3964,8 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 	}
 
 	public static class ArgumentsContext extends ParserRuleContext {
+		public TerminalNode OpenParen() { return getToken(JavaScriptParser.OpenParen, 0); }
+		public TerminalNode CloseParen() { return getToken(JavaScriptParser.CloseParen, 0); }
 		public List<SingleExpressionContext> singleExpression() {
 			return getRuleContexts(SingleExpressionContext.class);
 		}
@@ -3873,21 +3975,25 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		public LastArgumentContext lastArgument() {
 			return getRuleContext(LastArgumentContext.class,0);
 		}
+		public List<TerminalNode> Comma() { return getTokens(JavaScriptParser.Comma); }
+		public TerminalNode Comma(int i) {
+			return getToken(JavaScriptParser.Comma, i);
+		}
 		public ArgumentsContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_arguments; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterArguments(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterArguments(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitArguments(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitArguments(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitArguments(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitArguments(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -4003,15 +4109,15 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		@Override public int getRuleIndex() { return RULE_lastArgument; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterLastArgument(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterLastArgument(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitLastArgument(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitLastArgument(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitLastArgument(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitLastArgument(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -4046,21 +4152,25 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		public SingleExpressionContext singleExpression(int i) {
 			return getRuleContext(SingleExpressionContext.class,i);
 		}
+		public List<TerminalNode> Comma() { return getTokens(JavaScriptParser.Comma); }
+		public TerminalNode Comma(int i) {
+			return getToken(JavaScriptParser.Comma, i);
+		}
 		public ExpressionSequenceContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_expressionSequence; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterExpressionSequence(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterExpressionSequence(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitExpressionSequence(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitExpressionSequence(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitExpressionSequence(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitExpressionSequence(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -4124,15 +4234,15 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		public TemplateStringExpressionContext(SingleExpressionContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterTemplateStringExpression(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterTemplateStringExpression(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitTemplateStringExpression(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitTemplateStringExpression(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitTemplateStringExpression(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitTemplateStringExpression(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -4143,18 +4253,20 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		public SingleExpressionContext singleExpression(int i) {
 			return getRuleContext(SingleExpressionContext.class,i);
 		}
+		public TerminalNode QuestionMark() { return getToken(JavaScriptParser.QuestionMark, 0); }
+		public TerminalNode Colon() { return getToken(JavaScriptParser.Colon, 0); }
 		public TernaryExpressionContext(SingleExpressionContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterTernaryExpression(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterTernaryExpression(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitTernaryExpression(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitTernaryExpression(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitTernaryExpression(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitTernaryExpression(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -4165,37 +4277,39 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		public SingleExpressionContext singleExpression(int i) {
 			return getRuleContext(SingleExpressionContext.class,i);
 		}
+		public TerminalNode And() { return getToken(JavaScriptParser.And, 0); }
 		public LogicalAndExpressionContext(SingleExpressionContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterLogicalAndExpression(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterLogicalAndExpression(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitLogicalAndExpression(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitLogicalAndExpression(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitLogicalAndExpression(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitLogicalAndExpression(this);
 			else return visitor.visitChildren(this);
 		}
 	}
 	public static class PreIncrementExpressionContext extends SingleExpressionContext {
+		public TerminalNode PlusPlus() { return getToken(JavaScriptParser.PlusPlus, 0); }
 		public SingleExpressionContext singleExpression() {
 			return getRuleContext(SingleExpressionContext.class,0);
 		}
 		public PreIncrementExpressionContext(SingleExpressionContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterPreIncrementExpression(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterPreIncrementExpression(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitPreIncrementExpression(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitPreIncrementExpression(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitPreIncrementExpression(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitPreIncrementExpression(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -4206,15 +4320,15 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		public ObjectLiteralExpressionContext(SingleExpressionContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterObjectLiteralExpression(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterObjectLiteralExpression(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitObjectLiteralExpression(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitObjectLiteralExpression(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitObjectLiteralExpression(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitObjectLiteralExpression(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -4229,15 +4343,15 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		public InExpressionContext(SingleExpressionContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterInExpression(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterInExpression(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitInExpression(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitInExpression(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitInExpression(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitInExpression(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -4248,56 +4362,59 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		public SingleExpressionContext singleExpression(int i) {
 			return getRuleContext(SingleExpressionContext.class,i);
 		}
+		public TerminalNode Or() { return getToken(JavaScriptParser.Or, 0); }
 		public LogicalOrExpressionContext(SingleExpressionContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterLogicalOrExpression(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterLogicalOrExpression(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitLogicalOrExpression(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitLogicalOrExpression(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitLogicalOrExpression(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitLogicalOrExpression(this);
 			else return visitor.visitChildren(this);
 		}
 	}
 	public static class NotExpressionContext extends SingleExpressionContext {
+		public TerminalNode Not() { return getToken(JavaScriptParser.Not, 0); }
 		public SingleExpressionContext singleExpression() {
 			return getRuleContext(SingleExpressionContext.class,0);
 		}
 		public NotExpressionContext(SingleExpressionContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterNotExpression(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterNotExpression(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitNotExpression(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitNotExpression(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitNotExpression(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitNotExpression(this);
 			else return visitor.visitChildren(this);
 		}
 	}
 	public static class PreDecreaseExpressionContext extends SingleExpressionContext {
+		public TerminalNode MinusMinus() { return getToken(JavaScriptParser.MinusMinus, 0); }
 		public SingleExpressionContext singleExpression() {
 			return getRuleContext(SingleExpressionContext.class,0);
 		}
 		public PreDecreaseExpressionContext(SingleExpressionContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterPreDecreaseExpression(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterPreDecreaseExpression(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitPreDecreaseExpression(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitPreDecreaseExpression(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitPreDecreaseExpression(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitPreDecreaseExpression(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -4311,15 +4428,15 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		public ArgumentsExpressionContext(SingleExpressionContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterArgumentsExpression(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterArgumentsExpression(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitArgumentsExpression(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitArgumentsExpression(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitArgumentsExpression(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitArgumentsExpression(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -4328,23 +4445,27 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		public ThisExpressionContext(SingleExpressionContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterThisExpression(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterThisExpression(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitThisExpression(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitThisExpression(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitThisExpression(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitThisExpression(this);
 			else return visitor.visitChildren(this);
 		}
 	}
 	public static class FunctionExpressionContext extends SingleExpressionContext {
 		public TerminalNode Function() { return getToken(JavaScriptParser.Function, 0); }
+		public TerminalNode OpenParen() { return getToken(JavaScriptParser.OpenParen, 0); }
+		public TerminalNode CloseParen() { return getToken(JavaScriptParser.CloseParen, 0); }
+		public TerminalNode OpenBrace() { return getToken(JavaScriptParser.OpenBrace, 0); }
 		public FunctionBodyContext functionBody() {
 			return getRuleContext(FunctionBodyContext.class,0);
 		}
+		public TerminalNode CloseBrace() { return getToken(JavaScriptParser.CloseBrace, 0); }
 		public TerminalNode Identifier() { return getToken(JavaScriptParser.Identifier, 0); }
 		public FormalParameterListContext formalParameterList() {
 			return getRuleContext(FormalParameterListContext.class,0);
@@ -4352,34 +4473,35 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		public FunctionExpressionContext(SingleExpressionContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterFunctionExpression(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterFunctionExpression(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitFunctionExpression(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitFunctionExpression(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitFunctionExpression(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitFunctionExpression(this);
 			else return visitor.visitChildren(this);
 		}
 	}
 	public static class UnaryMinusExpressionContext extends SingleExpressionContext {
+		public TerminalNode Minus() { return getToken(JavaScriptParser.Minus, 0); }
 		public SingleExpressionContext singleExpression() {
 			return getRuleContext(SingleExpressionContext.class,0);
 		}
 		public UnaryMinusExpressionContext(SingleExpressionContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterUnaryMinusExpression(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterUnaryMinusExpression(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitUnaryMinusExpression(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitUnaryMinusExpression(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitUnaryMinusExpression(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitUnaryMinusExpression(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -4390,18 +4512,19 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		public SingleExpressionContext singleExpression(int i) {
 			return getRuleContext(SingleExpressionContext.class,i);
 		}
+		public TerminalNode Assign() { return getToken(JavaScriptParser.Assign, 0); }
 		public AssignmentExpressionContext(SingleExpressionContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterAssignmentExpression(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterAssignmentExpression(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitAssignmentExpression(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitAssignmentExpression(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitAssignmentExpression(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitAssignmentExpression(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -4409,18 +4532,19 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		public SingleExpressionContext singleExpression() {
 			return getRuleContext(SingleExpressionContext.class,0);
 		}
+		public TerminalNode MinusMinus() { return getToken(JavaScriptParser.MinusMinus, 0); }
 		public PostDecreaseExpressionContext(SingleExpressionContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterPostDecreaseExpression(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterPostDecreaseExpression(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitPostDecreaseExpression(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitPostDecreaseExpression(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitPostDecreaseExpression(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitPostDecreaseExpression(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -4432,15 +4556,15 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		public TypeofExpressionContext(SingleExpressionContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterTypeofExpression(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterTypeofExpression(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitTypeofExpression(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitTypeofExpression(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitTypeofExpression(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitTypeofExpression(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -4455,34 +4579,35 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		public InstanceofExpressionContext(SingleExpressionContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterInstanceofExpression(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterInstanceofExpression(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitInstanceofExpression(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitInstanceofExpression(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitInstanceofExpression(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitInstanceofExpression(this);
 			else return visitor.visitChildren(this);
 		}
 	}
 	public static class UnaryPlusExpressionContext extends SingleExpressionContext {
+		public TerminalNode Plus() { return getToken(JavaScriptParser.Plus, 0); }
 		public SingleExpressionContext singleExpression() {
 			return getRuleContext(SingleExpressionContext.class,0);
 		}
 		public UnaryPlusExpressionContext(SingleExpressionContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterUnaryPlusExpression(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterUnaryPlusExpression(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitUnaryPlusExpression(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitUnaryPlusExpression(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitUnaryPlusExpression(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitUnaryPlusExpression(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -4494,15 +4619,15 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		public DeleteExpressionContext(SingleExpressionContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterDeleteExpression(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterDeleteExpression(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitDeleteExpression(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitDeleteExpression(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitDeleteExpression(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitDeleteExpression(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -4510,21 +4635,22 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		public ArrowFunctionParametersContext arrowFunctionParameters() {
 			return getRuleContext(ArrowFunctionParametersContext.class,0);
 		}
+		public TerminalNode ARROW() { return getToken(JavaScriptParser.ARROW, 0); }
 		public ArrowFunctionBodyContext arrowFunctionBody() {
 			return getRuleContext(ArrowFunctionBodyContext.class,0);
 		}
 		public ArrowFunctionExpressionContext(SingleExpressionContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterArrowFunctionExpression(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterArrowFunctionExpression(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitArrowFunctionExpression(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitArrowFunctionExpression(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitArrowFunctionExpression(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitArrowFunctionExpression(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -4535,18 +4661,22 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		public SingleExpressionContext singleExpression(int i) {
 			return getRuleContext(SingleExpressionContext.class,i);
 		}
+		public TerminalNode Equals_() { return getToken(JavaScriptParser.Equals_, 0); }
+		public TerminalNode NotEquals() { return getToken(JavaScriptParser.NotEquals, 0); }
+		public TerminalNode IdentityEquals() { return getToken(JavaScriptParser.IdentityEquals, 0); }
+		public TerminalNode IdentityNotEquals() { return getToken(JavaScriptParser.IdentityNotEquals, 0); }
 		public EqualityExpressionContext(SingleExpressionContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterEqualityExpression(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterEqualityExpression(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitEqualityExpression(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitEqualityExpression(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitEqualityExpression(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitEqualityExpression(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -4557,18 +4687,19 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		public SingleExpressionContext singleExpression(int i) {
 			return getRuleContext(SingleExpressionContext.class,i);
 		}
+		public TerminalNode BitXOr() { return getToken(JavaScriptParser.BitXOr, 0); }
 		public BitXOrExpressionContext(SingleExpressionContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterBitXOrExpression(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterBitXOrExpression(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitBitXOrExpression(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitBitXOrExpression(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitBitXOrExpression(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitBitXOrExpression(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -4577,15 +4708,15 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		public SuperExpressionContext(SingleExpressionContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterSuperExpression(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterSuperExpression(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitSuperExpression(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitSuperExpression(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitSuperExpression(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitSuperExpression(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -4596,18 +4727,21 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		public SingleExpressionContext singleExpression(int i) {
 			return getRuleContext(SingleExpressionContext.class,i);
 		}
+		public TerminalNode Multiply() { return getToken(JavaScriptParser.Multiply, 0); }
+		public TerminalNode Divide() { return getToken(JavaScriptParser.Divide, 0); }
+		public TerminalNode Modulus() { return getToken(JavaScriptParser.Modulus, 0); }
 		public MultiplicativeExpressionContext(SingleExpressionContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterMultiplicativeExpression(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterMultiplicativeExpression(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitMultiplicativeExpression(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitMultiplicativeExpression(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitMultiplicativeExpression(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitMultiplicativeExpression(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -4618,37 +4752,42 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		public SingleExpressionContext singleExpression(int i) {
 			return getRuleContext(SingleExpressionContext.class,i);
 		}
+		public TerminalNode LeftShiftArithmetic() { return getToken(JavaScriptParser.LeftShiftArithmetic, 0); }
+		public TerminalNode RightShiftArithmetic() { return getToken(JavaScriptParser.RightShiftArithmetic, 0); }
+		public TerminalNode RightShiftLogical() { return getToken(JavaScriptParser.RightShiftLogical, 0); }
 		public BitShiftExpressionContext(SingleExpressionContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterBitShiftExpression(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterBitShiftExpression(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitBitShiftExpression(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitBitShiftExpression(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitBitShiftExpression(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitBitShiftExpression(this);
 			else return visitor.visitChildren(this);
 		}
 	}
 	public static class ParenthesizedExpressionContext extends SingleExpressionContext {
+		public TerminalNode OpenParen() { return getToken(JavaScriptParser.OpenParen, 0); }
 		public ExpressionSequenceContext expressionSequence() {
 			return getRuleContext(ExpressionSequenceContext.class,0);
 		}
+		public TerminalNode CloseParen() { return getToken(JavaScriptParser.CloseParen, 0); }
 		public ParenthesizedExpressionContext(SingleExpressionContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterParenthesizedExpression(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterParenthesizedExpression(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitParenthesizedExpression(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitParenthesizedExpression(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitParenthesizedExpression(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitParenthesizedExpression(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -4659,18 +4798,20 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		public SingleExpressionContext singleExpression(int i) {
 			return getRuleContext(SingleExpressionContext.class,i);
 		}
+		public TerminalNode Plus() { return getToken(JavaScriptParser.Plus, 0); }
+		public TerminalNode Minus() { return getToken(JavaScriptParser.Minus, 0); }
 		public AdditiveExpressionContext(SingleExpressionContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterAdditiveExpression(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterAdditiveExpression(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitAdditiveExpression(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitAdditiveExpression(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitAdditiveExpression(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitAdditiveExpression(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -4681,18 +4822,22 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		public SingleExpressionContext singleExpression(int i) {
 			return getRuleContext(SingleExpressionContext.class,i);
 		}
+		public TerminalNode LessThan() { return getToken(JavaScriptParser.LessThan, 0); }
+		public TerminalNode MoreThan() { return getToken(JavaScriptParser.MoreThan, 0); }
+		public TerminalNode LessThanEquals() { return getToken(JavaScriptParser.LessThanEquals, 0); }
+		public TerminalNode GreaterThanEquals() { return getToken(JavaScriptParser.GreaterThanEquals, 0); }
 		public RelationalExpressionContext(SingleExpressionContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterRelationalExpression(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterRelationalExpression(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitRelationalExpression(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitRelationalExpression(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitRelationalExpression(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitRelationalExpression(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -4700,37 +4845,39 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		public SingleExpressionContext singleExpression() {
 			return getRuleContext(SingleExpressionContext.class,0);
 		}
+		public TerminalNode PlusPlus() { return getToken(JavaScriptParser.PlusPlus, 0); }
 		public PostIncrementExpressionContext(SingleExpressionContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterPostIncrementExpression(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterPostIncrementExpression(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitPostIncrementExpression(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitPostIncrementExpression(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitPostIncrementExpression(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitPostIncrementExpression(this);
 			else return visitor.visitChildren(this);
 		}
 	}
 	public static class BitNotExpressionContext extends SingleExpressionContext {
+		public TerminalNode BitNot() { return getToken(JavaScriptParser.BitNot, 0); }
 		public SingleExpressionContext singleExpression() {
 			return getRuleContext(SingleExpressionContext.class,0);
 		}
 		public BitNotExpressionContext(SingleExpressionContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterBitNotExpression(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterBitNotExpression(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitBitNotExpression(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitBitNotExpression(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitBitNotExpression(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitBitNotExpression(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -4745,15 +4892,15 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		public NewExpressionContext(SingleExpressionContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterNewExpression(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterNewExpression(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitNewExpression(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitNewExpression(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitNewExpression(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitNewExpression(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -4764,15 +4911,15 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		public LiteralExpressionContext(SingleExpressionContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterLiteralExpression(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterLiteralExpression(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitLiteralExpression(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitLiteralExpression(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitLiteralExpression(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitLiteralExpression(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -4783,15 +4930,15 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		public ArrayLiteralExpressionContext(SingleExpressionContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterArrayLiteralExpression(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterArrayLiteralExpression(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitArrayLiteralExpression(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitArrayLiteralExpression(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitArrayLiteralExpression(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitArrayLiteralExpression(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -4799,21 +4946,22 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		public SingleExpressionContext singleExpression() {
 			return getRuleContext(SingleExpressionContext.class,0);
 		}
+		public TerminalNode Dot() { return getToken(JavaScriptParser.Dot, 0); }
 		public IdentifierNameContext identifierName() {
 			return getRuleContext(IdentifierNameContext.class,0);
 		}
 		public MemberDotExpressionContext(SingleExpressionContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterMemberDotExpression(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterMemberDotExpression(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitMemberDotExpression(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitMemberDotExpression(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitMemberDotExpression(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitMemberDotExpression(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -4826,15 +4974,15 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		public ClassExpressionContext(SingleExpressionContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterClassExpression(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterClassExpression(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitClassExpression(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitClassExpression(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitClassExpression(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitClassExpression(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -4842,21 +4990,23 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		public SingleExpressionContext singleExpression() {
 			return getRuleContext(SingleExpressionContext.class,0);
 		}
+		public TerminalNode OpenBracket() { return getToken(JavaScriptParser.OpenBracket, 0); }
 		public ExpressionSequenceContext expressionSequence() {
 			return getRuleContext(ExpressionSequenceContext.class,0);
 		}
+		public TerminalNode CloseBracket() { return getToken(JavaScriptParser.CloseBracket, 0); }
 		public MemberIndexExpressionContext(SingleExpressionContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterMemberIndexExpression(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterMemberIndexExpression(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitMemberIndexExpression(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitMemberIndexExpression(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitMemberIndexExpression(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitMemberIndexExpression(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -4865,15 +5015,15 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		public IdentifierExpressionContext(SingleExpressionContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterIdentifierExpression(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterIdentifierExpression(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitIdentifierExpression(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitIdentifierExpression(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitIdentifierExpression(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitIdentifierExpression(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -4884,18 +5034,19 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		public SingleExpressionContext singleExpression(int i) {
 			return getRuleContext(SingleExpressionContext.class,i);
 		}
+		public TerminalNode BitAnd() { return getToken(JavaScriptParser.BitAnd, 0); }
 		public BitAndExpressionContext(SingleExpressionContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterBitAndExpression(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterBitAndExpression(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitBitAndExpression(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitBitAndExpression(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitBitAndExpression(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitBitAndExpression(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -4906,18 +5057,19 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		public SingleExpressionContext singleExpression(int i) {
 			return getRuleContext(SingleExpressionContext.class,i);
 		}
+		public TerminalNode BitOr() { return getToken(JavaScriptParser.BitOr, 0); }
 		public BitOrExpressionContext(SingleExpressionContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterBitOrExpression(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterBitOrExpression(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitBitOrExpression(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitBitOrExpression(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitBitOrExpression(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitBitOrExpression(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -4934,15 +5086,15 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		public AssignmentOperatorExpressionContext(SingleExpressionContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterAssignmentOperatorExpression(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterAssignmentOperatorExpression(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitAssignmentOperatorExpression(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitAssignmentOperatorExpression(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitAssignmentOperatorExpression(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitAssignmentOperatorExpression(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -4954,15 +5106,15 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		public VoidExpressionContext(SingleExpressionContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterVoidExpression(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterVoidExpression(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitVoidExpression(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitVoidExpression(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitVoidExpression(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitVoidExpression(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -5576,6 +5728,8 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 
 	public static class ArrowFunctionParametersContext extends ParserRuleContext {
 		public TerminalNode Identifier() { return getToken(JavaScriptParser.Identifier, 0); }
+		public TerminalNode OpenParen() { return getToken(JavaScriptParser.OpenParen, 0); }
+		public TerminalNode CloseParen() { return getToken(JavaScriptParser.CloseParen, 0); }
 		public FormalParameterListContext formalParameterList() {
 			return getRuleContext(FormalParameterListContext.class,0);
 		}
@@ -5585,15 +5739,15 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		@Override public int getRuleIndex() { return RULE_arrowFunctionParameters; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterArrowFunctionParameters(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterArrowFunctionParameters(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitArrowFunctionParameters(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitArrowFunctionParameters(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitArrowFunctionParameters(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitArrowFunctionParameters(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -5651,24 +5805,26 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		public SingleExpressionContext singleExpression() {
 			return getRuleContext(SingleExpressionContext.class,0);
 		}
+		public TerminalNode OpenBrace() { return getToken(JavaScriptParser.OpenBrace, 0); }
 		public FunctionBodyContext functionBody() {
 			return getRuleContext(FunctionBodyContext.class,0);
 		}
+		public TerminalNode CloseBrace() { return getToken(JavaScriptParser.CloseBrace, 0); }
 		public ArrowFunctionBodyContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_arrowFunctionBody; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterArrowFunctionBody(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterArrowFunctionBody(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitArrowFunctionBody(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitArrowFunctionBody(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitArrowFunctionBody(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitArrowFunctionBody(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -5712,21 +5868,32 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 	}
 
 	public static class AssignmentOperatorContext extends ParserRuleContext {
+		public TerminalNode MultiplyAssign() { return getToken(JavaScriptParser.MultiplyAssign, 0); }
+		public TerminalNode DivideAssign() { return getToken(JavaScriptParser.DivideAssign, 0); }
+		public TerminalNode ModulusAssign() { return getToken(JavaScriptParser.ModulusAssign, 0); }
+		public TerminalNode PlusAssign() { return getToken(JavaScriptParser.PlusAssign, 0); }
+		public TerminalNode MinusAssign() { return getToken(JavaScriptParser.MinusAssign, 0); }
+		public TerminalNode LeftShiftArithmeticAssign() { return getToken(JavaScriptParser.LeftShiftArithmeticAssign, 0); }
+		public TerminalNode RightShiftArithmeticAssign() { return getToken(JavaScriptParser.RightShiftArithmeticAssign, 0); }
+		public TerminalNode RightShiftLogicalAssign() { return getToken(JavaScriptParser.RightShiftLogicalAssign, 0); }
+		public TerminalNode BitAndAssign() { return getToken(JavaScriptParser.BitAndAssign, 0); }
+		public TerminalNode BitXorAssign() { return getToken(JavaScriptParser.BitXorAssign, 0); }
+		public TerminalNode BitOrAssign() { return getToken(JavaScriptParser.BitOrAssign, 0); }
 		public AssignmentOperatorContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_assignmentOperator; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterAssignmentOperator(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterAssignmentOperator(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitAssignmentOperator(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitAssignmentOperator(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitAssignmentOperator(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitAssignmentOperator(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -5776,15 +5943,15 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		@Override public int getRuleIndex() { return RULE_literal; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterLiteral(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterLiteral(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitLiteral(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitLiteral(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitLiteral(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitLiteral(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -5869,15 +6036,15 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		@Override public int getRuleIndex() { return RULE_numericLiteral; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterNumericLiteral(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterNumericLiteral(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitNumericLiteral(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitNumericLiteral(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitNumericLiteral(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitNumericLiteral(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -5923,15 +6090,15 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		@Override public int getRuleIndex() { return RULE_identifierName; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterIdentifierName(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterIdentifierName(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitIdentifierName(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitIdentifierName(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitIdentifierName(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitIdentifierName(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -6027,15 +6194,15 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		@Override public int getRuleIndex() { return RULE_reservedWord; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterReservedWord(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterReservedWord(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitReservedWord(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitReservedWord(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitReservedWord(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitReservedWord(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -6173,15 +6340,15 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		@Override public int getRuleIndex() { return RULE_keyword; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterKeyword(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterKeyword(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitKeyword(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitKeyword(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitKeyword(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitKeyword(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -6227,15 +6394,15 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		@Override public int getRuleIndex() { return RULE_getter; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterGetter(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterGetter(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitGetter(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitGetter(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitGetter(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitGetter(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -6276,15 +6443,15 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		@Override public int getRuleIndex() { return RULE_setter; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterSetter(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterSetter(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitSetter(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitSetter(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitSetter(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitSetter(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -6323,15 +6490,15 @@ public class JavaScriptParser extends JavaScriptBaseParser {
 		@Override public int getRuleIndex() { return RULE_eos; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).enterEos(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).enterEos(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JavaScriptParserListener ) ((JavaScriptParserListener)listener).exitEos(this);
+			if ( listener instanceof JavaScriptParserListener) ((JavaScriptParserListener)listener).exitEos(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JavaScriptParserVisitor ) return ((JavaScriptParserVisitor<? extends T>)visitor).visitEos(this);
+			if ( visitor instanceof JavaScriptParserVisitor) return ((JavaScriptParserVisitor<? extends T>)visitor).visitEos(this);
 			else return visitor.visitChildren(this);
 		}
 	}
