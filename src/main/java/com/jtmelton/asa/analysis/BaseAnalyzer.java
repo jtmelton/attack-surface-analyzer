@@ -2,6 +2,8 @@ package com.jtmelton.asa.analysis;
 
 import com.jtmelton.asa.analysis.generated.antlr4.ecmascript6.JavaScriptLexer;
 import com.jtmelton.asa.analysis.generated.antlr4.ecmascript6.JavaScriptParser;
+import com.jtmelton.asa.analysis.generated.antlr4.golang.GoLexer;
+import com.jtmelton.asa.analysis.generated.antlr4.golang.GoParser;
 import com.jtmelton.asa.analysis.generated.antlr4.java8.JavaLexer;
 import com.jtmelton.asa.analysis.generated.antlr4.java8.JavaParser;
 import com.jtmelton.asa.analysis.generated.antlr4.python.PythonLexer;
@@ -9,6 +11,7 @@ import com.jtmelton.asa.analysis.generated.antlr4.python.PythonParser;
 import com.jtmelton.asa.analysis.visitors.IBaseVisitor;
 import com.jtmelton.asa.analysis.visitors.Language;
 import com.jtmelton.asa.analysis.visitors.Phase;
+import com.jtmelton.asa.analysis.visitors.golang.GoRouteVisitor;
 import com.jtmelton.asa.analysis.visitors.java.frameworkdetection.FrameworkDetectionVisitor;
 import com.jtmelton.asa.analysis.visitors.java.jaxrs.JaxRsVisitor;
 import com.jtmelton.asa.analysis.visitors.java.spring.SpringVisitor;
@@ -168,6 +171,9 @@ public abstract class BaseAnalyzer {
             case PYTHON:
                 lexer = new PythonLexer(CharStreams.fromFileName(filename));
                 break;
+            case GOLANG:
+                lexer = new GoLexer(CharStreams.fromFileName(filename));
+                break;
             default:
                 lexer = new JavaLexer(CharStreams.fromFileName(filename));
                 break;
@@ -186,6 +192,9 @@ public abstract class BaseAnalyzer {
             case PYTHON:
                 parser = new PythonParser(tokens);
                 break;
+            case GOLANG:
+                parser = new GoParser(tokens);
+                break;
             default:
                 parser = new JavaParser(tokens);
                 break;
@@ -203,6 +212,9 @@ public abstract class BaseAnalyzer {
                 break;
             case PYTHON:
                 ruleContext = ((PythonParser) parser).root();
+                break;
+            case GOLANG:
+                ruleContext = ((GoParser) parser).sourceFile();
                 break;
             default:
                 ruleContext = ((JavaParser) parser).compilationUnit();
@@ -241,6 +253,10 @@ public abstract class BaseAnalyzer {
     protected synchronized void registerVisitors(Configuration configuration) {
         // only register visitors once
         if (!visitorsRegistered) {
+            if (configuration.isEnableGolang()) {
+                registerVisitor(new GoRouteVisitor());
+                acceptedLangs.add(Language.GOLANG);
+            }
             if (configuration.isEnableJsExpress()) {
                 registerVisitor(new ExpressRouteVisitor());
                 acceptedLangs.add(Language.JAVASCRIPT);

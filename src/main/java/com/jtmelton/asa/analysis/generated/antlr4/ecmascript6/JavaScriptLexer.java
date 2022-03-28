@@ -1,14 +1,16 @@
-package com.jtmelton.asa.analysis.generated.antlr4.ecmascript6;// Generated from C:/Users/Armando/Documents/Oracle/attack-surface-analyzer/src/main/antlr4\JavaScriptLexer.g4 by ANTLR 4.7
-
-import com.jtmelton.asa.analysis.parsers.javascript.JavaScriptBaseLexer;
+package com.jtmelton.asa.analysis.generated.antlr4.ecmascript6;// Generated from C:/Users/Armando/repos/attack-surface-analyzer/src/main/antlr4\JavaScriptLexer.g4 by ANTLR 4.9.2
+import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.CharStream;
+import org.antlr.v4.runtime.Token;
+import org.antlr.v4.runtime.TokenStream;
 import org.antlr.v4.runtime.*;
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
+import org.antlr.v4.runtime.misc.*;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
-public class JavaScriptLexer extends JavaScriptBaseLexer {
-	static { RuntimeMetaData.checkVersion("4.7", RuntimeMetaData.VERSION); }
+public class JavaScriptLexer extends com.jtmelton.asa.analysis.parsers.javascript.JavaScriptBaseLexer {
+	static { RuntimeMetaData.checkVersion("4.9.2", RuntimeMetaData.VERSION); }
 
 	protected static final DFA[] _decisionToDFA;
 	protected static final PredictionContextCache _sharedContextCache =
@@ -45,71 +47,80 @@ public class JavaScriptLexer extends JavaScriptBaseLexer {
 		"DEFAULT_MODE"
 	};
 
-	public static final String[] ruleNames = {
-		"MultiLineComment", "SingleLineComment", "RegularExpressionLiteral", "OpenBracket", 
-		"CloseBracket", "OpenParen", "CloseParen", "OpenBrace", "CloseBrace", 
-		"SemiColon", "Comma", "Assign", "QuestionMark", "Colon", "Ellipsis", "Dot", 
-		"PlusPlus", "MinusMinus", "Plus", "Minus", "BitNot", "Not", "Multiply", 
-		"Divide", "Modulus", "RightShiftArithmetic", "LeftShiftArithmetic", "RightShiftLogical", 
-		"LessThan", "MoreThan", "LessThanEquals", "GreaterThanEquals", "Equals_", 
-		"NotEquals", "IdentityEquals", "IdentityNotEquals", "BitAnd", "BitXOr", 
-		"BitOr", "And", "Or", "MultiplyAssign", "DivideAssign", "ModulusAssign", 
-		"PlusAssign", "MinusAssign", "LeftShiftArithmeticAssign", "RightShiftArithmeticAssign", 
-		"RightShiftLogicalAssign", "BitAndAssign", "BitXorAssign", "BitOrAssign", 
-		"ARROW", "NullLiteral", "BooleanLiteral", "DecimalLiteral", "HexIntegerLiteral", 
-		"OctalIntegerLiteral", "OctalIntegerLiteral2", "BinaryIntegerLiteral", 
-		"Break", "Do", "Instanceof", "Typeof", "Case", "Else", "New", "Var", "Catch", 
-		"Finally", "Return", "Void", "Continue", "For", "Switch", "While", "Debugger", 
-		"Function", "This", "With", "Default", "If", "Throw", "Delete", "In", 
-		"Try", "Class", "Enum", "Extends", "Super", "Const", "Export", "Import", 
-		"Implements", "Let", "Private", "Public", "Interface", "Package", "Protected", 
-		"Static", "Yield", "Identifier", "StringLiteral", "TemplateStringLiteral", 
-		"WhiteSpaces", "LineTerminator", "HtmlComment", "CDataComment", "UnexpectedCharacter", 
-		"DoubleStringCharacter", "SingleStringCharacter", "EscapeSequence", "CharacterEscapeSequence", 
-		"HexEscapeSequence", "UnicodeEscapeSequence", "ExtendedUnicodeEscapeSequence", 
-		"SingleEscapeCharacter", "NonEscapeCharacter", "EscapeCharacter", "LineContinuation", 
-		"HexDigit", "DecimalIntegerLiteral", "ExponentPart", "IdentifierPart", 
-		"IdentifierStart", "UnicodeLetter", "UnicodeCombiningMark", "UnicodeDigit", 
-		"UnicodeConnectorPunctuation", "RegularExpressionChar", "RegularExpressionClassChar", 
-		"RegularExpressionBackslashSequence"
-	};
+	private static String[] makeRuleNames() {
+		return new String[] {
+			"MultiLineComment", "SingleLineComment", "RegularExpressionLiteral", 
+			"OpenBracket", "CloseBracket", "OpenParen", "CloseParen", "OpenBrace", 
+			"CloseBrace", "SemiColon", "Comma", "Assign", "QuestionMark", "Colon", 
+			"Ellipsis", "Dot", "PlusPlus", "MinusMinus", "Plus", "Minus", "BitNot", 
+			"Not", "Multiply", "Divide", "Modulus", "RightShiftArithmetic", "LeftShiftArithmetic", 
+			"RightShiftLogical", "LessThan", "MoreThan", "LessThanEquals", "GreaterThanEquals", 
+			"Equals_", "NotEquals", "IdentityEquals", "IdentityNotEquals", "BitAnd", 
+			"BitXOr", "BitOr", "And", "Or", "MultiplyAssign", "DivideAssign", "ModulusAssign", 
+			"PlusAssign", "MinusAssign", "LeftShiftArithmeticAssign", "RightShiftArithmeticAssign", 
+			"RightShiftLogicalAssign", "BitAndAssign", "BitXorAssign", "BitOrAssign", 
+			"ARROW", "NullLiteral", "BooleanLiteral", "DecimalLiteral", "HexIntegerLiteral", 
+			"OctalIntegerLiteral", "OctalIntegerLiteral2", "BinaryIntegerLiteral", 
+			"Break", "Do", "Instanceof", "Typeof", "Case", "Else", "New", "Var", 
+			"Catch", "Finally", "Return", "Void", "Continue", "For", "Switch", "While", 
+			"Debugger", "Function", "This", "With", "Default", "If", "Throw", "Delete", 
+			"In", "Try", "Class", "Enum", "Extends", "Super", "Const", "Export", 
+			"Import", "Implements", "Let", "Private", "Public", "Interface", "Package", 
+			"Protected", "Static", "Yield", "Identifier", "StringLiteral", "TemplateStringLiteral", 
+			"WhiteSpaces", "LineTerminator", "HtmlComment", "CDataComment", "UnexpectedCharacter", 
+			"DoubleStringCharacter", "SingleStringCharacter", "EscapeSequence", "CharacterEscapeSequence", 
+			"HexEscapeSequence", "UnicodeEscapeSequence", "ExtendedUnicodeEscapeSequence", 
+			"SingleEscapeCharacter", "NonEscapeCharacter", "EscapeCharacter", "LineContinuation", 
+			"HexDigit", "DecimalIntegerLiteral", "ExponentPart", "IdentifierPart", 
+			"IdentifierStart", "UnicodeLetter", "UnicodeCombiningMark", "UnicodeDigit", 
+			"UnicodeConnectorPunctuation", "RegularExpressionChar", "RegularExpressionClassChar", 
+			"RegularExpressionBackslashSequence"
+		};
+	}
+	public static final String[] ruleNames = makeRuleNames();
 
-	private static final String[] _LITERAL_NAMES = {
-		null, null, null, null, "'['", "']'", "'('", "')'", "'{'", "'}'", "';'", 
-		"','", "'='", "'?'", "':'", "'...'", "'.'", "'++'", "'--'", "'+'", "'-'", 
-		"'~'", "'!'", "'*'", "'/'", "'%'", "'>>'", "'<<'", "'>>>'", "'<'", "'>'", 
-		"'<='", "'>='", "'=='", "'!='", "'==='", "'!=='", "'&'", "'^'", "'|'", 
-		"'&&'", "'||'", "'*='", "'/='", "'%='", "'+='", "'-='", "'<<='", "'>>='", 
-		"'>>>='", "'&='", "'^='", "'|='", "'=>'", "'null'", null, null, null, 
-		null, null, null, "'break'", "'do'", "'instanceof'", "'typeof'", "'case'", 
-		"'else'", "'new'", "'var'", "'catch'", "'finally'", "'return'", "'void'", 
-		"'continue'", "'for'", "'switch'", "'while'", "'debugger'", "'function'", 
-		"'this'", "'with'", "'default'", "'if'", "'throw'", "'delete'", "'in'", 
-		"'try'", "'class'", "'enum'", "'extends'", "'super'", "'const'", "'export'", 
-		"'import'", "'implements'", "'let'", "'private'", "'public'", "'interface'", 
-		"'package'", "'protected'", "'static'", "'yield'"
-	};
-	private static final String[] _SYMBOLIC_NAMES = {
-		null, "MultiLineComment", "SingleLineComment", "RegularExpressionLiteral", 
-		"OpenBracket", "CloseBracket", "OpenParen", "CloseParen", "OpenBrace", 
-		"CloseBrace", "SemiColon", "Comma", "Assign", "QuestionMark", "Colon", 
-		"Ellipsis", "Dot", "PlusPlus", "MinusMinus", "Plus", "Minus", "BitNot", 
-		"Not", "Multiply", "Divide", "Modulus", "RightShiftArithmetic", "LeftShiftArithmetic", 
-		"RightShiftLogical", "LessThan", "MoreThan", "LessThanEquals", "GreaterThanEquals", 
-		"Equals_", "NotEquals", "IdentityEquals", "IdentityNotEquals", "BitAnd", 
-		"BitXOr", "BitOr", "And", "Or", "MultiplyAssign", "DivideAssign", "ModulusAssign", 
-		"PlusAssign", "MinusAssign", "LeftShiftArithmeticAssign", "RightShiftArithmeticAssign", 
-		"RightShiftLogicalAssign", "BitAndAssign", "BitXorAssign", "BitOrAssign", 
-		"ARROW", "NullLiteral", "BooleanLiteral", "DecimalLiteral", "HexIntegerLiteral", 
-		"OctalIntegerLiteral", "OctalIntegerLiteral2", "BinaryIntegerLiteral", 
-		"Break", "Do", "Instanceof", "Typeof", "Case", "Else", "New", "Var", "Catch", 
-		"Finally", "Return", "Void", "Continue", "For", "Switch", "While", "Debugger", 
-		"Function", "This", "With", "Default", "If", "Throw", "Delete", "In", 
-		"Try", "Class", "Enum", "Extends", "Super", "Const", "Export", "Import", 
-		"Implements", "Let", "Private", "Public", "Interface", "Package", "Protected", 
-		"Static", "Yield", "Identifier", "StringLiteral", "TemplateStringLiteral", 
-		"WhiteSpaces", "LineTerminator", "HtmlComment", "CDataComment", "UnexpectedCharacter"
-	};
+	private static String[] makeLiteralNames() {
+		return new String[] {
+			null, null, null, null, "'['", "']'", "'('", "')'", "'{'", "'}'", "';'", 
+			"','", "'='", "'?'", "':'", "'...'", "'.'", "'++'", "'--'", "'+'", "'-'", 
+			"'~'", "'!'", "'*'", "'/'", "'%'", "'>>'", "'<<'", "'>>>'", "'<'", "'>'", 
+			"'<='", "'>='", "'=='", "'!='", "'==='", "'!=='", "'&'", "'^'", "'|'", 
+			"'&&'", "'||'", "'*='", "'/='", "'%='", "'+='", "'-='", "'<<='", "'>>='", 
+			"'>>>='", "'&='", "'^='", "'|='", "'=>'", "'null'", null, null, null, 
+			null, null, null, "'break'", "'do'", "'instanceof'", "'typeof'", "'case'", 
+			"'else'", "'new'", "'var'", "'catch'", "'finally'", "'return'", "'void'", 
+			"'continue'", "'for'", "'switch'", "'while'", "'debugger'", "'function'", 
+			"'this'", "'with'", "'default'", "'if'", "'throw'", "'delete'", "'in'", 
+			"'try'", "'class'", "'enum'", "'extends'", "'super'", "'const'", "'export'", 
+			"'import'", "'implements'", "'let'", "'private'", "'public'", "'interface'", 
+			"'package'", "'protected'", "'static'", "'yield'"
+		};
+	}
+	private static final String[] _LITERAL_NAMES = makeLiteralNames();
+	private static String[] makeSymbolicNames() {
+		return new String[] {
+			null, "MultiLineComment", "SingleLineComment", "RegularExpressionLiteral", 
+			"OpenBracket", "CloseBracket", "OpenParen", "CloseParen", "OpenBrace", 
+			"CloseBrace", "SemiColon", "Comma", "Assign", "QuestionMark", "Colon", 
+			"Ellipsis", "Dot", "PlusPlus", "MinusMinus", "Plus", "Minus", "BitNot", 
+			"Not", "Multiply", "Divide", "Modulus", "RightShiftArithmetic", "LeftShiftArithmetic", 
+			"RightShiftLogical", "LessThan", "MoreThan", "LessThanEquals", "GreaterThanEquals", 
+			"Equals_", "NotEquals", "IdentityEquals", "IdentityNotEquals", "BitAnd", 
+			"BitXOr", "BitOr", "And", "Or", "MultiplyAssign", "DivideAssign", "ModulusAssign", 
+			"PlusAssign", "MinusAssign", "LeftShiftArithmeticAssign", "RightShiftArithmeticAssign", 
+			"RightShiftLogicalAssign", "BitAndAssign", "BitXorAssign", "BitOrAssign", 
+			"ARROW", "NullLiteral", "BooleanLiteral", "DecimalLiteral", "HexIntegerLiteral", 
+			"OctalIntegerLiteral", "OctalIntegerLiteral2", "BinaryIntegerLiteral", 
+			"Break", "Do", "Instanceof", "Typeof", "Case", "Else", "New", "Var", 
+			"Catch", "Finally", "Return", "Void", "Continue", "For", "Switch", "While", 
+			"Debugger", "Function", "This", "With", "Default", "If", "Throw", "Delete", 
+			"In", "Try", "Class", "Enum", "Extends", "Super", "Const", "Export", 
+			"Import", "Implements", "Let", "Private", "Public", "Interface", "Package", 
+			"Protected", "Static", "Yield", "Identifier", "StringLiteral", "TemplateStringLiteral", 
+			"WhiteSpaces", "LineTerminator", "HtmlComment", "CDataComment", "UnexpectedCharacter"
+		};
+	}
+	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
 	public static final Vocabulary VOCABULARY = new VocabularyImpl(_LITERAL_NAMES, _SYMBOLIC_NAMES);
 
 	/**
@@ -158,6 +169,7 @@ public class JavaScriptLexer extends JavaScriptBaseLexer {
 	@Override
 	public String getSerializedATN() { return _serializedATN; }
 
+	@Override
 	public String[] getChannelNames() { return channelNames; }
 
 	@Override

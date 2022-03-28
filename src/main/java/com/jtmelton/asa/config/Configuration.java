@@ -1,13 +1,11 @@
 package com.jtmelton.asa.config;
 
-import com.google.gson.Gson;
-
-import java.io.*;
 import java.util.ArrayList;
 import java.util.Collection;
 
 public class Configuration {
 
+    private boolean enableGolang;
     private boolean enableJavaJaxRs;
     private boolean enableJavaSpring;
     private boolean enableJsExpress;
@@ -15,6 +13,14 @@ public class Configuration {
     private boolean enableJavaFrameworkDetection;
 
     private Collection<KnownFramework> knownFrameworks = new ArrayList<>();
+
+    public boolean isEnableGolang() {
+        return enableGolang;
+    }
+
+    public void setEnableGolang(boolean enableGolang) {
+        this.enableGolang = enableGolang;
+    }
 
     public boolean isEnableJavaJaxRs() {
         return enableJavaJaxRs;
@@ -67,7 +73,8 @@ public class Configuration {
     @Override
     public String toString() {
         return "Configuration{" +
-                "enableJavaJaxRs=" + enableJavaJaxRs +
+                "enableGolang=" + enableGolang +
+                ", enableJavaJaxRs=" + enableJavaJaxRs +
                 ", enableJavaSpring=" + enableJavaSpring +
                 ", enableJsExpress=" + enableJsExpress +
                 ", enablePythonDjango=" + enablePythonDjango +

@@ -1,21 +1,17 @@
-package com.jtmelton.asa.analysis.generated.antlr4.python;// Generated from PythonParser.g4 by ANTLR 4.7
-
+package com.jtmelton.asa.analysis.generated.antlr4.python;// Generated from C:/Users/Armando/repos/attack-surface-analyzer/src/main/antlr4\PythonParser.g4 by ANTLR 4.9.2
 import com.jtmelton.asa.analysis.parsers.python.PythonParserBase;
-import org.antlr.v4.runtime.*;
-import org.antlr.v4.runtime.atn.ATN;
-import org.antlr.v4.runtime.atn.ATNDeserializer;
-import org.antlr.v4.runtime.atn.ParserATNSimulator;
-import org.antlr.v4.runtime.atn.PredictionContextCache;
+import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
-import org.antlr.v4.runtime.tree.ParseTreeListener;
-import org.antlr.v4.runtime.tree.ParseTreeVisitor;
-import org.antlr.v4.runtime.tree.TerminalNode;
-
+import org.antlr.v4.runtime.*;
+import org.antlr.v4.runtime.misc.*;
+import org.antlr.v4.runtime.tree.*;
 import java.util.List;
+import java.util.Iterator;
+import java.util.ArrayList;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
 public class PythonParser extends PythonParserBase {
-	static { RuntimeMetaData.checkVersion("4.7", RuntimeMetaData.VERSION); }
+	static { RuntimeMetaData.checkVersion("4.9.2", RuntimeMetaData.VERSION); }
 
 	protected static final DFA[] _decisionToDFA;
 	protected static final PredictionContextCache _sharedContextCache =
@@ -53,50 +49,60 @@ public class PythonParser extends PythonParserBase {
 		RULE_integer = 47, RULE_yield_expr = 48, RULE_yield_arg = 49, RULE_trailer = 50, 
 		RULE_arguments = 51, RULE_arglist = 52, RULE_argument = 53, RULE_subscriptlist = 54, 
 		RULE_subscript = 55, RULE_sliceop = 56, RULE_comp_for = 57, RULE_comp_iter = 58;
-	public static final String[] ruleNames = {
-		"root", "single_input", "file_input", "eval_input", "stmt", "compound_stmt", 
-		"suite", "decorator", "elif_clause", "else_clause", "finally_clause", 
-		"with_item", "except_clause", "classdef", "funcdef", "typedargslist", 
-		"args", "kwargs", "def_parameters", "def_parameter", "named_parameter", 
-		"simple_stmt", "small_stmt", "testlist_star_expr", "star_expr", "assign_part", 
-		"exprlist", "import_as_names", "import_as_name", "dotted_as_names", "dotted_as_name", 
-		"test", "varargslist", "vardef_parameters", "vardef_parameter", "varargs", 
-		"varkwargs", "logical_test", "comparison", "expr", "atom", "dictorsetmaker", 
-		"testlist_comp", "testlist", "dotted_name", "name", "number", "integer", 
-		"yield_expr", "yield_arg", "trailer", "arguments", "arglist", "argument", 
-		"subscriptlist", "subscript", "sliceop", "comp_for", "comp_iter"
-	};
+	private static String[] makeRuleNames() {
+		return new String[] {
+			"root", "single_input", "file_input", "eval_input", "stmt", "compound_stmt", 
+			"suite", "decorator", "elif_clause", "else_clause", "finally_clause", 
+			"with_item", "except_clause", "classdef", "funcdef", "typedargslist", 
+			"args", "kwargs", "def_parameters", "def_parameter", "named_parameter", 
+			"simple_stmt", "small_stmt", "testlist_star_expr", "star_expr", "assign_part", 
+			"exprlist", "import_as_names", "import_as_name", "dotted_as_names", "dotted_as_name", 
+			"test", "varargslist", "vardef_parameters", "vardef_parameter", "varargs", 
+			"varkwargs", "logical_test", "comparison", "expr", "atom", "dictorsetmaker", 
+			"testlist_comp", "testlist", "dotted_name", "name", "number", "integer", 
+			"yield_expr", "yield_arg", "trailer", "arguments", "arglist", "argument", 
+			"subscriptlist", "subscript", "sliceop", "comp_for", "comp_iter"
+		};
+	}
+	public static final String[] ruleNames = makeRuleNames();
 
-	private static final String[] _LITERAL_NAMES = {
-		null, null, null, null, "'def'", "'return'", "'raise'", "'from'", "'import'", 
-		"'nonlocal'", "'as'", "'global'", "'assert'", "'if'", "'elif'", "'else'", 
-		"'while'", "'for'", "'in'", "'try'", "'None'", "'finally'", "'with'", 
-		"'except'", "'lambda'", "'or'", "'and'", "'not'", "'is'", "'class'", "'yield'", 
-		"'del'", "'pass'", "'continue'", "'break'", "'async'", "'await'", "'print'", 
-		"'exec'", "'True'", "'False'", "'.'", "'...'", "'`'", "'*'", "','", "':'", 
-		"';'", "'**'", "'='", "'|'", "'^'", "'&'", "'<<'", "'>>'", "'+'", "'-'", 
-		"'/'", "'%'", "'//'", "'~'", "'<'", "'>'", "'=='", "'>='", "'<='", "'<>'", 
-		"'!='", "'@'", "'->'", "'+='", "'-='", "'*='", "'@='", "'/='", "'%='", 
-		"'&='", "'|='", "'^='", "'<<='", "'>>='", "'**='", "'//='", null, null, 
-		null, null, null, null, null, "'('", "')'", "'{'", "'}'", "'['", "']'"
-	};
-	private static final String[] _SYMBOLIC_NAMES = {
-		null, "INDENT", "DEDENT", "LINE_BREAK", "DEF", "RETURN", "RAISE", "FROM", 
-		"IMPORT", "NONLOCAL", "AS", "GLOBAL", "ASSERT", "IF", "ELIF", "ELSE", 
-		"WHILE", "FOR", "IN", "TRY", "NONE", "FINALLY", "WITH", "EXCEPT", "LAMBDA", 
-		"OR", "AND", "NOT", "IS", "CLASS", "YIELD", "DEL", "PASS", "CONTINUE", 
-		"BREAK", "ASYNC", "AWAIT", "PRINT", "EXEC", "TRUE", "FALSE", "DOT", "ELLIPSIS", 
-		"REVERSE_QUOTE", "STAR", "COMMA", "COLON", "SEMI_COLON", "POWER", "ASSIGN", 
-		"OR_OP", "XOR", "AND_OP", "LEFT_SHIFT", "RIGHT_SHIFT", "ADD", "MINUS", 
-		"DIV", "MOD", "IDIV", "NOT_OP", "LESS_THAN", "GREATER_THAN", "EQUALS", 
-		"GT_EQ", "LT_EQ", "NOT_EQ_1", "NOT_EQ_2", "AT", "ARROW", "ADD_ASSIGN", 
-		"SUB_ASSIGN", "MULT_ASSIGN", "AT_ASSIGN", "DIV_ASSIGN", "MOD_ASSIGN", 
-		"AND_ASSIGN", "OR_ASSIGN", "XOR_ASSIGN", "LEFT_SHIFT_ASSIGN", "RIGHT_SHIFT_ASSIGN", 
-		"POWER_ASSIGN", "IDIV_ASSIGN", "STRING", "DECIMAL_INTEGER", "OCT_INTEGER", 
-		"HEX_INTEGER", "BIN_INTEGER", "IMAG_NUMBER", "FLOAT_NUMBER", "OPEN_PAREN", 
-		"CLOSE_PAREN", "OPEN_BRACE", "CLOSE_BRACE", "OPEN_BRACKET", "CLOSE_BRACKET", 
-		"NAME", "LINE_JOIN", "NEWLINE", "WS", "COMMENT"
-	};
+	private static String[] makeLiteralNames() {
+		return new String[] {
+			null, null, null, null, "'def'", "'return'", "'raise'", "'from'", "'import'", 
+			"'nonlocal'", "'as'", "'global'", "'assert'", "'if'", "'elif'", "'else'", 
+			"'while'", "'for'", "'in'", "'try'", "'None'", "'finally'", "'with'", 
+			"'except'", "'lambda'", "'or'", "'and'", "'not'", "'is'", "'class'", 
+			"'yield'", "'del'", "'pass'", "'continue'", "'break'", "'async'", "'await'", 
+			"'print'", "'exec'", "'True'", "'False'", "'.'", "'...'", "'`'", "'*'", 
+			"','", "':'", "';'", "'**'", "'='", "'|'", "'^'", "'&'", "'<<'", "'>>'", 
+			"'+'", "'-'", "'/'", "'%'", "'//'", "'~'", "'<'", "'>'", "'=='", "'>='", 
+			"'<='", "'<>'", "'!='", "'@'", "'->'", "'+='", "'-='", "'*='", "'@='", 
+			"'/='", "'%='", "'&='", "'|='", "'^='", "'<<='", "'>>='", "'**='", "'//='", 
+			null, null, null, null, null, null, null, "'('", "')'", "'{'", "'}'", 
+			"'['", "']'"
+		};
+	}
+	private static final String[] _LITERAL_NAMES = makeLiteralNames();
+	private static String[] makeSymbolicNames() {
+		return new String[] {
+			null, "INDENT", "DEDENT", "LINE_BREAK", "DEF", "RETURN", "RAISE", "FROM", 
+			"IMPORT", "NONLOCAL", "AS", "GLOBAL", "ASSERT", "IF", "ELIF", "ELSE", 
+			"WHILE", "FOR", "IN", "TRY", "NONE", "FINALLY", "WITH", "EXCEPT", "LAMBDA", 
+			"OR", "AND", "NOT", "IS", "CLASS", "YIELD", "DEL", "PASS", "CONTINUE", 
+			"BREAK", "ASYNC", "AWAIT", "PRINT", "EXEC", "TRUE", "FALSE", "DOT", "ELLIPSIS", 
+			"REVERSE_QUOTE", "STAR", "COMMA", "COLON", "SEMI_COLON", "POWER", "ASSIGN", 
+			"OR_OP", "XOR", "AND_OP", "LEFT_SHIFT", "RIGHT_SHIFT", "ADD", "MINUS", 
+			"DIV", "MOD", "IDIV", "NOT_OP", "LESS_THAN", "GREATER_THAN", "EQUALS", 
+			"GT_EQ", "LT_EQ", "NOT_EQ_1", "NOT_EQ_2", "AT", "ARROW", "ADD_ASSIGN", 
+			"SUB_ASSIGN", "MULT_ASSIGN", "AT_ASSIGN", "DIV_ASSIGN", "MOD_ASSIGN", 
+			"AND_ASSIGN", "OR_ASSIGN", "XOR_ASSIGN", "LEFT_SHIFT_ASSIGN", "RIGHT_SHIFT_ASSIGN", 
+			"POWER_ASSIGN", "IDIV_ASSIGN", "STRING", "DECIMAL_INTEGER", "OCT_INTEGER", 
+			"HEX_INTEGER", "BIN_INTEGER", "IMAG_NUMBER", "FLOAT_NUMBER", "OPEN_PAREN", 
+			"CLOSE_PAREN", "OPEN_BRACE", "CLOSE_BRACE", "OPEN_BRACKET", "CLOSE_BRACKET", 
+			"NAME", "LINE_JOIN", "NEWLINE", "WS", "COMMENT"
+		};
+	}
+	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
 	public static final Vocabulary VOCABULARY = new VocabularyImpl(_LITERAL_NAMES, _SYMBOLIC_NAMES);
 
 	/**
@@ -146,6 +152,7 @@ public class PythonParser extends PythonParserBase {
 		super(input);
 		_interp = new ParserATNSimulator(this,_ATN,_decisionToDFA,_sharedContextCache);
 	}
+
 	public static class RootContext extends ParserRuleContext {
 		public TerminalNode EOF() { return getToken(PythonParser.EOF, 0); }
 		public Single_inputContext single_input() {
@@ -326,7 +333,7 @@ public class PythonParser extends PythonParserBase {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(134);
+			setState(134); 
 			_errHandler.sync(this);
 			_alt = 1;
 			do {
@@ -354,7 +361,7 @@ public class PythonParser extends PythonParserBase {
 				default:
 					throw new NoViableAltException(this);
 				}
-				setState(136);
+				setState(136); 
 				_errHandler.sync(this);
 				_alt = getInterpreter().adaptivePredict(_input,3,_ctx);
 			} while ( _alt!=2 && _alt!= ATN.INVALID_ALT_NUMBER );
@@ -499,7 +506,7 @@ public class PythonParser extends PythonParserBase {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_compound_stmt; }
-
+	 
 		public Compound_stmtContext() { }
 		public void copyFrom(Compound_stmtContext ctx) {
 			super.copyFrom(ctx);
@@ -723,7 +730,7 @@ public class PythonParser extends PythonParserBase {
 						setState(153);
 						elif_clause();
 						}
-						}
+						} 
 					}
 					setState(158);
 					_errHandler.sync(this);
@@ -818,7 +825,7 @@ public class PythonParser extends PythonParserBase {
 				switch (_input.LA(1)) {
 				case EXCEPT:
 					{
-					setState(185);
+					setState(185); 
 					_errHandler.sync(this);
 					_alt = 1;
 					do {
@@ -834,7 +841,7 @@ public class PythonParser extends PythonParserBase {
 						default:
 							throw new NoViableAltException(this);
 						}
-						setState(187);
+						setState(187); 
 						_errHandler.sync(this);
 						_alt = getInterpreter().adaptivePredict(_input,11,_ctx);
 					} while ( _alt!=2 && _alt!= ATN.INVALID_ALT_NUMBER );
@@ -1017,7 +1024,7 @@ public class PythonParser extends PythonParserBase {
 				match(LINE_BREAK);
 				setState(227);
 				match(INDENT);
-				setState(229);
+				setState(229); 
 				_errHandler.sync(this);
 				_alt = 1;
 				do {
@@ -1033,7 +1040,7 @@ public class PythonParser extends PythonParserBase {
 					default:
 						throw new NoViableAltException(this);
 					}
-					setState(231);
+					setState(231); 
 					_errHandler.sync(this);
 					_alt = getInterpreter().adaptivePredict(_input,20,_ctx);
 				} while ( _alt!=2 && _alt!= ATN.INVALID_ALT_NUMBER );
@@ -1916,7 +1923,7 @@ public class PythonParser extends PythonParserBase {
 					setState(348);
 					def_parameter();
 					}
-					}
+					} 
 				}
 				setState(353);
 				_errHandler.sync(this);
@@ -2129,7 +2136,7 @@ public class PythonParser extends PythonParserBase {
 					setState(369);
 					small_stmt();
 					}
-					}
+					} 
 				}
 				setState(374);
 				_errHandler.sync(this);
@@ -2173,7 +2180,7 @@ public class PythonParser extends PythonParserBase {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_small_stmt; }
-
+	 
 		public Small_stmtContext() { }
 		public void copyFrom(Small_stmtContext ctx) {
 			super.copyFrom(ctx);
@@ -2607,7 +2614,7 @@ public class PythonParser extends PythonParserBase {
 							setState(388);
 							test();
 							}
-							}
+							} 
 						}
 						setState(393);
 						_errHandler.sync(this);
@@ -2633,7 +2640,7 @@ public class PythonParser extends PythonParserBase {
 					setState(398);
 					test();
 					{
-					setState(401);
+					setState(401); 
 					_errHandler.sync(this);
 					_alt = 1;
 					do {
@@ -2651,7 +2658,7 @@ public class PythonParser extends PythonParserBase {
 						default:
 							throw new NoViableAltException(this);
 						}
-						setState(403);
+						setState(403); 
 						_errHandler.sync(this);
 						_alt = getInterpreter().adaptivePredict(_input,48,_ctx);
 					} while ( _alt!=2 && _alt!= ATN.INVALID_ALT_NUMBER );
@@ -2837,7 +2844,7 @@ public class PythonParser extends PythonParserBase {
 					break;
 				case 2:
 					{
-					setState(449);
+					setState(449); 
 					_errHandler.sync(this);
 					_la = _input.LA(1);
 					do {
@@ -2855,7 +2862,7 @@ public class PythonParser extends PythonParserBase {
 						}
 						}
 						}
-						setState(451);
+						setState(451); 
 						_errHandler.sync(this);
 						_la = _input.LA(1);
 					} while ( _la==DOT || _la==ELLIPSIS );
@@ -3073,7 +3080,7 @@ public class PythonParser extends PythonParserBase {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(512);
+				setState(512); 
 				_errHandler.sync(this);
 				_alt = 1;
 				do {
@@ -3130,7 +3137,7 @@ public class PythonParser extends PythonParserBase {
 					default:
 						throw new NoViableAltException(this);
 					}
-					setState(514);
+					setState(514); 
 					_errHandler.sync(this);
 					_alt = getInterpreter().adaptivePredict(_input,67,_ctx);
 				} while ( _alt!=2 && _alt!= ATN.INVALID_ALT_NUMBER );
@@ -3330,7 +3337,7 @@ public class PythonParser extends PythonParserBase {
 							setState(529);
 							testlist_star_expr();
 							}
-							}
+							} 
 						}
 						setState(534);
 						_errHandler.sync(this);
@@ -3507,7 +3514,7 @@ public class PythonParser extends PythonParserBase {
 					setState(560);
 					expr(0);
 					}
-					}
+					} 
 				}
 				setState(565);
 				_errHandler.sync(this);
@@ -3588,7 +3595,7 @@ public class PythonParser extends PythonParserBase {
 					setState(571);
 					import_as_name();
 					}
-					}
+					} 
 				}
 				setState(576);
 				_errHandler.sync(this);
@@ -4126,7 +4133,7 @@ public class PythonParser extends PythonParserBase {
 					setState(642);
 					vardef_parameter();
 					}
-					}
+					} 
 				}
 				setState(647);
 				_errHandler.sync(this);
@@ -4444,7 +4451,7 @@ public class PythonParser extends PythonParserBase {
 						}
 						break;
 					}
-					}
+					} 
 				}
 				setState(678);
 				_errHandler.sync(this);
@@ -4621,7 +4628,7 @@ public class PythonParser extends PythonParserBase {
 					setState(700);
 					comparison(3);
 					}
-					}
+					} 
 				}
 				setState(705);
 				_errHandler.sync(this);
@@ -4734,7 +4741,7 @@ public class PythonParser extends PythonParserBase {
 						setState(711);
 						trailer();
 						}
-						}
+						} 
 					}
 					setState(716);
 					_errHandler.sync(this);
@@ -4884,7 +4891,7 @@ public class PythonParser extends PythonParserBase {
 						}
 						break;
 					}
-					}
+					} 
 				}
 				setState(746);
 				_errHandler.sync(this);
@@ -5145,7 +5152,7 @@ public class PythonParser extends PythonParserBase {
 			case STRING:
 				enterOuterAlt(_localctx, 11);
 				{
-				setState(780);
+				setState(780); 
 				_errHandler.sync(this);
 				_alt = 1;
 				do {
@@ -5161,7 +5168,7 @@ public class PythonParser extends PythonParserBase {
 					default:
 						throw new NoViableAltException(this);
 					}
-					setState(782);
+					setState(782); 
 					_errHandler.sync(this);
 					_alt = getInterpreter().adaptivePredict(_input,113,_ctx);
 				} while ( _alt!=2 && _alt!= ATN.INVALID_ALT_NUMBER );
@@ -5348,7 +5355,7 @@ public class PythonParser extends PythonParserBase {
 							throw new NoViableAltException(this);
 						}
 						}
-						}
+						} 
 					}
 					setState(807);
 					_errHandler.sync(this);
@@ -5552,7 +5559,7 @@ public class PythonParser extends PythonParserBase {
 							throw new NoViableAltException(this);
 						}
 						}
-						}
+						} 
 					}
 					setState(833);
 					_errHandler.sync(this);
@@ -5637,7 +5644,7 @@ public class PythonParser extends PythonParserBase {
 					setState(841);
 					test();
 					}
-					}
+					} 
 				}
 				setState(846);
 				_errHandler.sync(this);
@@ -5731,7 +5738,7 @@ public class PythonParser extends PythonParserBase {
 					setState(855);
 					name();
 					}
-					}
+					} 
 				}
 				setState(860);
 				_errHandler.sync(this);
@@ -6283,7 +6290,7 @@ public class PythonParser extends PythonParserBase {
 					setState(900);
 					argument();
 					}
-					}
+					} 
 				}
 				setState(905);
 				_errHandler.sync(this);
@@ -6490,7 +6497,7 @@ public class PythonParser extends PythonParserBase {
 					setState(921);
 					subscript();
 					}
-					}
+					} 
 				}
 				setState(926);
 				_errHandler.sync(this);

@@ -4,20 +4,20 @@ import com.google.common.io.Files;
 import com.google.gson.Gson;
 import com.jtmelton.asa.analysis.FrameworkAnalyzer;
 import com.jtmelton.asa.analysis.RouteAnalyzer;
-import com.jtmelton.asa.analysis.utils.Settings;
 import com.jtmelton.asa.config.Configuration;
 import com.jtmelton.asa.domain.Framework;
 import com.jtmelton.asa.domain.Package;
 import com.jtmelton.asa.domain.Route;
 import com.sampullara.cli.Args;
 import com.sampullara.cli.Argument;
-import org.checkerframework.checker.units.qual.C;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+
 import java.io.*;
+import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Arrays;
