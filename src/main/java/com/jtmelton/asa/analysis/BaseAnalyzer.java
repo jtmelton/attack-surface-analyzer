@@ -32,9 +32,14 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Predicate;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import static java.util.concurrent.TimeUnit.HOURS;
 
 public abstract class BaseAnalyzer {
 
@@ -46,13 +51,21 @@ public abstract class BaseAnalyzer {
 
     private final Set<Language> acceptedLangs = new HashSet<>();
 
-    private int processed = 0;
+    private final AtomicInteger filesProcessed = new AtomicInteger();
+
+    private final int threads;
 
     private int pathCount;
 
     protected boolean parserStderr;
 
     private boolean visitorsRegistered = false;
+
+    private ExecutorService executor;
+
+    public BaseAnalyzer(int threads) {
+        this.threads = threads;
+    }
 
     public Collection<Path> getPaths(File sourceDirectory) {
         String sourcePath = sourceDirectory.getAbsolutePath();
@@ -84,58 +97,66 @@ public abstract class BaseAnalyzer {
             scan(paths, Phase.ONE);
             scan(paths, Phase.TWO);
             scan(paths, Phase.THREE);
-
-        } catch (IOException e) {
-            throw new IllegalStateException("Failure scanning files.", e);
+        } catch(InterruptedException ie) {
+            log.error("Process interrupted while waiting for threads to complete", ie);
         }
     }
 
-    protected void scan(Collection<Path> paths, Phase phase) throws IOException {
-        processed = 0;
+    protected void scan(Collection<Path> paths, Phase phase) throws InterruptedException {
+        executor = Executors.newFixedThreadPool(threads);
+        filesProcessed.set(0);
         log.info("Visitation phase {}", phase);
-        for (Path path : paths) {
-            scan(path, phase);
-        }
+        paths.forEach(p -> executor.submit(scan(p, phase)));
+        executor.shutdown();
+        executor.awaitTermination(24, HOURS);
     }
 
-    protected void scan(Path path, Phase phase) throws IOException {
-        String fileName = path.toAbsolutePath().toString();
+    protected Runnable scan(Path path, Phase phase) {
+        return () -> {
+            String fileName = path.toAbsolutePath().toString();
 
-        Language lang = getLanguage(fileName);
+            Language lang = getLanguage(fileName);
 
-        Collection<IBaseVisitor> langVisitors = getVisitors(lang);
+            Collection<IBaseVisitor> langVisitors = getVisitors(lang);
 
-        boolean proceed = false;
-        for (IBaseVisitor visitor : langVisitors) {
-            proceed = proceed || visitor.acceptedPhase(phase);
-        }
+            boolean proceed = false;
+            for (IBaseVisitor visitor : langVisitors) {
+                proceed = proceed || visitor.acceptedPhase(phase);
+            }
 
-        if (!proceed) {
-            return;
-        }
+            if (!proceed) {
+                return;
+            }
 
-        Lexer lexer = getLexer(fileName, lang);
+            Lexer lexer;
+            try {
+                lexer = getLexer(fileName, lang);
+            } catch (IOException ioe) {
+                log.warn("lexer failed for language {}.", lang.name(), ioe);
+                return;
+            }
 
-        CommonTokenStream tokens = new CommonTokenStream(lexer);
-        tokens.fill(); // load all and check time
+            CommonTokenStream tokens = new CommonTokenStream(lexer);
+            tokens.fill(); // load all and check time
 
-        // Create a parser that reads from the scanner
-        Parser parser = getParser(tokens, lang);
+            // Create a parser that reads from the scanner
+            Parser parser = getParser(tokens, lang);
 
-        if (!parserStderr) {
-            parser.removeErrorListeners();
-        }
+            if (!parserStderr) {
+                parser.removeErrorListeners();
+            }
 
-        // start parsing at the compilationUnit rule
-        RuleContext ruleContext = getRuleContext(parser, lang);
+            // start parsing at the compilationUnit rule
+            RuleContext ruleContext = getRuleContext(parser, lang);
 
-        for (IBaseVisitor visitor : langVisitors) {
-            visitor.setPhase(phase);
-            ruleContext.accept((AbstractParseTreeVisitor) visitor);
-        }
+            for (IBaseVisitor visitor : langVisitors) {
+                visitor.setPhase(phase);
+                ruleContext.accept((AbstractParseTreeVisitor) visitor);
+            }
 
-        processed++;
-        log.info("Phase {}, Processed {} out of {}", phase, processed, pathCount);
+            int processed = filesProcessed.incrementAndGet();
+            log.info("Phase {}, Processed {} out of {}", phase, processed, pathCount);
+        };
     }
 
     private Collection<IBaseVisitor> getVisitors(Language lang) {
