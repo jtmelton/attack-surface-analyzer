@@ -11,6 +11,9 @@ A tool for analyzing the attack surface of an application.
 #### Python 
 -Django
 
+#### Golang
+Currently does simple checking on `.Handle`, `.Post`, and `.Put` function invocations. Very much a work in progress.
+
 ## Building
 Maven is required for building.
 ```bash
@@ -25,6 +28,7 @@ outputFile | File containing output with discovered routes | true
 exclusions | Comma delimited regex pattern for excluding files from analysis | false
 parser-stderr | Enable stderr logging from parsers. Off by defaultr | false
 properties | Properties file to load. Use enabling/disabling analyzers | false
+threads | Number of threads to use. Defaults to 1 | false
 
 ## JSON report
 The output JSON schema is as follows
@@ -51,10 +55,12 @@ The output JSON schema is as follows
 Analyzers can be enabled/disabled via a properties file. If no properties file is provided, all analyzers will be enabled and be triggers if there is a relevant source file type.
 
 ```Properties
+visitor.golang=true
 visitor.java.jaxrs=true
 visitor.java.spring=true
 visitor.js.express=true
 visitor.python.django=true
+visitor.java.frameworkdetection=true
 ```
 
 ## Docker Support

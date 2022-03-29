@@ -2,8 +2,7 @@ package com.jtmelton.asa;
 
 import com.google.common.io.Files;
 import com.google.gson.Gson;
-import com.jtmelton.asa.analysis.FrameworkAnalyzer;
-import com.jtmelton.asa.analysis.RouteAnalyzer;
+import com.jtmelton.asa.analysis.MainAnalyzer;
 import com.jtmelton.asa.config.Configuration;
 import com.jtmelton.asa.domain.Framework;
 import com.jtmelton.asa.domain.Package;
@@ -17,7 +16,6 @@ import org.slf4j.LoggerFactory;
 
 
 import java.io.*;
-import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -52,6 +50,10 @@ public class AttackSurfaceAnalyzer {
   @Argument(alias = "configFile",
           description = "Configuration file to load")
   private static String configFile = "";
+
+  @Argument(alias = "threads",
+      description = "Number of threads to use, defaults to 1")
+  private static Integer threads = 1;
 
 
   public void parseArguments(String[] args) {
@@ -95,11 +97,8 @@ public class AttackSurfaceAnalyzer {
       exclusionsList.addAll(Arrays.asList(exclusions));
     }
 
-    RouteAnalyzer routeAnalyzer = new RouteAnalyzer(configuration, exclusionsList, parserStderr);
-    routeAnalyzer.analyze(new File(sourceDirectory));
-
-    FrameworkAnalyzer frameworkAnalyzer = new FrameworkAnalyzer(configuration, exclusionsList, parserStderr);
-    frameworkAnalyzer.analyze(new File(sourceDirectory));
+    MainAnalyzer mainAnalyzer = new MainAnalyzer(configuration, exclusionsList, threads, parserStderr);
+    mainAnalyzer.analyze(new File(sourceDirectory));
 
     JSONObject jsonRoot = new JSONObject();
     JSONArray jsonRoutes = new JSONArray();
@@ -110,32 +109,32 @@ public class AttackSurfaceAnalyzer {
     jsonRoot.put("unnknownPackages", jsonUnknownPackages);
 
     log.info("Printing routes");
-    for(Route route : routeAnalyzer.getRoutes()) {
+    for(Route route : mainAnalyzer.getRoutes()) {
       log.info(route.toString());
       jsonRoutes.put(route.toJSON());
     }
 
-    log.info("Found {} routes", routeAnalyzer.getRoutes().size());
+    log.info("Found {} routes", mainAnalyzer.getRoutes().size());
 
     log.info("Printing detected frameworks");
-    for(Framework framework : frameworkAnalyzer.getDetectedFrameworks()) {
+    for(Framework framework : mainAnalyzer.getDetectedFrameworks()) {
       log.info(framework.toString());
       jsonDetectedFrameworks.put(framework.toJSON());
     }
 
-    log.info("Found {} detected frameworks", frameworkAnalyzer.getDetectedFrameworks().size());
+    log.info("Found {} detected frameworks", mainAnalyzer.getDetectedFrameworks().size());
 
     log.info("Printing unknown packages");
-    for(Package pkg : frameworkAnalyzer.getUnknownPackages()) {
+    for(Package pkg : mainAnalyzer.getUnknownPackages()) {
       log.info(pkg.toString());
       System.err.println("wrote! " + pkg.toJSON());
       jsonUnknownPackages.put(pkg.toJSON());
     }
 
-    log.info("Found {} unknown packages", frameworkAnalyzer.getUnknownPackages().size());
+    log.info("Found {} unknown packages", mainAnalyzer.getUnknownPackages().size());
 
     try {
-      Files.write(jsonRoot.toString(2), new File(outputFile), StandardCharsets.UTF_8);
+      Files.asCharSink(new File(outputFile), StandardCharsets.UTF_8).write(jsonRoot.toString(2));
     } catch (IOException ioe) {
       log.error("Failed to write results", ioe);
     }
