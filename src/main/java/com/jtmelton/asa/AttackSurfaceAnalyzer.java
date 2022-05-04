@@ -43,10 +43,6 @@ public class AttackSurfaceAnalyzer {
       description = "Enable stderr logging from parsers")
   private static boolean parserStderr = false;
 
-//  @Argument(alias = "properties",
-//      description = "Properties file to load")
-//  private static String props = "";
-
   @Argument(alias = "configFile",
           description = "Configuration file to load")
   private static String configFile = "";
@@ -54,7 +50,6 @@ public class AttackSurfaceAnalyzer {
   @Argument(alias = "threads",
       description = "Number of threads to use, defaults to 1")
   private static Integer threads = 1;
-
 
   public void parseArguments(String[] args) {
     Args.parse(this, args);
@@ -65,19 +60,6 @@ public class AttackSurfaceAnalyzer {
 
     AttackSurfaceAnalyzer main = new AttackSurfaceAnalyzer();
     main.parseArguments(args);
-
-//    Settings settings;
-//
-//    try {
-//      if (props.isEmpty()) {
-//        settings = new Settings();
-//      } else {
-//        settings = new Settings(props);
-//      }
-//    } catch (IOException ioe) {
-//      log.error("Failed to read properties", ioe);
-//      return;
-//    }
 
     Configuration configuration;
 
@@ -91,6 +73,8 @@ public class AttackSurfaceAnalyzer {
       log.error("Failed to read properties", ioe);
       return;
     }
+
+    main.overrideProperties(configuration);
 
     Collection<String> exclusionsList = new ArrayList<>();
     if(exclusions != null) {
@@ -168,4 +152,40 @@ public class AttackSurfaceAnalyzer {
     return configuration;
   }
 
+  private void overrideProperties(Configuration config) {
+    overrideProperty("enableGolang", config);
+    overrideProperty("enableJavaJaxRs", config);
+    overrideProperty("enableJavaSpring", config);
+    overrideProperty("enableJsExpress", config);
+    overrideProperty("enablePythonDjango", config);
+    overrideProperty("enableJavaFrameworkDetection", config);
+  }
+
+  private void overrideProperty(String key, Configuration config) {
+    String prop = System.getProperty(key);
+    if(prop == null) {
+      return;
+    }
+
+    switch(key) {
+      case "enableGolang":
+        config.setEnableGolang(Boolean.parseBoolean(prop));
+        break;
+      case "enableJavaJaxRs":
+        config.setEnableJavaJaxRs(Boolean.parseBoolean(prop));
+        break;
+      case "enableJavaSpring":
+        config.setEnableJavaSpring(Boolean.parseBoolean(prop));
+        break;
+      case "enableJsExpress":
+        config.setEnableJsExpress(Boolean.parseBoolean(prop));
+        break;
+      case "enablePythonDjango":
+        config.setEnablePythonDjango(Boolean.parseBoolean(prop));
+        break;
+      case "enableJavaFrameworkDetection":
+        config.setEnableJavaFrameworkDetection(Boolean.parseBoolean(prop));
+        break;
+    }
+  }
 }

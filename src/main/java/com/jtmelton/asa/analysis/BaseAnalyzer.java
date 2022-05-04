@@ -28,12 +28,8 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.*;
+import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Predicate;
 import java.util.regex.Matcher;
@@ -51,6 +47,8 @@ public abstract class BaseAnalyzer {
 
     private final Set<Language> acceptedLangs = new HashSet<>();
 
+    private final BlockingQueue<Path> paths = new LinkedBlockingQueue<>();
+
     private final AtomicInteger filesProcessed = new AtomicInteger();
 
     private final int threads;
@@ -61,16 +59,12 @@ public abstract class BaseAnalyzer {
 
     private boolean visitorsRegistered = false;
 
-    private ExecutorService executor;
-
     public BaseAnalyzer(int threads) {
         this.threads = threads;
     }
 
-    public Collection<Path> getPaths(File sourceDirectory) {
+    public BlockingQueue<Path> getPaths(File sourceDirectory) {
         String sourcePath = sourceDirectory.getAbsolutePath();
-
-        final Collection<Path> paths = new ArrayList<>();
 
         try {
             log.info("Collecting paths");
@@ -92,7 +86,7 @@ public abstract class BaseAnalyzer {
     }
 
     // scan all phases
-    protected void scan(Collection<Path> paths) {
+    protected void scan(BlockingQueue<Path> paths) {
         try {
             scan(paths, Phase.ONE);
             scan(paths, Phase.TWO);
@@ -102,61 +96,75 @@ public abstract class BaseAnalyzer {
         }
     }
 
-    protected void scan(Collection<Path> paths, Phase phase) throws InterruptedException {
-        executor = Executors.newFixedThreadPool(threads);
+    protected void scan(BlockingQueue<Path> paths, Phase phase) throws InterruptedException {
+        ExecutorService executor = Executors.newFixedThreadPool(threads);
         filesProcessed.set(0);
         log.info("Visitation phase {}", phase);
-        paths.forEach(p -> executor.submit(scan(p, phase)));
+        for(int i = 0;i < threads;i++) {
+            executor.submit(() -> {
+                while(true) {
+                    Path path;
+                    try {
+                        path = paths.poll(3, TimeUnit.SECONDS);
+                    } catch (InterruptedException ie) {
+                        break;
+                    }
+
+                    if(path == null) {
+                        break;
+                    }
+                    scan(path, phase);
+                }
+            });
+        }
         executor.shutdown();
         executor.awaitTermination(24, HOURS);
     }
 
-    protected Runnable scan(Path path, Phase phase) {
-        return () -> {
-            String fileName = path.toAbsolutePath().toString();
+    protected void scan(Path path, Phase phase) {
+        String fileName = path.toAbsolutePath().toString();
 
-            Language lang = getLanguage(fileName);
+        Language lang = getLanguage(fileName);
 
-            Collection<IBaseVisitor> langVisitors = getVisitors(lang);
+        Collection<IBaseVisitor> langVisitors = getVisitors(lang);
 
-            boolean proceed = false;
-            for (IBaseVisitor visitor : langVisitors) {
-                proceed = proceed || visitor.acceptedPhase(phase);
-            }
+        boolean proceed = false;
+        for (IBaseVisitor visitor : langVisitors) {
+            proceed = proceed || visitor.acceptedPhase(phase);
+        }
 
-            if (!proceed) {
-                return;
-            }
+        if (!proceed) {
+            return;
+        }
 
-            Lexer lexer;
-            try {
-                lexer = getLexer(fileName, lang);
-            } catch (IOException ioe) {
-                log.warn("lexer failed for language {}.", lang.name(), ioe);
-                return;
-            }
+        Lexer lexer;
+        try {
+            lexer = getLexer(fileName, lang);
+        } catch (IOException ioe) {
+            log.warn("lexer failed for language {}.", lang.name(), ioe);
+            return;
+        }
 
-            CommonTokenStream tokens = new CommonTokenStream(lexer);
-            tokens.fill(); // load all and check time
+        CommonTokenStream tokens = new CommonTokenStream(lexer);
+        tokens.fill(); // load all and check time
 
-            // Create a parser that reads from the scanner
-            Parser parser = getParser(tokens, lang);
+        // Create a parser that reads from the scanner
+        Parser parser = getParser(tokens, lang);
 
-            if (!parserStderr) {
-                parser.removeErrorListeners();
-            }
+        if (!parserStderr) {
+            parser.removeErrorListeners();
+        }
 
-            // start parsing at the compilationUnit rule
-            RuleContext ruleContext = getRuleContext(parser, lang);
+        // start parsing at the compilationUnit rule
+        RuleContext ruleContext = getRuleContext(parser, lang);
 
-            for (IBaseVisitor visitor : langVisitors) {
-                visitor.setPhase(phase);
-                ruleContext.accept((AbstractParseTreeVisitor) visitor);
-            }
+        for (IBaseVisitor visitor : langVisitors) {
+            visitor.setPhase(phase);
+            ruleContext.accept((AbstractParseTreeVisitor) visitor);
+        }
 
-            int processed = filesProcessed.incrementAndGet();
-            log.info("Phase {}, Processed {} out of {}", phase, processed, pathCount);
-        };
+        int processed = filesProcessed.incrementAndGet();
+        log.info("Phase {}, Processed {} out of {}", phase, processed, pathCount);
     }
 
     private Collection<IBaseVisitor> getVisitors(Language lang) {
