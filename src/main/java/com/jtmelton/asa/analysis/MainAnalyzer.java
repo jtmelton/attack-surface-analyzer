@@ -12,6 +12,9 @@ import java.io.File;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
+import java.util.Stack;
+import java.util.concurrent.BlockingQueue;
 
 public class MainAnalyzer extends BaseAnalyzer {
 
@@ -35,7 +38,7 @@ public class MainAnalyzer extends BaseAnalyzer {
 
     public void analyze(File sourceDirectory) {
 
-        final Collection<Path> paths = getPaths(sourceDirectory);
+        final BlockingQueue<Path> paths = getPaths(sourceDirectory);
 
         scan(paths);
 
