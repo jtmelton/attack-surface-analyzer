@@ -14,11 +14,7 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
-import static org.apache.commons.httpclient.HttpConstants.DEFAULT_CONTENT_CHARSET;
-
 public class FrameworkDetectionVisitor extends JavaParserBaseVisitor<Void> implements IFrameworkVisitor {
-
-    String staticImportTest = DEFAULT_CONTENT_CHARSET;
 
     private static Set<String> importedPackages = new HashSet<>();
 
